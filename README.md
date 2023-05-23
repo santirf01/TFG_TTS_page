@@ -6,6 +6,6 @@
   </audio>
   
 <audio controls>
-  <source src="([drive](https://drive.google.com/file/d/1fNRgQ4MWNhaotHgSfbDuWXV5ZPK6rUht/view?usp=share_link))"autoplay>
+  <source src="([drive](https://drive.google.com/file/d/1fNRgQ4MWNhaotHgSfbDuWXV5ZPK6rUht/view?usp=share_link))" type = "audio/wav" autoplay>
   Tu navegador no soporta la reproducción de audio.
  </audio>
