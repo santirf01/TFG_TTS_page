@@ -10,9 +10,10 @@
 ***
 <table>
   <tr>
-    <th>TSingleSpeaker</th>
+    <th>Audio</th>
+    <th>Original</th>
     <th>Multispeaker</th>
-    <th>Txxxx</th>
+    <th>SingleSpeaker/th>
   </tr>
   <tr>
     <td>
