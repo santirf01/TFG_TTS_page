@@ -6,6 +6,7 @@
   Tu navegador no soporta la reproducción de audio.
 </audio>
 
+CAMBIO
 
 ***
 <table>
@@ -24,7 +25,7 @@
     </td>
     <td>
       <audio controls>
-        <source src="ruta_del_audio2" type="tipo_de_audio">
+        <source src="https://wandb.ai/santi-cabila/TTS_singspeaker/reports/TestAudios-0-audio-23-05-23-20-56-24---Vmlldzo0NDQ4MzMw" type="audio/wav">
         Tu navegador no soporta la reproducción de audio.
       </audio>
     </td>
