@@ -6,6 +6,6 @@
   </audio>
   
 <audio controls>
-  <source src="([https://github.com/santirf01/](https://wandb.ai/santicabila/TTS_singspeaker/runs/5o6bue86/files/media/audio/TrainAudios/train/audio_10955_7b7c2e066bcee75f3276.wav))" autoplay>
+  <source src="[drive](https://drive.google.com/drive/u/1/folders/1gL1We99CGM52H-nc6JTMtTO2x0HjaFWe)" autoplay>
   Tu navegador no soporta la reproducción de audio.
  </audio>
