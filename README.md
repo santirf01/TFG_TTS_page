@@ -21,11 +21,11 @@ CAMBIO
   </tr>
   <tr>
     <td>
-     Frase 0
+     "Me tomo mucho tiempos desarrollar una voz, ahora que la tengo no me callaré"
     </td>
     <td>
       <audio controls>
-        <source src="https://wandb.ai/santi-cabila/TTS_singspeaker/reports/TestAudios-0-audio-23-05-23-20-56-24---Vmlldzo0NDQ4MzMw" type="audio/wav">
+        <source src=https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk/view?usp=share_link type="audio/wav">
         Tu navegador no soporta la reproducción de audio.
       </audio>
     </td>
