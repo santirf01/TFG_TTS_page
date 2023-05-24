@@ -43,19 +43,19 @@
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1bEpMfu-3Us3Rq6KcNrijDBMV9D1IJ5ia/view?usp=share_link type="audio/wav">
+        <source src="https://drive.google.com/file/d/1bEpMfu-3Us3Rq6KcNrijDBMV9D1IJ5ia/view?usp=share_link" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 0 en el step 25000.
       </audio>
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1IB3ul9HwJn949xCvUdiKo-X00AeB7XlU/view?usp=share_link type="audio/wav">
+        <source src="https://drive.google.com/file/d/1IB3ul9HwJn949xCvUdiKo-X00AeB7XlU/view?usp=share_link" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 0 en el step 50000.
       </audio>
     </td>
    <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1E9QxN6-K3CcU9zcOFEn5EhxisNglPC46/view?usp=share_link type="audio/wav">
+        <source src="https://drive.google.com/file/d/1E9QxN6-K3CcU9zcOFEn5EhxisNglPC46/view?usp=share_link" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 0 en el step final.
       </audio>
     </td>
@@ -68,13 +68,13 @@
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/drive/u/1/folders/1OKCYa-ebXTrI5OPiLSvB_jvYMo_fwm5o type="audio/wav">
+        <source src="https://drive.google.com/file/d/1IIU5LOqPRnvKQLacnGqIgVMV3VEpqfe9/view?usp=sharing" type="audio/wav">
         Tu navegador no soporta la reproducción del audio 1 en el step 1000.
       </audio>
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk/view?usp=sharing type="audio/wav">
+        <source src="https://drive.google.com/file/d/1nlt5zcEad8s--9ZupogV5OM-crW-cVjU/view?usp=share_link" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 1 en el step 5000.
       </audio>
     </td>
