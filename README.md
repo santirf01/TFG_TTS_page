@@ -35,6 +35,33 @@ CAMBIO
         Tu navegador no soporta la reproducción de audio 0 en el step 5000.
       </audio>
     </td>
+   <td>
+      <audio controls>
+        <source src=https://drive.google.com/file/d/1rhWhAt9yThWcgsihMdSfCZ2jLfRrHW3W/view?usp=share_link type="audio/wav">
+        Tu navegador no soporta la reproducción de audio 0 en el step 10000.
+      </audio>
+    </td>
+    <td>
+      <audio controls>
+        <source src=https://drive.google.com/file/d/1bEpMfu-3Us3Rq6KcNrijDBMV9D1IJ5ia/view?usp=share_link type="audio/wav">
+        Tu navegador no soporta la reproducción de audio 0 en el step 25000.
+      </audio>
+    </td>
+    <td>
+      <audio controls>
+        <source src=https://drive.google.com/file/d/1IB3ul9HwJn949xCvUdiKo-X00AeB7XlU/view?usp=share_link type="audio/wav">
+        Tu navegador no soporta la reproducción de audio 0 en el step 50000.
+      </audio>
+    </td>
+   <td>
+      <audio controls>
+        <source src=https://drive.google.com/file/d/1E9QxN6-K3CcU9zcOFEn5EhxisNglPC46/view?usp=share_link type="audio/wav">
+        Tu navegador no soporta la reproducción de audio 0 en el step final.
+      </audio>
+    </td>
+   
+   
+   
   </tr>
   <tr>
     <td>
