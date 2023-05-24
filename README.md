@@ -25,13 +25,13 @@
     </td>
     <td>
       <audio controls>
-        <source src="https://drive.google.com/drive/u/1/folders/1OKCYa-ebXTrI5OPiLSvB_jvYMo_fwm5o" type="audio/wav">
+        <source src="https://drive.google.com/uc?export=download&id=1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk" type="audio/wav">
         Tu navegador no soporta la reproducción del audio 0 en el step 1000.
       </audio>
     </td>
     <td>
       <audio controls>
-        <source src="https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk" type="audio/wav">
+        <source src="https://drive.google.com/uc?export=download&id=1BHzXReSXkiLcCeYIuo361ZvlHUvF5Adq" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 0 en el step 5000.
       </audio>
     </td>
