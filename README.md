@@ -6,7 +6,7 @@
   Tu navegador no soporta la reproducción de audio.
 </audio>
 
-CAMBIO
+ 2CKD
 
 ***
 <table>
@@ -31,7 +31,7 @@ CAMBIO
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1BHzXReSXkiLcCeYIuo361ZvlHUvF5Adq/view?usp=share_link type="audio/wav">
+        <source src=https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk/view?usp=sharing type="audio/wav">
         Tu navegador no soporta la reproducción de audio 0 en el step 5000.
       </audio>
     </td>
