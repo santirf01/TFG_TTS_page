@@ -25,7 +25,7 @@ CAMBIO
     </td>
     <td>
       <audio controls>
-        <source src=https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk/view?usp=share_link type="audio/wav">
+        <source src=https://drive.google.com/drive/u/1/folders/1OKCYa-ebXTrI5OPiLSvB_jvYMo_fwm5o type="audio/wav">
         Tu navegador no soporta la reproducción del audio 0 en el step 1000.
       </audio>
     </td>
