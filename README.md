@@ -26,13 +26,13 @@ CAMBIO
     <td>
       <audio controls>
         <source src=https://drive.google.com/file/d/1qpmh4_Z-OT95QhOSk_VjweMlAvWf20lk/view?usp=share_link type="audio/wav">
-        Tu navegador no soporta la reproducción de audio.
+        Tu navegador no soporta la reproducción del audio 0 en el step 1000.
       </audio>
     </td>
     <td>
       <audio controls>
-        <source src="ruta_del_audio3" type="tipo_de_audio">
-        Tu navegador no soporta la reproducción de audio.
+        <source src=https://drive.google.com/file/d/1BHzXReSXkiLcCeYIuo361ZvlHUvF5Adq/view?usp=share_link type="audio/wav">
+        Tu navegador no soporta la reproducción de audio 0 en el step 5000.
       </audio>
     </td>
   </tr>
