@@ -11,17 +11,17 @@ CAMBIO
 ***
 <table>
   <tr>
-    <th>Audio</th>
-    <th>Original</th>
-    <th>Multispeaker</th>
-    <th>SingleSpeaker</th>
+    <th>Frase</th>
+    <th>Step 1000</th>
+    <th>Step 5000</th>
+    <th>Step 10000</th>
+    <th>Step 25000</th>
+    <th>Step 50000</th>
+    <th>Final</th>
   </tr>
   <tr>
     <td>
-      <audio controls>
-        <source src="https://storage.googleapis.com/wandb-production.appspot.com/santi-cabila/TTS_singspeaker/5o6bue86/media/audio/TestAudios/3-audio_900_70faba7886cb513125e3.wav?Expires=1684868112&GoogleAccessId=wandb-production%40appspot.gserviceaccount.com&Signature=jawMB2Elv1WoxcEQiCoQo31q2UuNviL88eusTx9bvLhExinGjGLArz4gcN%2FO6a8noyv42aqr3wgXtA%2FhSCFWwsXF0%2BHo2M4hObqrvVwvncKJ4w%2FmWuyaXswY6i5q0U09qQ2HOC%2FWJB6Lz3MoLJlCZxpfnHouvmD9kZPyERddCgm0S%2BADrajxZD%2BsQj87Jdwdna5n39YJEhGP2MhyX3O1DChSKJKaor89LMwA9SBFMUera%2F2%2FY%2BhuCnK6oKcg%2FDXBt9QIDMfaQakRDyooWvySNGmvgPB1MCw3maV2iOCvZqc54cuXtF348oj72zsbBJukyU4Cd4D%2FGcIXkOu1e05wgA%3D%3D" type="audio/wav">
-        Tu navegador no soporta la reproducción de audio.
-      </audio>
+     <Frase 0>
     </td>
     <td>
       <audio controls>
