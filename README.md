@@ -21,7 +21,7 @@
     <th>Final</th>
   </tr>
   <tr>
-    <td>
+    <td class="text-cell">
      "Me tomo mucho tiempos desarrollar una voz, ahora que la tengo no me callaré."
     </td>
     <td>
@@ -64,7 +64,7 @@
   </tr>
  
  <tr>
-    <td>
+    <td class="text-cell">
      "Sé una voz no un eco."
     </td>
     <td>
@@ -91,7 +91,7 @@
         Tu navegador no soporta la reproducción de audio 1 en el step 25000.
       </audio>
     </td>
-    <td>
+    <td class="text-cell">
       <audio class="audio-button" controls>
         <source src="https://drive.google.com/uc?export=download&id=1WNwJQk4nqICFV-RRCWc2F6jwpG4M_O4E" type="audio/wav">
         Tu navegador no soporta la reproducción de audio 1 en el step 50000.
@@ -106,7 +106,7 @@
    
   </tr>
   <tr>
-    <td>
+    <td class="text-cell">
      "Lo siento mundo lamentablemente no puedo hacer eso."
     </td>
     <td>
@@ -148,7 +148,7 @@
    
   </tr>
   <tr>
-    <td>
+    <td class="text-cell">
      "Espero que esta vez se realice de manera correcta la prueba de un solo orador"
     </td>
     <td>
@@ -189,7 +189,7 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td class="text-cell">
      "Esta prueba está realizada a 21 de Marzo de 2023"
     </td>
     <td>
@@ -233,5 +233,8 @@
 .audio-button {
   width: 140px; 
   height: 50px; 
+}
+.text-cell {
+  font-size: 12px; /* Tamaño de fuente del texto */
 }
 
