@@ -21,7 +21,7 @@ CAMBIO
   </tr>
   <tr>
     <td>
-     <Frase 0>
+     Frase 0
     </td>
     <td>
       <audio controls>
