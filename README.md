@@ -230,11 +230,5 @@
     </td>  
   </tr>
 </table>
-.audio-button {
-  width: 140px; 
-  height: 50px; 
-}
-.text-cell {
-  font-size: 12px; /* Tamaño de fuente del texto */
-}
+
 
