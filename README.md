@@ -1,32 +1,3 @@
-
-<head><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <title>One-Shot Voice Conversion with Weight Adaptive Instance Normalization</title>
-    <link href="./WINVC-css/bootstrap.min.css" rel="stylesheet">
-  <style type="text/css"></style></head>
-  
-<header id ="top" class="header">
-<div class="jumbotron jumbotrocolor text-center">
- <div class="container">
-  <hl>
-   TFG Coqui_TTS: Explorando la efectividad de la síntesis de voz
-   <br>
-   mediante técnicas de aprendizaje profundo(VITS).
-   <hl>
-   <p class="lead">
-     </p>
-    <p class="lead">
-     </p>
-    </div>
-  </div>
-</header>
-	 
-
-
-	  
-
 # TFG : 
 
 ## Original
