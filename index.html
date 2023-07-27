@@ -131,6 +131,155 @@
 </body>
 </html>
 
+
+
+
+<html>
+<! Aquí empieza la encuesta 
+<head>
+    <title>Encuesta</title>
+</head>
+<body>
+    <script>
+    document.getElementById("encuestaForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Obtenemos el valor de la opción seleccionada en el formulario
+        const respuestaSeleccionada = document.querySelector('input[name="respuesta"]:checked').value;
+
+        // Enviamos los datos al servidor mediante una solicitud AJAX
+        fetch("https://tu_servidor.com/encuesta/guardar_resultado.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                respuesta: respuestaSeleccionada
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostramos la respuesta del servidor en la consola del navegador
+            console.log(data);
+
+            // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+</script>
+
+    <h2>Encuesta</h2>
+
+        <form id="encuestaForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br>
+        <!-- Agrega más preguntas de la encuesta aquí -->
+        <p>Pregunta 1:</p>
+        <input type="radio" name="opcion_pregunta1" value="opcion1"> Opción 1
+        <input type="radio" name="opcion_pregunta1" value="opcion2"> Opción 2
+        <p>Pregunta 2:</p>
+        <input type="radio" name="opcion_pregunta2" value="opcion1"> Opción 1
+        <input type="radio" name="opcion_pregunta2" value="opcion2"> Opción 2
+        <p>Pregunta 3:</p>
+        <input type="radio" name="opcion_pregunta3" value="opcion1"> Opción 1
+        <input type="radio" name="opcion_pregunta3" value="opcion2"> Opción 2
+        <p>Pregunta 4:</p>
+        <input type="radio" name="opcion_pregunta4" value="opcion1"> Opción 1
+        <input type="radio" name="opcion_pregunta4" value="opcion2"> Opción 2
+        <br>
+        <input type=submit value="Enviar">
+    </form>
+</body>
+    
+</html>
+
+
+<html>
+<head>
+    <title>Tabs</title>
+    <style>
+        /* Estilo para los botones de las pestañas */
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+	.tab-system {
+  		overflow: hidden;
+  		/*border-bottom: 1px solid #535353;*/
+	}
+
+	.tab-system:after {
+	  background-color: black;
+	  content: '';
+	  display: block;
+	  height: 1px;
+	  position: relative;
+	  top: -1px;
+	  width: 100%;
+	  z-index: -1;
+	}
+
+	.tab-system button {
+	    background-color: inherit;               
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    padding: 14px 16px;
+	    transition: 0.3s;
+	    font-size: 17px;
+	    color: #535353;
+	    border-top: 1px solid #fff;
+	    border-left:1px solid  #fff;
+	    border-right: 1px solid #fff;
+	}
+	.tab-system button:hover,.tab-system button.active {
+	    background-color: #fff;
+	    color:#535353;
+	    border-top-left-radius: .25rem;
+	    border-top-right-radius: .25rem;
+	    border-top: 1px solid #535353;
+	    border-left:1px solid  #535353;
+	    border-right: 1px solid #535353;
+	    border-bottom: 1px solid #fff;
+	}
+	    /* Style the tab content */
+	.tab-content {
+	  display: none;
+	  padding: 6px 12px;
+	}
+	/* Estilo para el contenido de las pestañas 
+        .tab-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        } */
+
+        /* Estilo para el contenido de la pestaña activa */
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<html>
+<body>
+    <!-- Botones de las pestañas -->
+    <button class="tab" onclick="openTab('tab1')">Librivox</button>
+    <button class="tab" onclick="openTab('tab2')">Albayzin</button>
+    <button class="tab" onclick="openTab('tab3')">Thalento</button>
+    <button class="tab" onclick="openTab('tab4')">Thalento con restricciones</button>
+
+    <!-- Contenido de las pestañas -->
+    <div id="tab1" class="tab-content">
+        <h2>Pestaña 1</h2>
+        <p>Contenido de la pestaña 1.</p>
+
 <body>
     <h3 Voz original ></h3>
     <p>Esta se trata de la voz original del speaker de Librivoz tux.</p>
@@ -368,153 +517,6 @@
   </tr>
 </table>
 
-
-<! Aquí empieza la encuesta 
-</html>
-<html>
-<head>
-    <title>Encuesta</title>
-</head>
-<body>
-    <script>
-    document.getElementById("encuestaForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        // Obtenemos el valor de la opción seleccionada en el formulario
-        const respuestaSeleccionada = document.querySelector('input[name="respuesta"]:checked').value;
-
-        // Enviamos los datos al servidor mediante una solicitud AJAX
-        fetch("https://tu_servidor.com/encuesta/guardar_resultado.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                respuesta: respuestaSeleccionada
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Mostramos la respuesta del servidor en la consola del navegador
-            console.log(data);
-
-            // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-    });
-</script>
-
-    <h2>Encuesta</h2>
-
-        <form id="encuestaForm">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" required><br>
-        <!-- Agrega más preguntas de la encuesta aquí -->
-        <p>Pregunta 1:</p>
-        <input type="radio" name="opcion_pregunta1" value="opcion1"> Opción 1
-        <input type="radio" name="opcion_pregunta1" value="opcion2"> Opción 2
-        <p>Pregunta 2:</p>
-        <input type="radio" name="opcion_pregunta2" value="opcion1"> Opción 1
-        <input type="radio" name="opcion_pregunta2" value="opcion2"> Opción 2
-        <p>Pregunta 3:</p>
-        <input type="radio" name="opcion_pregunta3" value="opcion1"> Opción 1
-        <input type="radio" name="opcion_pregunta3" value="opcion2"> Opción 2
-        <p>Pregunta 4:</p>
-        <input type="radio" name="opcion_pregunta4" value="opcion1"> Opción 1
-        <input type="radio" name="opcion_pregunta4" value="opcion2"> Opción 2
-        <br>
-        <input type=submit value="Enviar">
-    </form>
-</body>
-    
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tabs</title>
-    <style>
-        /* Estilo para los botones de las pestañas */
-        .tab {
-            cursor: pointer;
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-	.tab-system {
-  		overflow: hidden;
-  		/*border-bottom: 1px solid #535353;*/
-	}
-
-	.tab-system:after {
-	  background-color: black;
-	  content: '';
-	  display: block;
-	  height: 1px;
-	  position: relative;
-	  top: -1px;
-	  width: 100%;
-	  z-index: -1;
-	}
-
-	.tab-system button {
-	    background-color: inherit;               
-	    border: none;
-	    outline: none;
-	    cursor: pointer;
-	    padding: 14px 16px;
-	    transition: 0.3s;
-	    font-size: 17px;
-	    color: #535353;
-	    border-top: 1px solid #fff;
-	    border-left:1px solid  #fff;
-	    border-right: 1px solid #fff;
-	}
-	.tab-system button:hover,.tab-system button.active {
-	    background-color: #fff;
-	    color:#535353;
-	    border-top-left-radius: .25rem;
-	    border-top-right-radius: .25rem;
-	    border-top: 1px solid #535353;
-	    border-left:1px solid  #535353;
-	    border-right: 1px solid #535353;
-	    border-bottom: 1px solid #fff;
-	}
-	    /* Style the tab content */
-	.tab-content {
-	  display: none;
-	  padding: 6px 12px;
-	}
-	/* Estilo para el contenido de las pestañas 
-        .tab-content {
-            display: none;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-        } */
-
-        /* Estilo para el contenido de la pestaña activa */
-        .active {
-            display: block;
-        }
-    </style>
-</head>
-<html>
-<body>
-    <!-- Botones de las pestañas -->
-    <button class="tab" onclick="openTab('tab1')">Librivox</button>
-    <button class="tab" onclick="openTab('tab2')">Albayzin</button>
-    <button class="tab" onclick="openTab('tab3')">Thalento</button>
-    <button class="tab" onclick="openTab('tab4')">Thalento con restricciones</button>
-
-    <!-- Contenido de las pestañas -->
-    <div id="tab1" class="tab-content">
-        <h2>Pestaña 1</h2>
-        <p>Contenido de la pestaña 1.</p>
     </div>
     <div id="tab2" class="tab-content">
         <h2>Pestaña 2</h2>
