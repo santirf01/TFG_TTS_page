@@ -593,13 +593,13 @@
 <body>
     <!-- Botones -->
     <div class="button-container">
-        <div class="button" onclick="toggleContent(1)">Botón 1</div>
-        <div class="button" onclick="toggleContent(2)">Botón 2</div>
-        <div class="button" onclick="toggleContent(3)">Botón 3</div>
-        <div class="button" onclick="toggleContent(4)">Botón 4</div>
+        <div class="button" onclick="loadContent('Librivox/index.html')">Librivox</div>
+        <div class="button" onclick="loadContent('Albayzin/index.html')">Albayzin</div>
+        <div class="button" onclick="toggleContent('Thalento/index.html')">Thalento</div>
+        <div class="button" onclick="toggleContent('Thalento_no_res/index.html')">Thalento sin restricciones</div>
     </div>
 
-    <!-- Contenido desplegado -->
+    <!-- Contenido desplegado 
     <div class="content" id="content1">
         Contenido del Botón 1
     </div>
@@ -612,7 +612,7 @@
     <div class="content" id="content4">
         Contenido del Botón 4
     </div>
-
+	-->
     <script>
         function toggleContent(buttonId) {
             // Ocultar todos los contenidos desplegados
