@@ -39,18 +39,20 @@
             width: 100%;
         }
 
-        .button {
-            background-color: #ffcc80;
+     .button {
+            background-color: #ccc; /* Color de fondo gris */
             color: black;
-            border: 2px solid #fff;
-            padding: 8px;
+            border: none; /* Quitamos el borde */
+            width: 8px; /* Ancho del botón */
+            height: 8px; /* Altura del botón */
+            border-radius: 50%; /* Hacemos que sea un círculo */
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
 
         .button.active {
             background-color: #ffa726;
-            font-size: 16px;
+            font-size: 8px;
             transform: scale(1.1);
         }
     </style>
