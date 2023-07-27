@@ -15,3 +15,105 @@
     <h2>Albayzin</h2>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encuesta de calidad</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .button {
+            background-color: #ffcc80;
+            color: black;
+            border: 2px solid #fff;
+            padding: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .button.active {
+            background-color: #ffa726;
+            font-size: 16px;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>Encuesta</h2>
+    <table>
+        <tr>
+            <th>Audio</th>
+            <th>Pregunta</th>
+            <th>Respuesta</th>
+        </tr>
+        <tr>
+            
+            <td rowspan="2">
+                <audio controls>
+                    <source src="../Audios/Singlespeaker/TVD-D-0002_0017.wav" type="audio/wav">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </td>
+            <td>¿Calidad?</td>
+            <td>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 0)">0</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 1)">1</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 2)">2</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 3)">3</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 4)">4</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 5)">5</button>
+            </td>
+            <td>¿Inteligibilidad?</td>
+            <td>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 0)">0</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 1)">1</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 2)">2</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 3)">3</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 4)">4</button>
+                <button class="button" onclick="enviarRespuesta('pregunta1', 5)">5</button>
+            </td>
+        </tr>
+        <!-- Agrega más filas de preguntas aquí -->
+    </table>
+
+    <script>
+        function enviarRespuesta(pregunta, respuesta) {
+            fetch("guardar_respuesta.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pregunta: pregunta,
+                    respuesta: respuesta
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
