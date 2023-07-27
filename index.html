@@ -274,25 +274,24 @@
     </div>
 	-->
     <script>
-        function toggleContent(buttonId) {
-            // Ocultar todos los contenidos desplegados
-            var contents = document.getElementsByClassName("content");
-            for (var i = 0; i < contents.length; i++) {
-                contents[i].style.display = "none";
-            }
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    var contenidoDiv = document.getElementById("contenido");
+                    contenidoDiv.innerHTML = data;
 
-            // Mostrar el contenido del botón seleccionado
-            var contentId = "content" + buttonId;
-            var content = document.getElementById(contentId);
-            content.style.display = "block";
-
-            // Marcar el botón como activo
-            var buttons = document.getElementsByClassName("button");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            var button = document.getElementById("content" + buttonId);
-            button.classList.add("active");
+                    // Cambiar el estilo del botón pulsado
+                    var buttons = document.getElementsByClassName("button");
+                    for (var i = 0; i < buttons.length; i++) {
+                        buttons[i].classList.remove("active");
+                    }
+                    var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
+                    button.classList.add("active");
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
         }
     </script>
 </body>
