@@ -433,27 +433,60 @@
     
 </html>
 
-<nav class="nav-container col-xl-9 px-4 px-lg-0">
-	<ul class="nav my-4">
-	<li class="nav-item ml-md-4">
-	<a id="tab0-tab" aria-label="Overview" class="nav-link" href="https://www.microsoft.com/en-us/research/project/vall-e-x/" data-bi-cn="Overview" data-bi-type="tab" data-bi-tn="content-tab"> Overview</a>
-						</li>
-												<li class="nav-item  active">
-							<a id="tab1-tab" aria-label="VALL-E" class="nav-link" aria-current="page" href="Librivox.html" data-bi-cn="VALL-E" data-bi-type="tab" data-bi-tn="content-tab">
-									VALL-E							</a>
-						</li>
-												<li class="nav-item ">
-							<a id="tab2-tab" aria-label="VALL-E X" class="nav-link" href="https://www.microsoft.com/en-us/research/project/vall-e-x/vall-e-x/" data-bi-cn="VALL-E X" data-bi-type="tab" data-bi-tn="content-tab">
-									VALL-E X							</a>
-						</li>
-											<li class="nav-item ">
-						<a id="tab-msr-people-tab" data-bi-cn="People" data-bi-type="tab" data-bi-tn="content-tab" aria-label="People" class="nav-link" href="https://www.microsoft.com/en-us/research/project/vall-e-x/people/">
-							People						</a>
-					</li>
-											<li class="nav-item ">
-							<a id="tabpublications-tab" aria-label="Publications" class="nav-link " href="https://www.microsoft.com/en-us/research/project/vall-e-x/publications/" data-bi-cn="Publications" data-bi-type="tab" data-bi-tn="content-tab">
-									Publications								</a>
-						</li>
-									</ul>
-		</nav>
-    
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabs</title>
+    <style>
+        /* Estilo para los botones de las pestañas */
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Estilo para el contenido de las pestañas */
+        .tab-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        /* Estilo para el contenido de la pestaña activa */
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<html>
+<body>
+    <!-- Botones de las pestañas -->
+    <button class="tab" onclick="openTab('tab1')">Librivox</button>
+    <button class="tab" onclick="openTab('tab2')">Albayzin</button>
+    <button class="tab" onclick="openTab('tab3')">Thalento</button>
+
+    <!-- Contenido de las pestañas -->
+    <div id="tab1" class="tab-content">
+        <h2>Pestaña 1</h2>
+        <p>Contenido de la pestaña 1.</p>
+    </div>
+    <div id="tab2" class="tab-content">
+        <h2>Pestaña 2</h2>
+        <p>Contenido de la pestaña 2.</p>
+    </div>
+    <div id="tab3" class="tab-content">
+        <h2>Pestaña 3</h2>
+        <p>Contenido de la pestaña 3.</p>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            // Ocultar todos los contenidos de las pestañas
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = "none";
+            }
+	</html>
+           
