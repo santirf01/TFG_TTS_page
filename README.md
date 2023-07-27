@@ -11,15 +11,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh; /* Esto asegura que la cabecera ocupe toda la altura de la ventana del navegador */
+            height: 100 vh; /* Esto asegura que la cabecera ocupe toda la altura de la ventana del navegador */
         }
         h1 {
-            margin-top: 20px; /* Espacio entre la imagen y el título */
+            margin-top: 20 px; /* Espacio entre la imagen y el título */
         }
     </style>
 </head>
 <body>
-    <img src=""C:\Users\santi\OneDrive\Escritorio\Cuarto_Teleco\TFG\Imagenes\Vivolab.png"" alt="Imagen de Vivolab">
+    <img src=""Vivolab.png"" alt="Imagen de Vivolab">
     <h1>Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas</h1>
 </body>
 </html>
