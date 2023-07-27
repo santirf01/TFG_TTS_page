@@ -8,6 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $opcion_pregunta2 = $_POST['opcion_pregunta2'];
     $opcion_pregunta3 = $_POST['opcion_pregunta3'];
     $opcion_pregunta4 = $_POST['opcion_pregunta4'];
+    $mensaje = array(
+      "titulo" => "Hola",
+      "contenido" => "Este es un mensaje en formato JSON"
+    );
+
+    $mensajeJSON = json_encode($mensaje);
+    echo $mensajeJSON;
     // Guardar los datos en la base de datos
     $sql = "ALTER TABLE encuesta ADD respuesta1 INT DEFAULT '$opcion_pregunta1', ADD respuesta2 INT DEFAULT '$opcion_pregunta2', ADD respuesta3 INT DEFAULT '$opcion_pregunta3', ADD respuesta4 INT DEFAULT '$opcion_pregunta4';"
     <? $sql = "INSERT INTO tabla_encuesta (opcion_pregunta1) VALUES ('$opcion_pregunta1')";
