@@ -1,9 +1,10 @@
 <?php
 // Configuración de la conexión a la base de datos
-$servername = "nombre_del_servidor";
-$username = "nombre_de_usuario";
-$password = "contraseña";
-$dbname = "nombre_de_la_base_de_datos";
+$servername = "localhost";
+$username = "root";
+$password = "nueva_contraseña";
+$dbname = "Encuesta_TTS";
+
 
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
