@@ -39,18 +39,18 @@
             width: 100%;
         }
 
-     .button {
+     .button_circ {
             background-color: #ccc; /* Color de fondo gris */
             color: black;
             border: none; /* Quitamos el borde */
-            width: 8px; /* Ancho del botón */
-            height: 8px; /* Altura del botón */
+            width: 20px; /* Ancho del botón */
+            height: 20px; /* Altura del botón */
             border-radius: 50%; /* Hacemos que sea un círculo */
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
 
-        .button.active {
+        .button_circ.active {
             background-color: #ffa726;
             font-size: 8px;
             transform: scale(1.1);
@@ -60,17 +60,14 @@
 <body>
     <h2>Encuesta</h2>
     <table>
-        <tr>
-            <th  rowspan="2">Audio</th>
+         <tr>
+            <th rowspan="2">Audio</th>
             <th rowspan="2">Pregunta</th>
-            <th>Respuesta</th>
+            <th colspan="6">Respuesta</th>
         </tr>
-            <th>0</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
+        <tr>
+            <th colspan="6">| 0 | 1 | 2 | 3 | 4 | 5 |</th>
+        </tr>
         <tr>
             <td rowspan="2">
                 <audio controls>
@@ -80,22 +77,22 @@
             </td>
             <td>¿Calidad?</td>
             <td>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 0)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 1)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 2)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 3)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 4)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta1', 5)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button>
             </td>
             <tr>
             <td>¿Inteligibilidad?</td>
             <td>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 0)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 1)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 2)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 3)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 4)"></button>
-                <button class="button" onclick="enviarRespuesta('pregunta2', 5)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 0)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 1)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 2)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 3)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 4)"></button>
+                <button class="button_circ" onclick="enviarRespuesta('pregunta2', 5)"></button>
             </td>
         </tr>
         <!-- Agrega más filas de preguntas aquí -->
