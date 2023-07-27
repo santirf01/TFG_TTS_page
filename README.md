@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas</title>
+    <title> Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas </title>
     <style>
         /* Estilos para centrar el título */
         body {
