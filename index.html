@@ -333,6 +333,36 @@ h<head>
     <title>Encuesta</title>
 </head>
 <body>
+    <script>
+    document.getElementById("encuestaForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Obtenemos el valor de la opción seleccionada en el formulario
+        const respuestaSeleccionada = document.querySelector('input[name="respuesta"]:checked').value;
+
+        // Enviamos los datos al servidor mediante una solicitud AJAX
+        fetch("https://tu_servidor.com/encuesta/guardar_resultado.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                respuesta: respuestaSeleccionada
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostramos la respuesta del servidor en la consola del navegador
+            console.log(data);
+
+            // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+</script>
+
     <h2>Encuesta</h2>
 
         <form id="encuestaForm">
@@ -341,9 +371,6 @@ h<head>
         <label for="edad">Edad:</label>
         <input type="number" id="edad" name="edad" required><br>
         <!-- Agrega más preguntas de la encuesta aquí -->
-        <input type="script.js" value="Enviar">
-    </form>
-        <form action="/Encuesta/procesar_encuesta.php" method="post">
         <p>Pregunta 1:</p>
         <input type="radio" name="opcion_pregunta1" value="opcion1"> Opción 1
         <input type="radio" name="opcion_pregunta1" value="opcion2"> Opción 2
@@ -357,9 +384,10 @@ h<head>
         <input type="radio" name="opcion_pregunta4" value="opcion1"> Opción 1
         <input type="radio" name="opcion_pregunta4" value="opcion2"> Opción 2
         <br>
-        <input type="submit" value="Enviar">
+        <input type="script.js" value="Enviar">
     </form>
 </body>
+    
 </html>
 
 
