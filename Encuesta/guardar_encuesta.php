@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
 $servername = "nombre_del_servidor";
 $username = "nombre_de_usuario";
 $password = "contraseña";
@@ -10,6 +13,10 @@ try {
 
     $nombre = $_POST['nombre'];
     $edad = $_POST['edad'];
+    $resultado1 = $_POST[''];
+    $resultado2 = $_POST[''];
+    $resultado3 = $_POST[''];
+    $resultado4 = $_POST[''];
     // Obtén más respuestas de la encuesta aquí y asigna a variables.
 
     $sql = "INSERT INTO encuestas (nombre, edad) VALUES (:nombre, :edad)";
