@@ -1,6 +1,5 @@
 # TFG : 
 
-<!DOCTYPE html>
 <html>
 <head>
     <title> Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas </title>
@@ -19,7 +18,7 @@
     </style>
 </head>
 <body>
-    <img src=""Vivolab.png"" alt="Imagen de Vivolab">
+    <img src=""[Vivolab.png](https://github.com/santirf01/TFG_TTS_page.io/blob/main/Vivolab.png)"" alt="Imagen de Vivolab">
     <h1>Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas</h1>
 </body>
 </html>
