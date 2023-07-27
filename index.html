@@ -550,17 +550,29 @@
     <title>Botones</title>
     <style>
         /* Estilo para los botones */
+        .button-container {
+            text-align: center; /* Centrar los botones en la misma línea */
+        }
+
         .button {
-            display: block;
-            width: 150px;
-            height: 40px;
+            display: inline-block; /* Mostrar los botones en la misma línea */
+            width: 120px;
+            height: 50px;
             background-color: #ffcc80; /* Color de fondo naranja claro */
             color: black; /* Color de texto negro */
             border: 2px solid #fff; /* Borde blanco */
-            margin: 10px auto; /* Centrar los botones horizontalmente */
+            margin: 10px; /* Espacio entre los botones */
             text-align: center;
-            line-height: 40px; /* Centrar el texto verticalmente */
+            line-height: 50px; /* Centrar el texto verticalmente */
             cursor: pointer;
+            font-size: 16px; /* Tamaño de texto */
+            transition: background-color 0.2s, transform 0.2s; /* Transición de estilos al hacer clic */
+        }
+
+        .button.active {
+            background-color: #ffa726; /* Color de fondo naranja oscuro cuando se presiona */
+            font-size: 20px; /* Tamaño de texto más grande cuando se presiona */
+            transform: scale(1.1); /* Escalar el botón cuando se presiona */
         }
 
         /* Estilo para el contenido desplegado */
@@ -578,13 +590,14 @@
         }
     </style>
 </head>
-	
 <body>
     <!-- Botones -->
-    <div class="button" onclick="toggleContent(1)">Botón 1</div>
-    <div class="button" onclick="toggleContent(2)">Botón 2</div>
-    <div class="button" onclick="toggleContent(3)">Botón 3</div>
-    <div class="button" onclick="toggleContent(4)">Botón 4</div>
+    <div class="button-container">
+        <div class="button" onclick="toggleContent(1)">Botón 1</div>
+        <div class="button" onclick="toggleContent(2)">Botón 2</div>
+        <div class="button" onclick="toggleContent(3)">Botón 3</div>
+        <div class="button" onclick="toggleContent(4)">Botón 4</div>
+    </div>
 
     <!-- Contenido desplegado -->
     <div class="content" id="content1">
@@ -613,7 +626,7 @@
             var content = document.getElementById(contentId);
             content.style.display = "block";
 
-            // Marcar el botón como activo (cambiar de color, si deseado)
+            // Marcar el botón como activo
             var buttons = document.getElementsByClassName("button");
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("active");
@@ -624,4 +637,3 @@
     </script>
 </body>
 </html>
-
