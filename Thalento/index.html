@@ -73,6 +73,7 @@
         // Función para guardar la opción seleccionada del audio
         function guardarSeleccionAudio() {
             var audioSeleccionado = audioSelect.value;
+             var rutaAudio = "Thalento/Audios/" + audioSeleccionado.textContent;
             console.log("Audio seleccionado:", audioSeleccionado);
             // Aquí puedes realizar alguna acción con el audio seleccionado, como guardar el nombre en una variable o reproducirlo, etc.
         }
@@ -136,6 +137,7 @@
         }
        -->
     <body>
+       
     <h2>Encuesta</h2>
     <table>
          <tr>
@@ -155,7 +157,7 @@
         <tr>
             <td rowspan="2">
                 <audio controls>
-                    <source src=("Thalento/Audios/",audioSeleccionado) type="audio/wav" autoplay="">
+                    <source src=rutaAudio type="audio/wav" autoplay="">
                     Tu navegador no soporta el elemento de audio.
                 </audio>
             </td>
