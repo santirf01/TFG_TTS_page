@@ -2,10 +2,10 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
-$servername = "nombre_del_servidor";
+$servername = "localhost";
 $username = "encuesta_TTS";
 $password = "milan430";
-$dbname = "Encuesta_TTS";
+$dbname = "RESULTADOS";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
