@@ -1,5 +1,50 @@
 <!DOCTYPE html>
+<body>
+    <!-- Título h2 subrayado -->
+    <h2>Thalento</h2>
+    <h3>TVD-D-0001</h3>
+</body>
+</html>
 
+<html>
+
+<body>
+    <br>
+    <h2>Selecciona a una persona:</h2>
+    <select id="speakerSelect" onchange="loadContent(this.value)">
+        <option value="">Selecciona un speaker</option>
+        <option value='Thalento/Audios/TVD-D-0001/index.html'>TVD-D-0001</option>
+        <<option value='Thalento/Audios/TVD-D-0002/index.html'>TVD-D-0002</option>
+        <option value='Thalento/Audios/TVD-D-0003/index.html'>TVD-D-0003</option>
+        <option value='Thalento/Audios/TVD-D-0005/index.html'>TVD-D-0005</option>
+        <option value='Thalento/Audios/TVD-D-0006/index.html'>TVD-D-0006</option>
+        <option value='Thalento/Audios/TVD-D-0007/index.html'>TVD-D-0007</option>
+        <option value='Thalento/Audios/TVD-D-0008/index.html'>TVD-D-0008</option>
+        <option value='Thalento/Audios/TVD-D-0009/index.html'>TVD-D-0009</option>
+        <option value='Thalento/Audios/TVD-D-0010/index.html'>TVD-D-0010</option>
+        <option value='Thalento/Audios/TVD-D-0011/index.html'>TVD-D-0011</option>
+        <option value='Thalento/Audios/TVD-D-0012/index.html'>TVD-D-0012</option>
+        <option value='Thalento/Audios/TVD-D-00013/index.html'>TVD-D-0013</option>
+        <option value='Thalento/Audios/TVD-P-0002/index.html'>TVD-P-0002</option>
+        <option value='Thalento/Audios/TVD-P-0003/index.html'>TVD-P-0003</option>
+        <option value='Thalento/Audios/TVD-P-0004/index.html'>TVD-P-0004</option>
+        <option value='Thalento/Audios/TVD-P-0005/index.html'>TVD-P-0005</option>
+        <option value='Thalento/Audios/TVD-P-0006/index.html'>TVD-P-0006</option>
+        <option value='Thalento/Audios/TVD-P-0007/index.html'>TVD-P-0007</option>
+        <option value='Thalento/Audios/TVD-P-0008/index.html'>TVD-P-0008</option>
+        <option value='Thalento/Audios/TVD-P-0009/index.html'>TVD-P-0009</option>
+        <option value='Thalento/Audios/TVD-P-0010/index.html'>TVD-P-0010</option>
+        <option value='Thalento/Audios/TVD-P-0011/index.html'>TVD-P-0011</option>
+        <option value='Thalento/Audios/TVD-P-0012/index.html'>TVD-P-0012</option>
+        <option value='Thalento/Audios/TVD-P-0013/index.html'>TVD-P-0013</option>
+        <option value='Thalento/Audios/TVD-P-0014/index.html'>TVD-P-0014</option>
+        <option value='Thalento/Audios/TVD-P-0015/index.html'>TVD-P-0015</option>
+        <option value='Thalento/Audios/TVD-P-0016/index.html'>TVD-P-0016</option>
+        <option value='Thalento/Audios/TVD-P-0017/index.html'>TVD-P-0017</option>
+        <option value='Thalento/Audios/TVD-P-0019/index.html'>TVD-P-0019</option>
+    </select>
+     <div id="contenido">
+    </div>
 <html>
   <head>
     <title>TVD-D-0001</title>
@@ -47,7 +92,7 @@
         <!-- Agrega más filas de audios aquí -->
     </table>
 </body>
-  <!DOCTYPE html>
+
 <head>
     <title>Tabla de Audios</title>
 </head>
@@ -60,41 +105,38 @@
         </tr>
     </table>
 
-    <script>
-        // Función para generar la tabla con audios
-        function generarTablaAudios(inicio, fin) {
-            var tabla = document.getElementById("tablaAudios");
+   <table>
+  <tr>
+    <th>Columna 1</th>
+    <th>Columna 2</th>
+  </tr>
 
-            for (var i = inicio; i <= fin; i++) {
-                var nombreAudio = "TVD-D-0001-" + i.toString().padStart(4, "0");
-                var rutaAudio = "Thalento/Audios/TVD-D-0001/TVD-D-0001_" + i.toString().padStart(4, "0") + ".wav";
+  <script>
+    let contador = 1;
+  </script>
 
-                var fila = document.createElement("tr");
+  <script>
+    while (contador <= 100) {
+      // Generamos una fila con los datos correspondientes
+      document.write('<tr>');
+      
+      // Generamos la columna 1 con el número de TVD-D-0001
+      document.write('<td>TVD-D-0001-' + ('000' + contador).slice(-4) + '</td>');
+      
+      // Generamos la columna 2 con el reproductor de audio y la ruta correspondiente
+      document.write('<td><audio class="audio-button" style="width: 140" controls> <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_' + ('000' + contador).slice(-4) + '.wav" type="audio/wav"> Tu navegador no soporta la reproducción del audio TVD-D-0001-' + ('000' + contador).slice(-4) + '.</td>');
+      
+      // Cerramos la fila
+      document.write('</tr>');
+      
+      // Incrementamos el contador para la próxima iteración
+      contador++;
+    }
+  </script>
+  <!-- Fin del bucle -->
+</table>
 
-                var celdaNombre = document.createElement("td");
-                celdaNombre.textContent = nombreAudio;
-                fila.appendChild(celdaNombre);
 
-                var celdaAudio = document.createElement("td");
-                var reproductorAudio = document.createElement("audio");
-                reproductorAudio.setAttribute("class", "audio-button");
-                reproductorAudio.setAttribute("style", "width: 140px");
-                reproductorAudio.setAttribute("controls", "");
-                var sourceAudio = document.createElement("source");
-                sourceAudio.setAttribute("src", rutaAudio);
-                sourceAudio.setAttribute("type", "audio/wav");
-                reproductorAudio.appendChild(sourceAudio);
-                celdaAudio.appendChild(reproductorAudio);
-                fila.appendChild(celdaAudio);
 
-                tabla.appendChild(fila);
-            }
-        }
-
-        // Generar la tabla con audios del 1 al 100
-        generarTablaAudios(1, 100);
-    </script>
-</body>
-</html>
 
 </html>
