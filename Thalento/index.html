@@ -83,18 +83,6 @@
                 mostrarSeleccion.textContent = "Speaker seleccionado: " + seleccion;
             }
         }
-        // Función para mostrar el speaker seleccionado
-        function mostrarSeleccion() {
-            var speakerSelect = document.getElementById("speakerSelect");
-            var mostrarSeleccion = document.getElementById("mostrarSeleccion");
-            var seleccion = speakerSelect.value;
-
-            if (seleccion === "") {
-                mostrarSeleccion.textContent = "Ningún speaker seleccionado";
-            } else {
-                mostrarSeleccion.textContent = "Speaker seleccionado: " + seleccion;
-            }
-        }
          // Función para cargar el contenido de audios.json
         function cargarAudiosJSON() {
             var speakerSelect = document.getElementById("speakerSelect");
