@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TVD-D-0001</title>
+    <style>
+        h2 {
+            border-bottom: 2px solid #ffcc80; /* Línea de subrayado en naranja claro */
+            display: inline-block; /* Para que el ancho de la línea se ajuste al texto */
+            padding-bottom: 5px; /* Espacio entre el texto y la línea de subrayado */
+        }
+    </style>
+</head>
+  
+<head>
+    <title>Tabla de Audios</title>
+</head>
+<body>
+    <h2>Tabla de Audios</h2>
+    <table>
+        <tr>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+        </tr>
+        <tr>
+            <td>TVD-D-0001-0001</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0001.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0001.</td>
+            <td>TVD-D-0001-0002</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0002.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0002.</td>
+            <td>TVD-D-0001-0003</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0003.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0003.</td>
+            <td>TVD-D-0001-0004</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0004.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0004.</td>
+
+        </tr>
+
+        <!-- Agrega más filas de audios aquí -->
+    </table>
+</body>
+  <!DOCTYPE html>
+<head>
+    <title>Tabla de Audios</title>
+</head>
+<body>
+    <h2>Tabla de Audios</h2>
+    <table id="tablaAudios">
+        <tr>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+        </tr>
+    </table>
+
+    <script>
+        // Función para generar la tabla con audios
+        function generarTablaAudios(inicio, fin) {
+            var tabla = document.getElementById("tablaAudios");
+
+            for (var i = inicio; i <= fin; i++) {
+                var nombreAudio = "TVD-D-0001-" + i.toString().padStart(4, "0");
+                var rutaAudio = "Thalento/Audios/TVD-D-0001/TVD-D-0001_" + i.toString().padStart(4, "0") + ".wav";
+
+                var fila = document.createElement("tr");
+
+                var celdaNombre = document.createElement("td");
+                celdaNombre.textContent = nombreAudio;
+                fila.appendChild(celdaNombre);
+
+                var celdaAudio = document.createElement("td");
+                var reproductorAudio = document.createElement("audio");
+                reproductorAudio.setAttribute("class", "audio-button");
+                reproductorAudio.setAttribute("style", "width: 140px");
+                reproductorAudio.setAttribute("controls", "");
+                var sourceAudio = document.createElement("source");
+                sourceAudio.setAttribute("src", rutaAudio);
+                sourceAudio.setAttribute("type", "audio/wav");
+                reproductorAudio.appendChild(sourceAudio);
+                celdaAudio.appendChild(reproductorAudio);
+                fila.appendChild(celdaAudio);
+
+                tabla.appendChild(fila);
+            }
+        }
+
+        // Generar la tabla con audios del 1 al 100
+        generarTablaAudios(1, 100);
+    </script>
+</body>
+</html>
+
+</html>
