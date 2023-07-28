@@ -3,9 +3,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 $servername = "nombre_del_servidor";
-$username = "nombre_de_usuario";
-$password = "contraseña";
-$dbname = "nombre_de_la_base_de_datos";
+$username = "encuesta_TTS";
+$password = "milan430";
+$dbname = "Encuesta_TTS";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
