@@ -22,7 +22,7 @@
 </head>
 <body>
     <h2>Selecciona unas persona:</h2>
-    <select id="speakerSelect">
+    <select id="speakerSelect"onchange="cargarCarpetas()>
         <option value="">Selecciona unas persona</option>
         
     </select>
@@ -55,7 +55,7 @@
 
 
 
-<!--
+
     <script>
         function cargarCarpetas() {
             var select = document.getElementById("speakerSelect");
@@ -85,7 +85,7 @@
                 contenidoDiv.innerHTML = "";
             }
         }
-    -->
+  
     <script>
         function cargarAudio() {
             var audioSelect = document.getElementById("audioSelect");
@@ -108,5 +108,26 @@
             }
         }
     </script>
+<!--
+        <script>
+        // Cargar el contenido del archivo JSON
+        fetch('datos.json')
+            .then(response => response.json())
+            .then(data => {
+                var opcionesSelect = document.getElementById("opcionesSelect");
+
+                // Iterar a través de las opciones del JSON y crear las opciones en el desplegable
+                data.opciones.forEach(function(opcion) {
+                    var option = document.createElement("option");
+                    option.value = opcion;
+                    option.textContent = opcion;
+                    opcionesSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    </script>
+          -->
 </body>
 </html>
