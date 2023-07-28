@@ -22,7 +22,7 @@
 </head>
 <body>
     <h2>Selecciona una persona:</h2>
-    <select id="speakerSelect" onchange="cargarCarpetas()">
+    <select id="speakerSelect">
         <option value="">Selecciona una persona</option>
         
     </select>
@@ -51,7 +51,7 @@
     <div id="contenidoAudio">
         <!-- Aquí se mostrará el contenido del audio seleccionado -->
     </div>
-
+<!--
     <script>
         function cargarCarpetas() {
             var select = document.getElementById("speakerSelect");
@@ -81,7 +81,7 @@
                 contenidoDiv.innerHTML = "";
             }
         }
-
+    -->
         function cargarAudio() {
             var audioSelect = document.getElementById("audioSelect");
             var audioSeleccionado = audioSelect.value;
