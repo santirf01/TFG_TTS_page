@@ -54,10 +54,35 @@
         <option value="TVD-P-0017">TVD-P-0017</option>
         <option value="TVD-P-0019">TVD-P-0019</option>
     </select>
+    
+    <h2>Selecciona un audio:</h2>
+    <select id="audioSelect" onchange="guardarAudio()">
+        <option value="">Selecciona un audio</option>
+        <!-- Aquí se cargarán las opciones de los audios del speaker seleccionado -->
+    </select>
 
     <p id="mostrarSeleccion">Ningún speaker seleccionado</p>
 
+    <h2>Contenido de audios.json:</h2>
+    <div id="contenidoAudiosJSON">
+        <!-- Aquí se mostrará el contenido del archivo audios.json -->
+    </div>
     <script>
+         var audioSeleccionado = ""; // Variable global para almacenar el valor del audio seleccionado
+        var audiosDelSpeaker = []; // Variable global para almacenar los audios del speaker seleccionado
+
+        // Función para mostrar el speaker seleccionado
+        function mostrarSeleccion() {
+            var speakerSelect = document.getElementById("speakerSelect");
+            var mostrarSeleccion = document.getElementById("mostrarSeleccion");
+            var seleccion = speakerSelect.value;
+
+            if (seleccion === "") {
+                mostrarSeleccion.textContent = "Ningún speaker seleccionado";
+            } else {
+                mostrarSeleccion.textContent = "Speaker seleccionado: " + seleccion;
+            }
+        }
         // Función para mostrar el speaker seleccionado
         function mostrarSeleccion() {
             var speakerSelect = document.getElementById("speakerSelect");
