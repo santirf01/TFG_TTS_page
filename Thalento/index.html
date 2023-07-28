@@ -26,7 +26,7 @@
     <select id="speakerSelect" onchange="cargarCarpetas()">
         <option value="">Selecciona un Speaker</option>
         <?php
-        $ruta_carpetas_speakers = 'carpetas_speakers/';
+        $ruta_carpetas_speakers = 'Thalento/Audios';
         $carpetas_speakers = array_filter(glob($ruta_carpetas_speakers . '*'), 'is_dir');
         foreach ($carpetas_speakers as $carpeta_speaker) {
             $nombre_speaker = basename($carpeta_speaker);
