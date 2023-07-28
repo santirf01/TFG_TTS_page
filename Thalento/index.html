@@ -25,11 +25,14 @@
     <h2>Selecciona un Speaker:</h2>
     <select id="speakerSelect" onchange="cargarCarpetas()">
         <option value="">Selecciona un Speaker</option>
-        <option value="aa">Speaker AA</option>
-        <option value="ab">Speaker AB</option>
-        <option value="ma">Speaker MA</option>
-        <option value="mb">Speaker MB</option>
-        <!-- Agrega más opciones para otros speakers aquí -->
+        <?php
+        $ruta_carpetas_speakers = 'carpetas_speakers/';
+        $carpetas_speakers = array_filter(glob($ruta_carpetas_speakers . '*'), 'is_dir');
+        foreach ($carpetas_speakers as $carpeta_speaker) {
+            $nombre_speaker = basename($carpeta_speaker);
+            echo "<option value='$nombre_speaker'>$nombre_speaker</option>";
+        }
+        ?>
     </select>
 
     <h2>Selecciona un Audio:</h2>
@@ -95,5 +98,3 @@
     </script>
 </body>
 </html>
-
-
