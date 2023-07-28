@@ -16,3 +16,84 @@
 </body>
 </html>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desplegable de Speaker y Audio</title>
+</head>
+<body>
+    <h2>Selecciona un Speaker:</h2>
+    <select id="speakerSelect" onchange="cargarCarpetas()">
+        <option value="">Selecciona un Speaker</option>
+        <option value="aa">Speaker AA</option>
+        <option value="ab">Speaker AB</option>
+        <option value="ma">Speaker MA</option>
+        <option value="mb">Speaker MB</option>
+        <!-- Agrega más opciones para otros speakers aquí -->
+    </select>
+
+    <h2>Selecciona un Audio:</h2>
+    <select id="audioSelect" onchange="cargarAudio()">
+        <option value="">Selecciona un Audio</option>
+        <!-- Aquí se cargarán las opciones de los audios del speaker seleccionado -->
+    </select>
+
+    <div id="contenidoAudio">
+        <!-- Aquí se mostrará el contenido del audio seleccionado -->
+    </div>
+
+    <script>
+        function cargarCarpetas() {
+            var select = document.getElementById("speakerSelect");
+            var speakerSeleccionado = select.value;
+
+            var audioSelect = document.getElementById("audioSelect");
+            audioSelect.innerHTML = '<option value="">Selecciona un Audio</option>'; // Limpiamos las opciones previas
+
+            if (speakerSeleccionado) {
+                fetch(speakerSeleccionado + '/audios.json') // Suponiendo que tengas un archivo audios.json en cada carpeta speaker que contenga la lista de audios
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(audio => {
+                            var option = document.createElement('option');
+                            option.value = speakerSeleccionado + '/' + audio;
+                            option.text = audio;
+                            audioSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            } else {
+                // Si no se ha seleccionado ningún speaker, limpiamos las opciones del desplegable de audio
+                audioSelect.innerHTML = '<option value="">Selecciona un Audio</option>';
+                var contenidoDiv = document.getElementById("contenidoAudio");
+                contenidoDiv.innerHTML = "";
+            }
+        }
+
+        function cargarAudio() {
+            var audioSelect = document.getElementById("audioSelect");
+            var audioSeleccionado = audioSelect.value;
+
+            if (audioSeleccionado) {
+                fetch(audioSeleccionado)
+                    .then(response => response.text())
+                    .then(data => {
+                        var contenidoDiv = document.getElementById("contenidoAudio");
+                        contenidoDiv.innerHTML = "<pre>" + data + "</pre>";
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            } else {
+                // Si no se ha seleccionado ningún audio, limpiamos el contenido del div
+                var contenidoDiv = document.getElementById("contenidoAudio");
+                contenidoDiv.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
