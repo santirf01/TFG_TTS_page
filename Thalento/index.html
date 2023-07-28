@@ -26,6 +26,16 @@
         <option value="">Selecciona una persona</option>
         
     </select>
+
+    <h2>Selecciona un Audio:</h2>
+    <select id="audioSelect" onchange="cargarAudio()">
+        <option value="">Selecciona un Audio</option>
+        <!-- Aquí se cargarán las opciones de los audios del speaker seleccionado -->
+    </select>
+
+    <div id="contenidoAudio">
+        <!-- Aquí se mostrará el contenido del audio seleccionado -->
+    </div>
     
     <script>
         // Lista de speakers
@@ -42,15 +52,9 @@
             speakerSelect.appendChild(option);
         });
     </script>
-    <h2>Selecciona un Audio:</h2>
-    <select id="audioSelect" onchange="cargarAudio()">
-        <option value="">Selecciona un Audio</option>
-        <!-- Aquí se cargarán las opciones de los audios del speaker seleccionado -->
-    </select>
 
-    <div id="contenidoAudio">
-        <!-- Aquí se mostrará el contenido del audio seleccionado -->
-    </div>
+
+
 <!--
     <script>
         function cargarCarpetas() {
@@ -75,7 +79,7 @@
                         console.error("Error:", error);
                     });
             } else {
-                // Si no se ha seleccionado ningún speaker, limpiamos las opciones del desplegable de audio
+                Si no se ha seleccionado ningún speaker, limpiamos las opciones del desplegable de audio
                 audioSelect.innerHTML = '<option value="">Selecciona un Audio</option>';
                 var contenidoDiv = document.getElementById("contenidoAudio");
                 contenidoDiv.innerHTML = "";
