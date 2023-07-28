@@ -21,25 +21,19 @@
     <title>Desplegable de Speaker y Audio</title>
 </head>
 <body>
-    <h2>Selecciona unas persona:</h2>
-    <select id="speakerSelect"onchange="cargarCarpetas()>
-        <option value="">Selecciona unas persona</option>
-        
+    <h2>Selecciona una persona:</h2>
+    <select id="speakerSelect" onchange="cargarAudiosJSON()"">
+        <option value="">Selecciona una persona</option>
     </select>
-
-    <h2>Selecciona un Audio:</h2>
-    <select id="audioSelect" onchange="cargarAudio()">
-        <option value="">Selecciona un Audio</option>
+    
+    <h2>Selecciona un audio:</h2>
+    <select id="audioSelect" onchange="guardarSeleccionAudio()">
+        <option value="">Selecciona un audio</option>
         <!-- Aquí se cargarán las opciones de los audios del speaker seleccionado -->
     </select>
-
-    <div id="contenidoAudio">
-        <!-- Aquí se mostrará el contenido del audio seleccionado -->
-    </div>
-    
     <script>
-        // Lista de speakers
-        var speakers = ["TVD-D-0001","TVD-D-0002","TVD-D-0003","TVD-D-0005","TVD-D-0006","TVD-D-0007","TVD-D-0008","TVD-D-0009","TVD-D-0010","TVD-D-0011","TVD-D-0012","TVD-D-0013","TVD-P-0002","TVD-P-0003","TVD-P-0004","TVD-P-0005","TVD-P-0006","TVD-P-0007","TVD-P-0008","TVD-P-0009","TVD-P-0010","TVD-P-0011","TVD-P-0012","TVD-P-0013","TVD-P-0014","TVD-P-0015","TVD-P-0016","TVD-P-0017","TVD-P-0019"]; // Agrega aquí más nombres de speakers si es necesario
+        // Array de speakers
+        var speakers = ["TVD-D-0001","TVD-D-0002","TVD-D-0003","TVD-D-0005","TVD-D-0006","TVD-D-0007","TVD-D-0008","TVD-D-0009","TVD-D-0010","TVD-D-0011","TVD-D-0012","TVD-D-0013","TVD-P-0002","TVD-P-0003","TVD-P-0004","TVD-P-0005","TVD-P-0006","TVD-P-0007","TVD-P-0008","TVD-P-0009","TVD-P-0010","TVD-P-0011","TVD-P-0012","TVD-P-0013","TVD-P-0014","TVD-P-0015","TVD-P-0016","TVD-P-0017","TVD-P-0019"];
 
         // Obtener el elemento select del desplegable
         var speakerSelect = document.getElementById("speakerSelect");
@@ -51,11 +45,43 @@
             option.textContent = speaker;
             speakerSelect.appendChild(option);
         });
+
+
+        function cargarAudiosJSON() {
+            var speakerSeleccionado = speakerSelect.value;
+
+            if (speakerSeleccionado) {
+                var url = "Thalento/Audios/" + speakerSeleccionado + "/audios.json";
+
+                // Realizar la solicitud fetch para leer el contenido de audios.json
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Convertir el objeto JSON a una cadena formateada para mostrarlo en el div
+                        var contenidoDiv = document.getElementById("contenidoAudiosJSON");
+                        contenidoDiv.textContent = JSON.stringify(data, null, 2);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            } else {
+                // Si no se ha seleccionado ningún speaker, limpiar el contenido del div
+                var contenidoDiv = document.getElementById("contenidoAudiosJSON");
+                contenidoDiv.textContent = "";
+            }
+        }
+        // Función para guardar la opción seleccionada del audio
+        function guardarSeleccionAudio() {
+            var audioSeleccionado = audioSelect.value;
+            console.log("Audio seleccionado:", audioSeleccionado);
+            // Aquí puedes realizar alguna acción con el audio seleccionado, como guardar el nombre en una variable o reproducirlo, etc.
+        }
     </script>
+</body>
 
 
 
-
+<!--
     <script>
         function cargarCarpetas() {
             var select = document.getElementById("speakerSelect");
@@ -85,6 +111,7 @@
                 contenidoDiv.innerHTML = "";
             }
         }
+    -->
   
     <script>
         function cargarAudio() {
