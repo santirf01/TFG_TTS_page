@@ -61,7 +61,7 @@
             audioSelect.innerHTML = '<option value="">Selecciona un Audio</option>'; // Limpiamos las opciones previas
 
             if (speakerSeleccionado) {
-                fetch(speakerSeleccionado + '/audios.json') // Suponiendo que tengas un archivo audios.json en cada carpeta speaker que contenga la lista de audios
+                fetch('Thalento/Audios/'+speakerSeleccionado + '/audios.json') // Suponiendo que tengas un archivo audios.json en cada carpeta speaker que contenga la lista de audios
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(audio => {
