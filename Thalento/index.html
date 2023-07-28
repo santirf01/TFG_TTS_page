@@ -95,6 +95,12 @@
                     });
             }
         }
+        function guardarAudio() {
+            var audioSelect = document.getElementById("audioSelect");
+            var rutaAudio = "Thalento/Audios/" + audioSeleccionado;
+            audioSeleccionado = audioSelect.value;
+            console.log("Audio seleccionado:", audioSeleccionado); // Solo para mostrar el valor en la consola (puedes eliminar esta línea)
+        }
     </script>
 </body>
 </html>
