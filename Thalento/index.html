@@ -21,42 +21,39 @@
 <body>
     <br>
     <h2>Selecciona una persona:</h2>
-    <select id="speakerSelect" onchange="mostrarSeleccion()">
+    <select id="speakerSelect" onchange="loadContent(this.value)">
         <option value="">Selecciona un speaker</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0001/index.html')">TVD-D-0001</option>
-        <!--
-        <option value="loadContent('Thalento/Audios/TVD-D-0002/index.html')">TVD-D-0002</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0003/index.html')">TVD-D-0003</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0005/index.html')">TVD-D-0005</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0006/index.html')">TVD-D-0006</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0007/index.html')">TVD-D-0007</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0008/index.html')">TVD-D-0008</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0009/index.html')">TVD-D-0009</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0010/index.html')">TVD-D-0010</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0011/index.html')">TVD-D-0011</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-0012/index.html')">TVD-D-0012</option>
-        <option value="loadContent('Thalento/Audios/TVD-D-00013/index.html')">TVD-D-0013</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0002/index.html')">TVD-P-0002</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0003/index.html')">TVD-P-0003</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0004/index.html')">TVD-P-0004</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0005/index.html')">TVD-P-0005</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0006/index.html')">TVD-P-0006</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0007/index.html')">TVD-P-0007</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0008/index.html')">TVD-P-0008</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0009/index.html')">TVD-P-0009</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0010/index.html')">TVD-P-0010</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0011/index.html')">TVD-P-0011</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0012/index.html')">TVD-P-0012</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0013/index.html')">TVD-P-0013</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0014/index.html')">TVD-P-0014</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0015/index.html')">TVD-P-0015</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0016/index.html')">TVD-P-0016</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0017/index.html')">TVD-P-0017</option>
-        <option value="loadContent('Thalento/Audios/TVD-P-0019/index.html')">TVD-P-0019</option>
-        -->
+        <option value='Thalento/Audios/TVD-D-0001/index.html'>TVD-D-0001</option>
+        <option value='Thalento/Audios/TVD-D-0002/index.html'>TVD-D-0002</option>
+        <option value='Thalento/Audios/TVD-D-0003/index.html'>TVD-D-0003</option>
+        <option value='Thalento/Audios/TVD-D-0005/index.html'>TVD-D-0005</option>
+        <option value='Thalento/Audios/TVD-D-0006/index.html'>TVD-D-0006</option>
+        <option value='Thalento/Audios/TVD-D-0007/index.html'>TVD-D-0007</option>
+        <option value='Thalento/Audios/TVD-D-0008/index.html'>TVD-D-0008</option>
+        <option value='Thalento/Audios/TVD-D-0009/index.html'>TVD-D-0009</option>
+        <option value='Thalento/Audios/TVD-D-0010/index.html'>TVD-D-0010</option>
+        <option value='Thalento/Audios/TVD-D-0011/index.html'>TVD-D-0011</option>
+        <option value='Thalento/Audios/TVD-D-0012/index.html'>TVD-D-0012</option>
+        <option value='Thalento/Audios/TVD-D-00013/index.html'>TVD-D-0013</option>
+        <option value='Thalento/Audios/TVD-P-0002/index.html'>TVD-P-0002</option>
+        <option value='Thalento/Audios/TVD-P-0003/index.html'>TVD-P-0003</option>
+        <option value='Thalento/Audios/TVD-P-0004/index.html'>TVD-P-0004</option>
+        <option value='Thalento/Audios/TVD-P-0005/index.html'>TVD-P-0005</option>
+        <option value='Thalento/Audios/TVD-P-0006/index.html'>TVD-P-0006</option>
+        <option value='Thalento/Audios/TVD-P-0007/index.html'>TVD-P-0007</option>
+        <option value='Thalento/Audios/TVD-P-0008/index.html'>TVD-P-0008</option>
+        <option value='Thalento/Audios/TVD-P-0009/index.html'>TVD-P-0009</option>
+        <option value='Thalento/Audios/TVD-P-0010/index.html'>TVD-P-0010</option>
+        <option value='Thalento/Audios/TVD-P-0011/index.html'>TVD-P-0011</option>
+        <option value='Thalento/Audios/TVD-P-0012/index.html'>TVD-P-0012</option>
+        <option value='Thalento/Audios/TVD-P-0013/index.html'>TVD-P-0013</option>
+        <option value='Thalento/Audios/TVD-P-0014/index.html'>TVD-P-0014</option>
+        <option value='Thalento/Audios/TVD-P-0015/index.html'>TVD-P-0015</option>
+        <option value='Thalento/Audios/TVD-P-0016/index.html'>TVD-P-0016</option>
+        <option value='Thalento/Audios/TVD-P-0017/index.html'>TVD-P-0017</option>
+        <option value='Thalento/Audios/TVD-P-0019/index.html'>TVD-P-0019</option>
     </select>
      <div id="contenido">
-        <!-- Aquí se cargará el contenido del archivo HTML seleccionado -->
     </div>
      <!-- 
     <h2>Selecciona un audio:</h2>
