@@ -191,6 +191,31 @@
                 mostrarSeleccion.textContent = "Speaker seleccionado: " + seleccion;
             }
         }
+         // Función para cargar el contenido de audios.json
+        function cargarAudiosJSON() {
+            var speakerSelect = document.getElementById("speakerSelect");
+            var seleccion = speakerSelect.value;
+
+            if (seleccion === "") {
+                // Si no se ha seleccionado ningún speaker, limpiamos el contenido del div
+                var contenidoDiv = document.getElementById("contenidoAudiosJSON");
+                contenidoDiv.innerHTML = "";
+            } else {
+                var url = "Thalento/Audios/" + seleccion + "/audios.json";
+
+                // Realizar la solicitud fetch para leer el contenido de audios.json
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Mostrar el contenido del archivo audios.json en el div
+                        var contenidoDiv = document.getElementById("contenidoAudiosJSON");
+                        contenidoDiv.innerHTML = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            }
+        }
     </script>
 </body>
 </html>
