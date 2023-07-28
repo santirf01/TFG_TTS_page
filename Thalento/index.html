@@ -17,9 +17,7 @@
 </html>
 
 <html>
-<head>
-    <title>Elige una persona</title>
-</head>
+
 <body>
     <h2>Selecciona un speaker:</h2>
     <select id="speakerSelect" onchange="mostrarSeleccion()">
@@ -143,7 +141,7 @@
     </script>
 </body>
 </html>
-
+<html>
     <body>
        
     <h2>Encuesta</h2>
@@ -191,7 +189,7 @@
 
     <script>
         function enviarRespuesta(pregunta, respuesta) {
-            fetch("guardar_respuesta.php", {
+            fetch("http://dihana.cps.unizar.es/encuestatts/guardar_encuesta.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -212,26 +210,5 @@
         }
     </script>
 
-<!--
-        <script>
-        // Cargar el contenido del archivo JSON
-        fetch('datos.json')
-            .then(response => response.json())
-            .then(data => {
-                var opcionesSelect = document.getElementById("opcionesSelect");
-
-                // Iterar a través de las opciones del JSON y crear las opciones en el desplegable
-                data.opciones.forEach(function(opcion) {
-                    var option = document.createElement("option");
-                    option.value = opcion;
-                    option.textContent = opcion;
-                    opcionesSelect.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-    </script>
-          -->
 </body>
 </html>
