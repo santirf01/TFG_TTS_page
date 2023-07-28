@@ -12,8 +12,8 @@
     <br>
     <h2>Selecciona a una persona:</h2>
     <select id="speakerSelect" onchange="loadContent(this.value)">
-        <option value="">Selecciona un speaker</option>
-        <option value='Thalento/Audios/TVD-D-0001/index.html'>TVD-D-0001</option>
+        <option value='Thalento/Audios/index.html'>>Return</option>
+        <option value=''>TVD-D-0001</option>
         <<option value='Thalento/Audios/TVD-D-0002/index.html'>TVD-D-0002</option>
         <option value='Thalento/Audios/TVD-D-0003/index.html'>TVD-D-0003</option>
         <option value='Thalento/Audios/TVD-D-0005/index.html'>TVD-D-0005</option>
@@ -56,7 +56,45 @@
         }
     </style>
 </head>
-  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabla 25x4 con números y audio</title>
+</head>
+<body>
+
+  <table>
+    <tr>
+      <th>TVD-D-0001_</th>
+      <th>Audio</th>
+      <th>TVD-D-0001_</th>
+      <th>Audio</th>
+      <th>TVD-D-0001_</th>
+      <th>Audio</th>
+      <th>TVD-D-0001_</th>
+      <th>Audio</th>
+    </tr>
+ 
+    <script>
+      let num = 1;
+      while (num <= 100) {
+        document.write('<tr>');
+        for (let i = 0; i < 4; i++) {
+          document.write( ('000' + num).slice(-4) + '</td>');
+          document.write('<td><audio class="audio-button" style="width: 140" controls> <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_' + ('000' + num).slice(-4) + '.wav" type="audio/wav"> Tu navegador no soporta la reproducción del audio TVD-D-0001-' + ('000' + num).slice(-4) + '.</td>');
+          num++;
+        }
+        document.write('</tr>');
+      }
+    </script>
+    <!-- Fin del bucle -->
+  </table>
+
+</body>
+</html>
+
+
+ <!--   
 <head>
     <title>Tabla de Audios</title>
 </head>
@@ -119,10 +157,11 @@
       </audio>
     </td>
   </tr>
-        <!-- Agrega más filas de audios aquí -->
-    </table>
-</body>
 
+    </table>
+  
+</body>
+-->
 
 
 
