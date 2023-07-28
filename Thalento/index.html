@@ -77,6 +77,7 @@
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
+                    v  .then(data => {
                     var contenidoDiv = document.getElementById("contenido");
                     contenidoDiv.innerHTML = data;
 
@@ -85,7 +86,7 @@
                     for (var i = 0; i < buttons.length; i++) {
                         buttons[i].classList.remove("active");
                     }
-                    var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
+                    var button = document.querySelector(`[value="${url}"]`);
                     button.classList.add("active");
                 })
                 .catch(error => {
