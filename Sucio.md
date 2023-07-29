@@ -74,3 +74,75 @@
     -->
 </body>
 </html>
+
+
+
+
+
+*****
+ <!--   
+<head>
+    <title>Tabla de Audios</title>
+</head>
+<body>
+    <h2>Tabla de Audios</h2>
+    <table>
+        <tr>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+            <th>Nombre Audio</th>
+            <th>Audio</th>
+        </tr>
+        <tr>
+            <td>TVD-D-0001-0001</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0001.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0001.</td>
+            <td>TVD-D-0001-0002</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0002.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0002.</td>
+            <td>TVD-D-0001-0003</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0003.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0003.</td>
+            <td>TVD-D-0001-0004</td>
+            <td><audio class="audio-button" style="width: 140" controls>  <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0004.wav" type="audio/wav">
+            Tu navegador no soporta la reproducción del audio TVD-D-0001-0004.</td>
+
+        </tr>
+          <tr>
+              <td>TVD-D-0001-0097</td>
+    <td>
+      <audio class="audio-button" style="width: 140" controls>
+        <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0097.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio TVD-D-0001-0097.
+      </audio>
+    </td>
+    <td>TVD-D-0001-0098</td>
+    <td>
+      <audio class="audio-button" style="width: 140" controls>
+        <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0098.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio TVD-D-0001-0098.
+      </audio>
+    </td>
+    <td>TVD-D-0001-0099</td>
+    <td>
+      <audio class="audio-button" style="width: 140" controls>
+        <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0099.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio TVD-D-0001-0099.
+      </audio>
+    </td>
+    <td>TVD-D-0001-0100</td>
+    <td>
+      <audio class="audio-button" style="width: 140" controls>
+        <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_0100.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio TVD-D-0001-0100.
+      </audio>
+    </td>
+  </tr>
+
+    </table>
+    </body>
+-->
