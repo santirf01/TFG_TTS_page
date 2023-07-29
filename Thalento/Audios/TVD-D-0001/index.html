@@ -56,44 +56,32 @@
         }
     </style>
 </head>
+loadContent('Thalento/Audios/TVD-D-0001/TVD-D-0001_table.html')
 
 
-<head>
-  <title>Audios TVD-D-0001</title>
-</head>
-<body>
 
-  <table>
-    <tr>
-      <th class="box">TVD-D-0001_</th>
-      <th class="box">Audio</th>
-      <th class="box">TVD-D-0001_</th>
-      <th class="box">Audio</th>
-      <th class="box">TVD-D-0001_</th>
-      <th class="box">Audio</th>
-      <th class="box">TVD-D-0001_</th>
-      <th class="box">Audio</th>
-    </tr>
- 
-    <script>
-      let num = 1;
-      while (num <= 100) {
-        document.write('<tr>');
-        for (let i = 0; i < 4; i++) {
-          document.write( '<td class="box">'+('000' + num).slice(-4) + '</td>');
-          document.write('<td class="box"><audio class="audio-button" style="width: 140" controls> <source src="Thalento/Audios/TVD-D-0001/TVD-D-0001_' + ('000' + num).slice(-4) + '.wav" type="audio/wav"> Tu navegador no soporta la reproducción del audio TVD-D-0001-' + ('000' + num).slice(-4) + '.</td>');
-          num++;
+
+<script>
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    var contenidoDiv = document.getElementById("contenido");
+                    contenidoDiv.innerHTML = data;
+
+                    // Cambiar el estilo del botón pulsado
+                    var buttons = document.getElementsByClassName("button");
+                    for (var i = 0; i < buttons.length; i++) {
+                        buttons[i].classList.remove("active");
+                    }
+                    var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
+                    button.classList.add("active");
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
         }
-        document.write('</tr>');
-      }
     </script>
-    <!-- Fin del bucle -->
-  </table>
-
-</body>
-
-
-
  <!--   
 <head>
     <title>Tabla de Audios</title>
