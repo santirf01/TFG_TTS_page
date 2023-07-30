@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Audios</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        audio {
+            width: 100%;
+        }
+
+       .button_circ {
+            background-color: #ccc; /* Color de fondo gris */
+            color: black;
+            border: none; /* Quitamos el borde */
+            width: 20px; /* Ancho del botón */
+            height: 20px; /* Altura del botón */
+            border-radius: 50%; /* Hacemos que sea un círculo */
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .button_circ.active {
+            background-color: #ffa726;
+            font-size: 8px;
+            transform: scale(1.1);
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h2>Registro de Audios</h2>
+    <table>
+        <tr>
+            <th rowspan="2">Audio Escuchado</th>
+            <th rowspan="2">Lo que Entendió</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+           <!-- <td></td> -->
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+        </tr>
+        <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+        </tr>
+        <!-- Puedes agregar más filas si necesitas más registros -->
+    </table>
+      <script>
+        function enviarRespuesta(pregunta, respuesta) {
+            fetch("guardar_respuesta.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pregunta: pregunta,
+                    respuesta: respuesta
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
