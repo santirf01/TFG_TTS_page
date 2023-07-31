@@ -93,14 +93,18 @@
     </table>
     <button onclick="enviarDatos()">Enviar Respuestas</button>
     <script>
-        function enviarRespuesta(pregunta, respuesta) {
-            // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
-            console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
-            // Resaltar el botón pulsado
-            var buttons = document.querySelectorAll(".button_circ");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-        }
+    function enviarRespuesta(pregunta, respuesta) {
+        // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+        console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        // Resaltar el botón pulsado
+        var buttons = document.querySelectorAll(".button_circ." + pregunta); // Usamos la clase del botón para identificar la pregunta
+        buttons.forEach(button => button.classList.remove("active"));
+        buttons[respuesta].classList.add("active");
+    
+        // Asignar el valor de calidad a la fila correspondiente
+        var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
+        filaRespuesta.dataset.calidad = respuesta;
+    }
         function enviarDatos() {
             var filas = document.getElementsByTagName("tr");
             var datos = [];
