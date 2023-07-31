@@ -94,15 +94,15 @@
     <button onclick="enviarDatos()">Enviar Respuestas</button>
     
     <script>
-    function enviarRespuesta(pregunta, respuesta) {
-            // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
-        console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
-    
-        // Resaltar el botón pulsado en la fila de respuesta correspondiente
-        var buttons = document.querySelectorAll(".respuesta." + pregunta + " .button_circ");
-        buttons.forEach(button => button.classList.remove("active"));
-        buttons[respuesta].classList.add("active");
-}
+        function enviarRespuesta(pregunta, respuesta) {
+                // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+            console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+            // Resaltar el botón pulsado en la fila de respuesta correspondiente
+            var buttons = document.querySelectorAll(".respuesta." + pregunta + " .button_circ");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+        }
 
         function enviarDatos() {
             var filas = document.getElementsByTagName("tr");
