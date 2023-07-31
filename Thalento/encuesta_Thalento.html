@@ -17,6 +17,9 @@
         th {
             background-color: #f2f2f2;
         }
+        td.seleccionado {
+            background-color: #e0e0e0; /* Gris claro */
+        }
         audio {
             width: 100%;
         }
@@ -47,7 +50,6 @@
             color: black;
             outline: none;
         }
-    </style>
     </style>
 </head>
 <body>
@@ -146,12 +148,14 @@
                 console.error("Error:", error);
             });
         }
+        
         function limpiarTexto(elemento) {
             if (elemento.innerText === "Escribe aquí") {
                 elemento.innerText = "";
                 elemento.classList.remove("editable");
             }
         }
+        
     </script>
 </body>
 </html>
