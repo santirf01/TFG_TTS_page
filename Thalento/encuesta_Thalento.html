@@ -95,27 +95,29 @@
     
     <script>
         function enviarRespuesta(pregunta, respuesta) {
-                // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
-            console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
         
-            // Resaltar el botón pulsado en la fila de respuesta correspondiente
-    
-            if (pregunta === 'pregunta1') {
-                var buttons = document.querySelectorAll(".button_circ.pregunta1");
-                buttons.forEach(button => button.classList.remove("active"));
-                buttons[respuesta].classList.add("active");
-            }
-            // Resaltar el botón pulsado para la pregunta 2
-            else if (pregunta === 'pregunta2') {
-                var buttons = document.querySelectorAll(".button_circ.pregunta2");
-                buttons.forEach(button => button.classList.remove("active"));
-                buttons[respuesta].classList.add("active");
-            }
-    
-            // Asignar el valor de calidad a la fila correspondiente
-            var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
+        
+          // Asignar el valor de calidad a la fila correspondiente
+          var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
+          if (filaRespuesta) { // Verifica si el elemento existe
             filaRespuesta.dataset.calidad = respuesta;
+          } else {
+            console.error("El elemento con el ID 'respuesta1' o 'respuesta2' no existe.");
+          }
         }
+
 
         function enviarDatos() {
             var filas = document.getElementsByTagName("tr");
