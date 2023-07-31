@@ -125,10 +125,11 @@
                     calidad: valorCalidad
                 };
                 datos.push(dato);
+                console.log(dato);
             }
 
             // Enviar los datos utilizando fetch
-            fetch("guardar_datos.php", {
+            fetch("http://dihana.cps.unizar.es/encuestatts/guardar_datos.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -154,5 +155,3 @@
 </body>
 </html>
 
-</body>
-</html>
