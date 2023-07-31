@@ -37,6 +37,9 @@
             font-size: 8px;
             transform: scale(1.1);
         }
+        td[contenteditable="true"] {
+            background-color: #f2f2f2;
+        }
     </style>
     </style>
 </head>
@@ -44,9 +47,9 @@
     <h2>Registro de Audios</h2>
     <table>
         <tr>
-            <th rowspan="2">Audio Escuchado</th>
-            <th rowspan="2">Lo que Entendió</th>
-            <th colspan="6">Respuesta</th>
+            <th rowspan="2">Escriba que audio ha escuchado</th>
+            <th rowspan="2"> Escriba lo que dice el Audio </th>
+            <th colspan="6"> Valore la calidad del Audio </th>
         </tr>
         <tr>
            <!-- <td></td> -->
@@ -79,17 +82,48 @@
         </tr>
         <!-- Puedes agregar más filas si necesitas más registros -->
     </table>
-      <script>
+    <button onclick="enviarDatos()">Enviar Respuestas</button>
+    <script>
         function enviarRespuesta(pregunta, respuesta) {
-            fetch("guardar_respuesta.php", {
+            // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+            console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        }
+
+        function enviarDatos() {
+            var filas = document.getElementsByTagName("tr");
+            var datos = [];
+
+            for (var i = 2; i < filas.length; i++) {
+                var celdas = filas[i].getElementsByTagName("td");
+                var audioEscuchado = celdas[0].innerText;
+                var textoEscuchado = celdas[1].innerText;
+
+                // Lógica para obtener los valores de los botones pulsados
+                var botones = celdas[2].getElementsByTagName("button");
+                var valorCalidad = -1;
+                for (var j = 0; j < botones.length; j++) {
+                    if (botones[j].classList.contains("active")) {
+                        valorCalidad = j;
+                        break;
+                    }
+                }
+
+                // Guardar los datos en un objeto
+                var dato = {
+                    audio: audioEscuchado,
+                    texto: textoEscuchado,
+                    calidad: valorCalidad
+                };
+                datos.push(dato);
+            }
+
+            // Enviar los datos utilizando fetch
+            fetch("guardar_datos.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    pregunta: pregunta,
-                    respuesta: respuesta
-                })
+                body: JSON.stringify(datos)
             })
             .then(response => response.json())
             .then(data => {
@@ -101,5 +135,8 @@
             });
         }
     </script>
+</body>
+</html>
+
 </body>
 </html>
