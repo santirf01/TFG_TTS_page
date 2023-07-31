@@ -136,12 +136,15 @@
                 console.log(textoEscuchado)
 
                 // Lógica para obtener los valores de los botones pulsados
-                var botones = celdas.getElementsByTagName("button");
-                console.log(botones)
+                console.log(celdas[2])
+               
+               
                 var valorCalidad = -1;
-                console.log(botones.length)
-                for (var j = 0; j < botones.length; j++) {
-                    if (botones[j].classList.contains("active")) {
+                for (var j = 2; j < celdas.length; j++) {
+                     var botones = celdas[j].getElementsByTagName("button");
+                     console.log(botones)
+                     console.log(botones.length)
+                    if (botones[1].classList.contains("active")) {
                         valorCalidad = j;
                         break;
                     }
