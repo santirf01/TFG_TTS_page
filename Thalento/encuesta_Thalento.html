@@ -126,8 +126,11 @@
 
             for (var i = 2; i < filas.length; i++) {
                 var celdas = filas[i].getElementsByTagName("td");
+                console.log(celdas)
                 var audioEscuchado = celdas[0].innerText;
+                console.log(audioEscuchado)
                 var textoEscuchado = celdas[1].innerText;
+                console.log(textoEscuchado)
 
                 // Lógica para obtener los valores de los botones pulsados
                 var botones = celdas[2].getElementsByTagName("button");
