@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <head>
-    <title>Registro de Audios</title>
+    <title>Encuesta Calidad Audios</title>
     <style>
         table {
             border-collapse: collapse;
@@ -56,7 +56,16 @@
     </style>
 </head>
 <body>
-    <h2>Registro de Audios</h2>
+    <h2>Encuesta Calidad Audios</h2>
+  <br>
+  <p>A continuación tendrás 100 audios de la persona que has elegido ecuchar. Por favor escucha dos audios al azar, si has realizado varias personas no escuches el mismo número que ya has escuchado, y en la tabla que tienes justo debajo sigue los siguientes pasos:</p>
+  <ol>
+  <li>1º. En la primera columna pon el audio que has escuchado. El nombre de este audio será el nombre que aparece a la derecha del audio, por ejemplo TVD-D-0001-0001. <em> Por favor tenga mucho cuidado cuando introduzca este nombre y pon tambien las barras "-" que hay de separación en el nombre.</em></li>
+  <li>2º. En la segunda columna escriba lo que entiende del audio que ha escuchado. Si entiendes solo unas pocas palabras de lo que dice el audio, escribe solo esas palabras aunque la oración no tenga sentido. Si no entiendes nada de lo que dice rellena con varias 'xxxxxxx'. En este columna no hace falta que ponga tildes, ni comas, ni puntos. Le pedimos que tenga cuidado con el resto de faltas de ortografías que afectarán a los resultados. </li>
+  <li>3º. En las últimas columnas se le pide que evalúe la calidad del audio de la persona y la similitud con la voz original.</li>
+  <li>4º. Por último, presionar el botón de 'Enviar Respuestas' y se almacenarán las respuestas en nuestra bases.</li>
+</ol>
+  <p>Puedes repetir este proceso todas las veces que quieras con nuevas frases y cuántas más valoraciones realices más nos ayudarás en nuestro trabajo. <strong>¡Muchas Gracias por su Colaboración!</strong></p>
     <table>
         <tr>
             <th rowspan="2">Escriba que audio ha escuchado</th>
@@ -186,24 +195,3 @@
 </body>
 </html>
 
-<!--
-        // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
-        console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
-        // Resaltar el botón pulsado
-        var buttons = document.querySelectorAll(".button_circ." + pregunta); // Usamos la clase del botón para identificar la pregunta
-        buttons.forEach(button => button.classList.remove("active"));
-        buttons[respuesta].classList.add("active");
-    
-        // Asignar el valor de calidad a la fila correspondiente
-        var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
-        filaRespuesta.dataset.calidad = respuesta;
-
-         // Asignar el valor de calidad a la fila correspondiente
-          var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
-            console.log(filaRespuesta)
-          if (filaRespuesta) { // Verifica si el elemento existe
-            filaRespuesta.dataset.calidad = respuesta;
-          } else {
-            console.error("El elemento con el ID 'respuesta1' o 'respuesta2' no existe.");
-          }
--->
