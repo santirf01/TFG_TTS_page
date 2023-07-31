@@ -121,9 +121,12 @@
 
 
         function enviarDatos() {
+            
             var filas = document.getElementsByTagName("tr");
+            console.log(filas)
             var datos = [];
-
+            console.log(filas.length)
+            // Miramos a ver cuantas filas hay para guardar los datos
             for (var i = 2; i < filas.length; i++) {
                 var celdas = filas[i].getElementsByTagName("td");
                 console.log(celdas)
@@ -133,7 +136,7 @@
                 console.log(textoEscuchado)
 
                 // Lógica para obtener los valores de los botones pulsados
-                var botones = celdas[2].getElementsByTagName("button");
+                var botones = celdas.getElementsByTagName("button");
                 console.log(botones)
                 var valorCalidad = -1;
                 console.log(botones.length)
