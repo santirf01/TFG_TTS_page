@@ -111,6 +111,7 @@
         
           // Asignar el valor de calidad a la fila correspondiente
           var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
+            console.log(filaRespuesta)
           if (filaRespuesta) { // Verifica si el elemento existe
             filaRespuesta.dataset.calidad = respuesta;
           } else {
@@ -130,7 +131,9 @@
 
                 // Lógica para obtener los valores de los botones pulsados
                 var botones = celdas[2].getElementsByTagName("button");
+                console.log(botones)
                 var valorCalidad = -1;
+                console.log(botones.length)
                 for (var j = 0; j < botones.length; j++) {
                     if (botones[j].classList.contains("active")) {
                         valorCalidad = j;
