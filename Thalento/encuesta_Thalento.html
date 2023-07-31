@@ -144,11 +144,15 @@
                      var botones = celdas[j].getElementsByTagName("button");
                      console.log(botones)
                      console.log(botones.length)
-                    if (botones[1].classList.contains("active")) {
-                        valorCalidad = j;
-                        break;
+                    for (let k = 0; k < botones.length; k++) {
+                          if (botones[k].classList.contains("active")) {
+                                valorCalidad = k;
+                                break;
+                          }
                     }
-                }
+                    if (valorCalidad !== -1) {
+                      break;
+                    }
 
                 // Guardar los datos en un objeto
                 var dato = {
