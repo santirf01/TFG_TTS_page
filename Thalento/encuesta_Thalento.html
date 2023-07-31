@@ -99,9 +99,22 @@
             console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
         
             // Resaltar el botón pulsado en la fila de respuesta correspondiente
-            var buttons = document.querySelectorAll(".respuesta." + pregunta + " .button_circ");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
+    
+            if (pregunta === 'pregunta1') {
+                var buttons = document.querySelectorAll(".button_circ.pregunta1");
+                buttons.forEach(button => button.classList.remove("active"));
+                buttons[respuesta].classList.add("active");
+            }
+            // Resaltar el botón pulsado para la pregunta 2
+            else if (pregunta === 'pregunta2') {
+                var buttons = document.querySelectorAll(".button_circ.pregunta2");
+                buttons.forEach(button => button.classList.remove("active"));
+                buttons[respuesta].classList.add("active");
+            }
+    
+            // Asignar el valor de calidad a la fila correspondiente
+            var filaRespuesta = document.getElementById("respuesta" + (pregunta === 'pregunta1' ? '1' : '2'));
+            filaRespuesta.dataset.calidad = respuesta;
         }
 
         function enviarDatos() {
