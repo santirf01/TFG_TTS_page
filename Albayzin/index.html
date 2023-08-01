@@ -55,6 +55,23 @@
             font-size: 8px;
             transform: scale(1.1);
         }
+        .box {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .table-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .audio-small {
+      width: 140px;
+    }
+    .audio-big{
+      width: 600px;
+    }
     </style>
 </head>
 <body>
@@ -100,6 +117,30 @@
         </tr>
         <!-- Agrega más filas de preguntas aquí -->
     </table>
+    <table>
+         <tr>
+            <th rowspan="2">Audio</th>
+            <th rowspan="2">¿Cuál es el original?<th>
+            <th rowspan="2">Pregunta</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+           <!-- <td></td> -->
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <td>
+                <audio class="audio-button audio-small" controls>
+                    <source src="Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav" autoplay="">
+                    Tu navegador no soporta el elemento de audio.
+                </audio></td>
+        <td rowspan="2">
+            
+        <\td>
 
     <script>
         function enviarRespuesta(pregunta, respuesta) {
