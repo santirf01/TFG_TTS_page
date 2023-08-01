@@ -91,9 +91,22 @@
 <body>
     <!-- Título h2 subrayado -->
     <h2>Albayzin</h2>
+    <h2>Selecciona a una persona:</h2>
+    <select id="speakerSelect" onchange="loadContent(this.value)">
+        <option value="">Selecciona un speaker</option>
+        <option value='Albayzin/Audios/Tabla_Audios_aa.html'>aa</option>
+        <<option value='Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
+        <option value='Albayzin/Audios/Tabla_Audios_ma.html'>ma</option>
+        <option value='Albayzin/Audios/Tabla_Audios_mb.html'>mb</option>
+        <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
+    </select>
+     <div id="contenido">
+    </div>
 </body>
 
 
+    
+<!--
 <head>
     <title>Encuesta de calidad</title>
 </head>
@@ -106,7 +119,7 @@
             <th colspan="6">Respuesta</th>
         </tr>
         <tr>
-           <!-- <td></td> -->
+
             <th> 0 </th>
             <th> 1 </th>
             <th> 2 </th>
@@ -138,61 +151,11 @@
             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 4)"></button>  </td>
             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 5)"></button>  </td>
         </tr>
-        <!-- Agrega más filas de preguntas aquí -->
     </table>
     
-    <table>
-         <tr>
-             <th rowspan="2">Nombre del Audio</th>
-            <th rowspan="2">Audio</th>
-            <th rowspan="2">¿Cuál es el original?</th>
-            <th rowspan="2">Pregunta</th>
-            <th colspan="6">Respuesta</th>
-        </tr>
-        <tr>
-            <th> 0 </th>
-            <th> 1 </th>
-            <th> 2 </th>
-            <th> 3 </th>
-            <th> 4 </th>
-            <th> 5 </th>
-        </tr>
-        <tr>
-        <td rowspan="2"> <strong>aafa0001</strong> </td>
-        <td>
-                <audio class="audio-button audio-small" controls>
-                    <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav">
-                    Tu navegador no soporta el elemento de audio.
-                </audio></td>
-        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
-       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td> -->
-        <td>¿La voz es similar en ambos audios? Similitud</td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
-            </tr>
-    <tr>
-        <td>
-                <audio class="audio-button audio-small" controls>
-                    <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav">
-                    Tu navegador no soporta el elemento de audio.
-                </audio></td>
-        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
-            <!--<button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button>--> 
-        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 0)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 1)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 2)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 3)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 4)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
-            </tr>
-    </table>
+-->    
     <script>
-         function enviarRespuesta(pregunta, respuesta) {
+     function enviarRespuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
           console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
         
@@ -205,14 +168,28 @@
             var buttons = document.querySelectorAll(".button_circ.pregunta2");
             buttons.forEach(button => button.classList.remove("active"));
             buttons[respuesta].classList.add("active");
-          }
+      }
         }
-         function activarBoton() {
-          // Obtener el botón por su clase
-              var boton = document.querySelector(".boton-rectangular");
+     function activarBoton() {
+      // Obtener el botón por su clase
+          var boton = document.querySelector(".boton-rectangular");
 
-              // Alternar el estado del botón (activado/desactivado)
-              boton.checked = !boton.checked;
+          // Alternar el estado del botón (activado/desactivado)
+          boton.checked = !boton.checked;
+    }
+    function loadContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                var contenidoDiv = document.getElementById("contenido");
+                contenidoDiv.innerHTML = data;
+                contenidoDiv.classList.add("contenido-cargado"); // Agregamos la clase al div de contenido
+
+            
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
     }
     </script>
 </body>
