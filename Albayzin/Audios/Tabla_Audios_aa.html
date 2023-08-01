@@ -238,14 +238,38 @@
           }
     
           // Obtener las respuestas a las preguntas
-          var respuestaPregunta1 = document.querySelector(".button_circ.pregunta1.active");
-          var respuestaPregunta2 = document.querySelector(".button_circ.pregunta2.active");
-          if (respuestaPregunta1) {
-            respuesta.respuestaPregunta1 = respuestaPregunta1.innerText;
-          }
-          if (respuestaPregunta2) {
-            respuesta.respuestaPregunta2 = respuestaPregunta2.innerText;
-          }
+          var respuestaSimilitud = document.querySelector(".button_circ.pregunta1.active");
+          var respuestaCalidad = document.querySelector(".button_circ.pregunta2.active");
+
+        var tabla = document.getElementById("tablaAudios");
+        var filas = tabla.getElementsByTagName("tr");
+        var datos = [];
+
+        for (var i = 2; i < filas.length; i++) {
+              var celdas = filas[i].getElementsByTagName("td");
+
+              var audioSeleccionado = celdas[0].getElementsByTagName("select")[0].value;
+              var boton1 = celdas[2].getElementsByTagName("input")[0];
+              var boton2 = celdas[3].getElementsByTagName("input")[0];
+              var calidadSeleccionada = -1;
+
+              for (var j = 4; j < celdas.length; j++) {
+                    var botones = celdas[j].getElementsByTagName("button");
+                    for (var k = 0; k < botones.length; k++) {
+                          if (botones[k].classList.contains("active")) {
+                                calidadSeleccionada = j-4;
+                            break;
+                          }
+                    }
+                    if (calidadSeleccionada !== -1) {
+                          break;
+                    }
+              if (i==2) {
+                respuesta.respuestaSimilitud = calidadSeleccionada;
+              }
+              if (i==3) {
+                respuesta.respuestaCalidad = calidadSeleccionada;
+              }
     
           // Convertir el objeto respuesta a formato JSON
           var respuestaJSON = JSON.stringify(respuesta);
