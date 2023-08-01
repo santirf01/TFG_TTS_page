@@ -254,9 +254,11 @@
 
               for (var j = 4; j < celdas.length; j++) {
                     var botones = celdas[j].getElementsByTagName("button");
+                  console.log(botones)
                     for (var k = 0; k < botones.length; k++) {
                           if (botones[k].classList.contains("active")) {
                                 calidad = j-4;
+                                console.log(calidad)
                             break;
                           }
                     }
