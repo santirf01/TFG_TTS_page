@@ -87,6 +87,99 @@
     }
     </style>
 </head>
+
+<body>
+    <!-- Título h2 subrayado -->
+    <h2>Albayzin</h2>
+    <h2>Selecciona a una persona:</h2>
+    <select id="speakerSelect" onchange="loadContent(this.value)">
+        <option value=''>aa</option>
+        <<option value='Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
+        <option value='Albayzin/Audios/Tabla_Audios_ma.html'>ma</option>
+        <option value='Albayzin/Audios/Tabla_Audios_mb.html'>mb</option>
+        <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
+        <option value='Albayzin/index.html'>Return</option>
+    </select>
+
+<table id="tablaAlbayzin">
+         <tr>
+             <th rowspan="2">Nombre del Audio</th>
+            <th rowspan="2">Audio</th>
+            <th rowspan="2">¿Cuál es el original?</th>
+            <th rowspan="2">Pregunta</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <tr>
+        <td rowspan="2"> 
+        <select id="audioSelect" onchange="loadAudios(this.value)">
+        <option value="">Selecciona un audio</option>
+        <option value='aafa0001'>aafa0001</option>
+        <option value='aafa0002'>aafa0002</option>
+        <option value='aafa0003'>aafa0003</option>
+        <option value='aafa0004'>aafa0004</option>
+        <option value='aafa0005'>aafa0005</option>
+        <option value='aafa0006'>aafa0006</option>
+        <option value='aafa0007'>aafa0007</option>
+        <option value='aafa0008'>aafa0008</option>
+        <option value='aafa0009'>aafa0009</option>
+        <option value='aafa0010'>aafa0010</option>
+        <option value='aafa0011'>aafa0011</option>
+        <option value='aafa0012'>aafa0012</option>
+        <option value='aafa0013'>aafa0013</option>
+        <option value='aafa0014'>aafa0014</option>
+        <option value='aafa0015'>aafa0015</option>
+        <option value='aafa0016'>aafa0016</option>
+        <option value='aafa0017'>aafa0017</option>
+        <option value='aafa0018'>aafa0018</option>
+        <option value='aafa0019'>aafa0019</option>
+        <option value='aafa0020'>aafa0020</option>
+    </select>
+     <div id="contenido">
+    </div>
+        
+        </td>
+        <td>
+                <audio class="audio-button audio-small" controls id="audioPlayerOriginales">
+                    <!--<source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav">-->
+                    Tu navegador no soporta el elemento de audio.
+                </audio></td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td>
+                <audio class="audio-button audio-small" controls id="audioPlayerSintetizados">
+                   <!-- <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav"> -->
+                    Tu navegador no soporta el elemento de audio.
+                </audio></td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
+            </tr>
+    </table>
+    <button onclick="guardarRespuesta()">Enviar Respuesta</button>
+</body>
 <script>
     function enviarRespuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
@@ -215,96 +308,4 @@
             });
     }
 </script>
-<body>
-    <!-- Título h2 subrayado -->
-    <h2>Albayzin</h2>
-    <h2>Selecciona a una persona:</h2>
-    <select id="speakerSelect" onchange="loadContent(this.value)">
-        <option value=''>aa</option>
-        <<option value='Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
-        <option value='Albayzin/Audios/Tabla_Audios_ma.html'>ma</option>
-        <option value='Albayzin/Audios/Tabla_Audios_mb.html'>mb</option>
-        <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
-        <option value='Albayzin/index.html'>Return</option>
-    </select>
-
-<table id="tablaAlbayzin">
-         <tr>
-             <th rowspan="2">Nombre del Audio</th>
-            <th rowspan="2">Audio</th>
-            <th rowspan="2">¿Cuál es el original?</th>
-            <th rowspan="2">Pregunta</th>
-            <th colspan="6">Respuesta</th>
-        </tr>
-        <tr>
-            <th> 0 </th>
-            <th> 1 </th>
-            <th> 2 </th>
-            <th> 3 </th>
-            <th> 4 </th>
-            <th> 5 </th>
-        </tr>
-        <tr>
-        <td rowspan="2"> 
-        <select id="audioSelect" onchange="loadAudios(this.value)">
-        <option value="">Selecciona un audio</option>
-        <option value='aafa0001'>aafa0001</option>
-        <option value='aafa0002'>aafa0002</option>
-        <option value='aafa0003'>aafa0003</option>
-        <option value='aafa0004'>aafa0004</option>
-        <option value='aafa0005'>aafa0005</option>
-        <option value='aafa0006'>aafa0006</option>
-        <option value='aafa0007'>aafa0007</option>
-        <option value='aafa0008'>aafa0008</option>
-        <option value='aafa0009'>aafa0009</option>
-        <option value='aafa0010'>aafa0010</option>
-        <option value='aafa0011'>aafa0011</option>
-        <option value='aafa0012'>aafa0012</option>
-        <option value='aafa0013'>aafa0013</option>
-        <option value='aafa0014'>aafa0014</option>
-        <option value='aafa0015'>aafa0015</option>
-        <option value='aafa0016'>aafa0016</option>
-        <option value='aafa0017'>aafa0017</option>
-        <option value='aafa0018'>aafa0018</option>
-        <option value='aafa0019'>aafa0019</option>
-        <option value='aafa0020'>aafa0020</option>
-    </select>
-     <div id="contenido">
-    </div>
-        
-        </td>
-        <td>
-                <audio class="audio-button audio-small" controls id="audioPlayerOriginales">
-                    <!--<source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav">-->
-                    Tu navegador no soporta el elemento de audio.
-                </audio></td>
-        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
-       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td> -->
-        <td>¿La voz es similar en ambos audios? Similitud</td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
-            </tr>
-    <tr>
-        <td>
-                <audio class="audio-button audio-small" controls id="audioPlayerSintetizados">
-                   <!-- <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav"> -->
-                    Tu navegador no soporta el elemento de audio.
-                </audio></td>
-        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
-            <!--<button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button>--> 
-        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 0)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 1)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 2)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 3)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 4)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
-            </tr>
-    </table>
-    <button onclick="guardarRespuesta()">Enviar Respuesta</button>
-</body>
 </html>
