@@ -166,6 +166,8 @@
             <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
             </tr>
     </table>
+    <button onclick="guardarRespuesta()">Enviar Respuesta</button>
+
     <script>
          function enviarRespuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
@@ -215,6 +217,40 @@
       audioPlayerSintetizados.src = audioSrcSintetizados;
       audioPlayerSintetizados.load();
       audioPlayerSintetizados.play();
+    }
+    function guardarRespuesta() {
+          var respuesta = {};
+    
+          // Obtener el valor seleccionado del select
+          var select = document.getElementById("speakerSelect");
+          var audioSeleccionado = select.value;
+    
+          // Verificar si se ha seleccionado una opción en el select
+          if (audioSeleccionado) {
+            respuesta.audioSeleccionado = audioSeleccionado;
+          }
+    
+          // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
+          var boton1 = document.getElementById("boton1");
+          var boton2 = document.getElementById("boton2");
+          if (boton1.checked) {
+            respuesta.correcto = true;} else if (boton2.checked) {
+            respuesta.correcto = false;
+          }
+    
+          // Obtener las respuestas a las preguntas
+          var respuestaPregunta1 = document.querySelector(".button_circ.pregunta1.active");
+          var respuestaPregunta2 = document.querySelector(".button_circ.pregunta2.active");
+          if (respuestaPregunta1) {
+            respuesta.respuestaPregunta1 = respuestaPregunta1.innerText;
+          }
+          if (respuestaPregunta2) {
+            respuesta.respuestaPregunta2 = respuestaPregunta2.innerText;
+          }
+    
+          // Convertir el objeto respuesta a formato JSON
+          var respuestaJSON = JSON.stringify(respuesta);
+          console.log(respuestaJSON);
     }
     </script>
 </body>
