@@ -92,12 +92,13 @@
     <h2>Albayzin</h2>
     <h2>Selecciona a una persona:</h2>
     <select id="speakerSelect" onchange="loadContent(this.value)">
-        <option value='Albayzin/index.html'>Return </option>
+        <option value=''>ma</option>
+        
         <option value='Albayzin/Audios/Tabla_Audios_aa.html'>aa</option>
         <<option value='Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
-        <option value=''>ma</option>
         <option value='Albayzin/Audios/Tabla_Audios_mb.html'>mb</option>
         <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
+        <option value='Albayzin/index.html'>Return </option>
     </select>
      <div id="contenido">
     </div>
@@ -121,7 +122,7 @@
         </tr>
         <tr>
         <td rowspan="2"> 
-          <select id="speakerSelect" onchange="loadContent(this.value)">
+          <select id="speakerSelect" onchange="loadAudio(this.value)">
         <option value="">Selecciona un audio</option>
         <option value='mafa0001'>mafa0001</option>
         <option value='mafa0002'>mafa0002</option>
@@ -206,7 +207,7 @@
               // Alternar el estado del botón (activado/desactivado)
               boton.checked = !boton.checked;
     }
-    function loadContent(value) {
+    function loadAudio(value) {
       var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
       var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
 
