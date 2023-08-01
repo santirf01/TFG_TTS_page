@@ -50,12 +50,12 @@
             transition: background-color 0.2s, transform 0.2s;
         }
 
-        .button_circ.active {
+    .button_circ.active {
             background-color: #ffa726;
             font-size: 8px;
             transform: scale(1.1);
         }
-        .box {
+    .box {
       border: 1px solid black;
       padding: 5px;
       text-align: center;
@@ -71,6 +71,30 @@
     }
     .audio-big{
       width: 600px;
+    }
+    .boton-rectangular {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Estilos para el tick (inicialmente oculto) */
+    .tick {
+      display: none;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      font-size: 20px;
+      color: green;
+    }
+
+    /* Estilos para el botón con el tick activado */
+    .boton-rectangular:checked + .tick {
+      display: block;
     }
     </style>
 </head>
@@ -133,15 +157,41 @@
             <th> 4 </th>
             <th> 5 </th>
         </tr>
+        <tr>
         <td>
                 <audio class="audio-button audio-small" controls>
                     <source src="Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav" autoplay="">
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
-        <td rowspan="2">
-            
+        <td>
+            <button class="boton-rectangular"> </button>
         <\td>
-
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td>
+                <audio class="audio-button audio-small" controls>
+                    <source src="Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav" autoplay="">
+                    Tu navegador no soporta el elemento de audio.
+                </audio></td>
+        <td>
+            <button class="boton-rectangular"> </button>
+        <\td>
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            </tr>
+    <\table>
     <script>
         function enviarRespuesta(pregunta, respuesta) {
             fetch("guardar_respuesta.php", {
