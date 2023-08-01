@@ -118,7 +118,7 @@
         </tr>
         <tr>
         <td rowspan="2"> 
-          <select id="speakerSelect" onchange="loadAudio(this.value)">
+          <select id="speakerSelect" onchange="loadAudios(this.value)">
         <option value="">Selecciona un audio</option>
         <option value='aafa0001'>aafa0001</option>
         <option value='aafa0002'>aafa0002</option>
@@ -143,7 +143,6 @@
     </select>
      <div id="contenido">
     </div>
-        
         
         </td>
         <td>
@@ -181,7 +180,7 @@
     <button onclick="guardarRespuesta()">Enviar Respuesta</button>
 </body>
     <script>
-         function enviarRespuesta(pregunta, respuesta) {
+    function enviarRespuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
           console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
         
@@ -195,15 +194,16 @@
             buttons.forEach(button => button.classList.remove("active"));
             buttons[respuesta].classList.add("active");
           }
-        }
-         function activarBoton() {
+    }
+    function activarBoton() {
           // Obtener el botón por su clase
               var boton = document.querySelector(".boton-rectangular");
 
               // Alternar el estado del botón (activado/desactivado)
               boton.checked = !boton.checked;
     }
-    function loadAudio(value) {
+        
+    function loadAudios(value) {
       var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
       var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
 
