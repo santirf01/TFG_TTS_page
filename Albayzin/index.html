@@ -162,14 +162,14 @@
                     <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav">
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
-        <td> <button class="boton-rectangular"> </button> </td>
+        <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td>
         <td>¿La voz es similar en ambos audios? Similitud</td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
             </tr>
     <tr>
         <td>
@@ -177,37 +177,39 @@
                     <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav">
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
-        <td> <button class="boton-rectangular"> </button> </td>
+        <td> <button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button> </td>
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
-            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
             </tr>
     </table>
     <script>
-        function enviarRespuesta(pregunta, respuesta) {
-            fetch("guardar_respuesta.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    pregunta: pregunta,
-                    respuesta: respuesta
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+         function enviarRespuesta(pregunta, respuesta) {
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
         }
+         function activarBoton() {
+          // Obtener el botón por su clase
+              var boton = document.querySelector(".boton-rectangular");
+
+              // Alternar el estado del botón (activado/desactivado)
+              boton.checked = !boton.checked;
+    }
     </script>
 </body>
 </html>
