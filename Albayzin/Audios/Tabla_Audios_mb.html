@@ -99,6 +99,10 @@
         <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
         <option value='Albayzin/index.html'>Return </option>
     </select>
+    <div id="contenido">
+
+    </div>
+    <iframe id="iframeContent" src="" width="100%" height="400px" style="display: none;"></iframe>
 
 <table id="tablmalbayzin">
          <tr>
@@ -293,7 +297,15 @@
         // Hacer el fetch la base de datos y el PHP
     }
     function loadContent(url) {
-        fetch(url)
+        // Ocultamos el contenido anterior y mostramos el iframe
+        var contenidoDiv = document.getElementById("contenido");
+        contenidoDiv.style.display = "none";
+        var iframeContent = document.getElementById("iframeContent");
+        iframeContent.style.display = "block";
+
+        // Cargamos la URL en el iframe
+        iframeContent.src = url;
+        /* fetch(url)
             .then(response => response.text())
             .then(data => {
                 var contenidoDiv = document.getElementById("contenido");
@@ -304,7 +316,7 @@
             })
             .catch(error => {
                 console.error("Error:", error);
-            });
+            });*/
     }
     </script>
 </html>
