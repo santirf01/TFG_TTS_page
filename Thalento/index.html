@@ -86,7 +86,7 @@
                 });
         }
     </script>
-   
+   <!--
     <body>
     <br>
     <h2>Encuesta</h2>
@@ -97,7 +97,7 @@
             <th colspan="6">Respuesta</th>
         </tr>
         <tr>
-           <!-- <td></td> -->
+           <!-- <td></td> 
             <th> 0 </th>
             <th> 1 </th>
             <th> 2 </th>
@@ -129,31 +129,9 @@
             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 4)"></button>  </td>
             <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 5)"></button>  </td>
         </tr>
-        <!-- Agrega más filas de preguntas aquí -->
     </table>
 
-    <script>
-        function enviarRespuesta(pregunta, respuesta) {
-            fetch("http://dihana.cps.unizar.es/encuestatts/guardar_encuesta.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    pregunta: pregunta,
-                    respuesta: respuesta
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-        }
-    </script>
-
+ 
 </body>
+-->
 </html>
