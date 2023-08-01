@@ -264,13 +264,15 @@
                     if (calidadSeleccionada !== -1) {
                           break;
                     }
+              }
               if (i==2) {
                 respuesta.respuestaSimilitud = calidadSeleccionada;
               }
               if (i==3) {
                 respuesta.respuestaCalidad = calidadSeleccionada;
               }
-    
+             
+        }
           // Convertir el objeto respuesta a formato JSON
           var respuestaJSON = JSON.stringify(respuesta);
           console.log(respuestaJSON);
