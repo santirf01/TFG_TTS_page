@@ -87,6 +87,21 @@
     }
     </style>
 </head>
+<body>
+    <!-- Título h2 subrayado -->
+    <h2>Albayzin</h2>
+    <h2>Selecciona a una persona:</h2>
+    <select id="speakerSelect" onchange="loadContent(this.value)">
+        <option value='Albayzin/index.html'>Return </option>
+        <option value='Albayzin/Audios/Tabla_Audios_aa.html'>aa</option>
+        <<option value='Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
+        <option value=''>ma</option>
+        <option value='Albayzin/Audios/Tabla_Audios_mb.html'>mb</option>
+        <option value='Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
+    </select>
+     <div id="contenido">
+    </div>
+</body>
 
 <table id="tablmalbayzin">
          <tr>
@@ -279,6 +294,20 @@
           var respuestaJSON = JSON.stringify(respuesta);
           console.log(respuestaJSON);
         // Hacer el fetch la base de datos y el PHP
+    }
+    function loadContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                var contenidoDiv = document.getElementById("contenido");
+                contenidoDiv.innerHTML = data;
+                contenidoDiv.classList.add("contenido-cargado"); // Agregamos la clase al div de contenido
+
+            
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
     }
     </script>
 </body>
