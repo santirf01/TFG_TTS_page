@@ -118,7 +118,7 @@
         </tr>
         <tr>
         <td rowspan="2"> 
-          <select id="speakerSelect" onchange="loadAudios(this.value)">
+          <select id="audioSelect" onchange="loadAudios(this.value)">
         <option value="">Selecciona un audio</option>
         <option value='aafa0001'>aafa0001</option>
         <option value='aafa0002'>aafa0002</option>
@@ -233,7 +233,7 @@
           var respuesta = {};
     
           // Obtener el valor seleccionado del select
-          var select = document.getElementById("speakerSelect");
+          var select = document.getElementById("audioSelect");
           var audioSeleccionado = select.value;
     
           // Verificar si se ha seleccionado una opción en el select
