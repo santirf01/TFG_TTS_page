@@ -250,6 +250,7 @@
         }
           // Convertir el objeto respuesta a formato JSON
           var respuestaJSON = JSON.stringify(respuesta);
+	  respuestaJSON = respuestaJSON.trim();
           console.log(respuestaJSON);
         // Hacer el fetch la base de datos y el PHP
         fetch("http://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin.php", {
