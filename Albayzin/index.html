@@ -131,31 +131,31 @@
               boton.checked = !boton.checked;
     }
         
-    function loadAudiosAlbayzin(value) {
-      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
-      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+	function loadAudiosAlbayzin(value,speaker) {
+	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+	
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados.pause();
+	        audioPlayerSintetizados.src = "";
+	        return;
+      	     }
 
-      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
-      if (!value) {
-        audioPlayerOriginales.pause();
-        audioPlayerOriginales.src = "";
-        audioPlayerSintetizados.pause();
-        audioPlayerSintetizados.src = "";
-        return;
-      }
-
-      // Construir las URLs de los audios Originales y Sintetizados
-      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/" + value + ".wav";
-      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/" + value + ".wav";
-
-      // Cargar y reproducir el audio Originales
-      audioPlayerOriginales.src = audioSrcOriginales;
-      audioPlayerOriginales.load();
-
-
-      // Cargar y reproducir el audio Sintetizados
-      audioPlayerSintetizados.src = audioSrcSintetizados;
-      audioPlayerSintetizados.load();
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/" +speaker+ "/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/" +speaker+ "/" + value + ".wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginales.src = audioSrcOriginales;
+	      audioPlayerOriginales.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizados.src = audioSrcSintetizados;
+	      audioPlayerSintetizados.load();
     }
     function guardarRespuestaAlbayzin() {
           var respuesta = {};
