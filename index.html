@@ -154,7 +154,7 @@
                     console.error("Error:", error);
                 });
         }
-	function loadAudios(value) {
+	function loadAudiosAlbayzin(value,speaker) {
 	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
 	      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
 	
@@ -168,8 +168,8 @@
       	     }
 
 	      // Construir las URLs de los audios Originales y Sintetizados
-	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/" + value + ".wav";
-	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/" + value + ".wav";
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/" +speaker+ "/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/" +speaker+ "/" + value + ".wav";
 	
 	      // Cargar y reproducir el audio Originales
 	      audioPlayerOriginales.src = audioSrcOriginales;
@@ -180,44 +180,93 @@
 	      audioPlayerSintetizados.src = audioSrcSintetizados;
 	      audioPlayerSintetizados.load();
     }
-     /*
-     function loadContent(url) {
-        // Ocultamos el contenido anterior y mostramos el iframe
-        var contenidoDiv = document.getElementById("contenido");
-        contenidoDiv.style.display = "none";
-        var iframeContent = document.getElementById("iframeContent");
-        iframeContent.style.display = "block";
+    function guardarRespuestaAlbayzin() {
+          var respuesta = {};
+    
+          // Obtener el valor seleccionado del select
+          var select = document.getElementById("audioSelect");
+          var audioSeleccionado = select.value;
+    
+          // Verificar si se ha seleccionado una opción en el select
+          if (audioSeleccionado) {
+            respuesta.audioSeleccionado = audioSeleccionado;
+          }
+    
+          // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
+          var boton1 = document.getElementById("boton1");
+          var boton2 = document.getElementById("boton2");
+          if (boton1.checked) {
+            respuesta.correcto = true;} else if (boton2.checked) {
+            respuesta.correcto = false;
+          }
+    
+          // Obtener las respuestas a las preguntas
+          var respuestaSimilitud = document.querySelector(".button_circ.pregunta1.active");
+          var respuestaCalidad = document.querySelector(".button_circ.pregunta2.active");
 
-        // Cargamos la URL en el iframe
-        iframeContent.src = url;
-     }
-function loadAudios(value) {
-      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
-      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+        var tabla = document.getElementById("tablaAlbayzin");
+        var filas = tabla.getElementsByTagName("tr");
+        
+        for (var i = 2; i < filas.length; i++) {
+              var celdas = filas[i].getElementsByTagName("td");
 
-      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
-      if (!value) {
-        audioPlayerOriginales.pause();
-        audioPlayerOriginales.src = "";
-        audioPlayerSintetizados.pause();
-        audioPlayerSintetizados.src = "";
-        return;
-      }
+              // var audioSeleccionado = celdas[0].getElementsByTagName("select")[0].value;
+              // var boton1 = celdas[2].getElementsByTagName("input")[0];
+              // var boton2 = celdas[3].getElementsByTagName("input")[0];
+              var calidad = -1;
 
-      // Construir las URLs de los audios Originales y Sintetizados
-      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/" + value + ".wav";
-      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/" + value + ".wav";
-
-      // Cargar y reproducir el audio Originales
-      audioPlayerOriginales.src = audioSrcOriginales;
-      audioPlayerOriginales.load();
-
-
-      // Cargar y reproducir el audio Sintetizados
-      audioPlayerSintetizados.src = audioSrcSintetizados;
-      audioPlayerSintetizados.load();
+              for (var j = 4; j < celdas.length; j++) {
+                    var botones = celdas[j].getElementsByTagName("button");
+                  console.log(botones)
+                    for (var k = 0; k < botones.length; k++) {
+                          if (botones[k].classList.contains("active")) {
+                                calidad = j-4;
+                                console.log(calidad)
+                            break;
+                          }
+                    }
+                    if (calidad !== -1) {
+                          break;
+                    }
+              }
+              if (i==2) {
+                respuesta.respuestaSimilitud = calidad;
+              }
+              if (i==3) {
+                // Hay que tener en cuenta que la primera esta dos veces
+                respuesta.respuestaCalidad = calidad+1;
+              }
+             
+        }
+          // Convertir el objeto respuesta a formato JSON
+          var respuestaJSON = JSON.stringify(respuesta);
+          console.log(respuestaJSON);
+        // Hacer el fetch la base de datos y el PHP
     }
-    */
+    function enviarRespuestaAlbayzin(pregunta, respuesta) {
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
+    }
+    function activarBotonAlbayzin() {
+          // Obtener el botón por su clase
+              var boton = document.querySelector(".boton-rectangular");
+
+              // Alternar el estado del botón (activado/desactivado)
+              boton.checked = !boton.checked;
+    }
+
+     
 </script>
 </body>
 </html>
