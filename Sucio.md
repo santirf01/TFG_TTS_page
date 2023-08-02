@@ -146,3 +146,52 @@
     </table>
     </body>
 -->
+
+<!--
+<head>
+    <title>Encuesta de calidad</title>
+</head>
+<body>
+    <h2>Encuesta</h2>
+    <table>
+         <tr>
+            <th rowspan="2">Audio</th>
+            <th rowspan="2">Pregunta</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <audio controls>
+                    <source src="Albayzin/Audios/TVD-D-0002_0001.wav" type="audio/wav" autoplay="">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </td>
+            <td>¿El audio suena a una voz natural? Calidad</td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            </tr>
+            <tr>
+            <td>¿Se entiende lo que dice? Inteligibilidad</td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 0)"></button>  </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 1)"></button>  </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 2)"></button>  </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 3)"></button>  </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 4)"></button>  </td>
+            <td> <button class="button_circ" onclick="enviarRespuesta('pregunta2', 5)"></button>  </td>
+        </tr>
+    </table>
+    
+-->    
