@@ -253,21 +253,22 @@
           console.log(respuestaJSON);
         // Hacer el fetch la base de datos y el PHP
         fetch("http://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(respuestaJSON)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                console.log("Datos enviados de manera correcta. Muchas gracias.")
-                // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+    	    method: "POST",
+	    headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: respuestaJSON
+	})
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
+	    console.log("Datos enviados de manera correcta. Muchas gracias.")
+	    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+	})
+	.catch(error => {
+	    console.error("Error:", error);
+	});
+
     }
     function enviarRespuestaAlbayzin(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
