@@ -122,7 +122,7 @@
         </tr>
         <tr>
         <td rowspan="2"> 
-          <select id="speakerSelect" onchange="loadAudio(this.value)">
+          <select id="speakerSelect" onchange="loadAudiosAlbayzin(this.value)">
         <option value="">Selecciona un audio</option>
         <option value='mbfa0001'>mbfa0001</option>
         <option value='mbfa0002'>mbfa0002</option>
@@ -156,14 +156,14 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
         <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
-       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td> -->
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
         <td>¿La voz es similar en ambos audios? Similitud</td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 0)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 1)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 2)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 3)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 4)"></button> </td>
-            <td> <button class="button_circ pregunta1" onclick="enviarRespuesta('pregunta1', 5)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 5)"></button> </td>
             </tr>
     <tr>
         <td>
@@ -172,20 +172,20 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
         <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
-            <!--<button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button>--> 
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 0)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 1)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 2)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 3)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 4)"></button> </td>
-            <td> <button class="button_circ pregunta2" onclick="enviarRespuesta('pregunta2', 5)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 5)"></button> </td>
             </tr>
     </table>
-    <button onclick="guardarRespuesta()">Enviar Respuesta</button>
+    <button onclick="guardarRespuestaAlbayzin()">Enviar Respuesta</button>
 </body>
     <script>
-         function enviarRespuesta(pregunta, respuesta) {
+         function enviarRespuestaAlbayzin(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
           console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
         
@@ -200,14 +200,14 @@
             buttons[respuesta].classList.add("active");
           }
         }
-         function activarBoton() {
+         function activarBotonAlbayzin() {
           // Obtener el botón por su clase
               var boton = document.querySelector(".boton-rectangular");
 
               // Alternar el estado del botón (activado/desactivado)
               boton.checked = !boton.checked;
     }
-    function loadAudio(value) {
+    function loadAudiosAlbayzin(value) {
       var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
       var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
 
@@ -233,7 +233,7 @@
       audioPlayerSintetizados.src = audioSrcSintetizados;
       audioPlayerSintetizados.load();
     }
-    function guardarRespuesta() {
+    function guardarRespuestaAlbayzin() {
           var respuesta = {};
     
           // Obtener el valor seleccionado del select
@@ -297,15 +297,8 @@
         // Hacer el fetch la base de datos y el PHP
     }
     function loadContent(url) {
-        // Ocultamos el contenido anterior y mostramos el iframe
-        var contenidoDiv = document.getElementById("contenido");
-        contenidoDiv.style.display = "none";
-        var iframeContent = document.getElementById("iframeContent");
-        iframeContent.style.display = "block";
 
-        // Cargamos la URL en el iframe
-        iframeContent.src = url;
-        /* fetch(url)
+        fetch(url)
             .then(response => response.text())
             .then(data => {
                 var contenidoDiv = document.getElementById("contenido");
@@ -316,7 +309,7 @@
             })
             .catch(error => {
                 console.error("Error:", error);
-            });*/
+            });
     }
     </script>
 </html>
