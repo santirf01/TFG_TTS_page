@@ -323,10 +323,14 @@
 	
 	    alert("Respuestas enviadas correctamente.");
   	}
-    document.addEventListener('DOMContentLoaded', function() {
-      cargar216Speakers();
+   document.addEventListener('DOMContentLoaded', function() {
+        var selectElement = document.getElementById("selectSpeakers216Albayzin");
+        if (selectElement) {
+            cargar216Speakers();
+        } else {
+            console.error("El elemento con el id 'selectSpeakers216Albayzin' no se encontró en el DOM.");
+        }
     });
-
 </script>
 </body>
 </html>
