@@ -438,41 +438,39 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	  }
 	});
 
-    function loadContent2(url) {
-        // Agregar animación de carga mientras se carga el contenido
-        var contenidoDiv = document.getElementById("contenido");
-        contenidoDiv.innerHTML = '<div class="loader"></div>';
-
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                // Una vez que se ha cargado el contenido, eliminamos el loader
-                contenidoDiv.removeChild(document.querySelector('.loader'));
-
-                var iframe = document.createElement('iframe');
-                iframe.src = "about:blank"; // Cargamos un iframe vacío primero para evitar problemas de carga
-                iframe.width = '100%';
-                iframe.height = '400px';
-                iframe.style.display = 'none';
-
-                // Cuando el iframe esté cargado, mostramos el iframe y ocultamos el contenido anterior
-                iframe.onload = function () {
-                    contenidoDiv.innerHTML = ''; // Eliminamos el contenido anterior
-                    iframe.style.display = 'block'; // Mostramos el iframe cargado
-                };
-
-                // Agregamos el contenido al iframe
-                iframe.contentDocument.open();
-                iframe.contentDocument.write(data);
-                iframe.contentDocument.close();
-
-                // Agregamos el iframe al div con el ID "contenido"
-                contenidoDiv.appendChild(iframe);
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+  function loadContent2(url) {
+    // Cambiar el estilo del botón pulsado
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove("active");
     }
+    var button = document.querySelector(`[onclick="loadContent2('${url}')"]`);
+    button.classList.add("active");
+
+    // Agregar animación de carga mientras se carga el contenido
+    var contenidoDiv = document.getElementById('contenido');
+    contenidoDiv.innerHTML = '<div class="loader"></div>';
+
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.width = '100%';
+    iframe.height = '400px';
+    iframe.style.display = 'none';
+
+    // Cuando el iframe esté cargado, ocultamos el loader y mostramos el iframe
+    iframe.onload = function () {
+      contenidoDiv.removeChild(document.querySelector('.loader'));
+      iframe.style.display = 'block';
+    };
+
+    // Si hay algún contenido previo en el div con el ID "contenido", lo eliminamos
+    while (contenidoDiv.firstChild) {
+      contenidoDiv.removeChild(contenidoDiv.firstChild);
+    }
+
+    // Agregamos el iframe al div con el ID "contenido"
+    contenidoDiv.appendChild(iframe);
+  }
 
 
      
