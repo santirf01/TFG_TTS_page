@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- <h1 class="entry-title" itemprop="headline">Estudio de la síntesis de voz mediante técnicas de aprendizaje profundo para la creación de voces sanas y patológicas</a></h1>
- -->
 <html>
 <head>
 
@@ -46,14 +44,7 @@
     <img src="Imagenes/Vivolab.png" alt="Imagen de Vivolab" class="logo1">
     <img src="Imagenes/Unizar.png" alt="Imagen de Unizar" class="logo2">
 </body>
-</html>
-<html>
 
-<!--
-<body>
-    <img src="Imagenes/Vivolab.png" alt="Imagen de Vivolab">
-</body>
--->
  <body>
   <center>
   <p><strong> Autor</strong>: Santiago Rubio Felipo.      <strong> Directores</strong> : Eduardo Lleida Solano,  Dayana Ribas González. </p>
@@ -61,9 +52,6 @@
    </center>
  <H6><em>* Esta página aparece como conexión no segura debido a que los datos de la encuesta son recogidos en el servidor http://dihana.cps.unizar.es/ con conexión http que Google considera como no segura. Aunque aparezca como conexión no segura en esta encuesta no se le pedirá nigún dato personal y sólo se recogerán las preguntas hechas. Sus respuestas serán alamacenadas dentro del servidor Dihana de la Universidad de Zaragoza y no serán usados para nigún fin comercial. </em></H6>
  </body>
-
-</html>
-<html>
  <body>
   <h2>Abstract</h2>
   <p>Este Trabajo Fin de Grado (TFG) se centra en sistemas de síntesis de voz. Los sistemas de síntesis de voz o sistemas TTS (<em>"Text to Speech"</em>) tienen como objetivo generar voces naturales e inteligibles a través de texto.El objetivo principal de este trabajo se enfoca en el uso de estos sistemas de síntesis de voz en aplicaciones personalizadas y especializadas como la clonación de voces sanas o patológicas.</p>
@@ -87,16 +75,8 @@
 	 <H4>Se puede evaluar más de una vez cada apartado siempre que sean distintos audios. </H4>
 	 <center><H3><stong>¡Muchas Gracias por su colaboración!</stong></H3></center>
  </body>
-<!--	
-<tr>
-<td style="text-align: center"><audio controls="controls"><source src="Audios/Singlespeaker/TVD-D-0002_0017.wav" autoplay="">Your browser does not support the audio element.</audio></td>
-</tr>
-
--->
 
 
-
-<html>
 <head>
     <title>Botones</title>
     <style>
@@ -174,6 +154,32 @@
                     console.error("Error:", error);
                 });
         }
+	function loadAudios(value) {
+	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+	
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados.pause();
+	        audioPlayerSintetizados.src = "";
+	        return;
+      	     }
+
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/" + value + ".wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginales.src = audioSrcOriginales;
+	      audioPlayerOriginales.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizados.src = audioSrcSintetizados;
+	      audioPlayerSintetizados.load();
+    }
      /*
      function loadContent(url) {
         // Ocultamos el contenido anterior y mostramos el iframe
@@ -212,6 +218,6 @@ function loadAudios(value) {
       audioPlayerSintetizados.load();
     }
     */
-    </script>
+</script>
 </body>
 </html>
