@@ -96,7 +96,7 @@
     <h2>Albayzin</h2>
     <h2>Selecciona a una persona:</h2>
     <select id="speakerSelect" onchange="loadContent(this.value)">
-        <option value='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_216_Speakers.html'>216Speakers</option>
+        <option value=''>216Speakers</option>
         <option value='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_Audios_aa.html'>aa</option>
         <<option value='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_Audios_ab.html'>ab</option>
         <option value='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_Audios_ma.html'>ma</option>
@@ -106,17 +106,13 @@
     </select>
      <div id="contenido">
     </div>
-<table id = 'tableAlbayzin216'>
+<table id ='tableAlbayzin216' onchange="loadAudiosAlbayzin216Speakers(this.value)>
   <tr>
     <td colspan="8" class="box big">Elección de las 216 personas Albayzin</td>
   </tr>
   <tr>
     <td colspan="8">
       <select id="selectSpeakers216Albayzin">
-        <!-- Opciones del select con todos los speakers -->
-        <option value="speaker1">Speaker 1</option>
-        <option value="speaker2">Speaker 2</option>
-        <!-- Agrega más opciones aquí -->
       </select>
     </td>
   </tr>
@@ -132,12 +128,12 @@
     <td  class="box big">005</td>
   </tr>
   <tr>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerOriginal"> Tu navegador no soporta el elemento de audio.</audio></td>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado1"> Tu navegador no soporta el elemento de audio.</audio></td>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado2"> Tu navegador no soporta el elemento de audio.</audio></td>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado3"> Tu navegador no soporta el elemento de audio.</audio></td>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado4"> Tu navegador no soporta el elemento de audio.</audio></td>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado5"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerOriginales"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados1"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados2"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados3"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados4"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados5"> Tu navegador no soporta el elemento de audio.</audio></td>
   </tr>
   <tr>
     <td class="box big"  rowspan="2" colspan="2">PREGUNTA</td>
@@ -152,6 +148,7 @@
     <td>4</td>
     <td>5</td>
   </tr>
+    <!-- La función enviar respuesta es igual en los dos -->
   <tr>
     <td class="similitud" colspan="2">SIMILITUD</td>
     <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
@@ -171,6 +168,71 @@
     <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 5)"></button> </td>
   </tr>
 </table>
+<script> 
+    function enviarRespuestaAlbayzin(pregunta, respuesta) {
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
+    }
+    function loadAudiosAlbayzin216Speakers(value) {
+	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	      var audioPlayerSintetizados1 = document.getElementById("audioPlayerSintetizados1");
+	      var audioPlayerSintetizados2 = document.getElementById("audioPlayerSintetizados2");
+          var audioPlayerSintetizados3 = document.getElementById("audioPlayerSintetizados3");
+          var audioPlayerSintetizados4 = document.getElementById("audioPlayerSintetizados4");
+          var audioPlayerSintetizados5 = document.getElementById("audioPlayerSintetizados5");
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados1.pause();
+	        audioPlayerSintetizados1.src = "";
+            audioPlayerSintetizados2.pause();
+	        audioPlayerSintetizados2.src = "";
+            audioPlayerSintetizados3.pause();
+	        audioPlayerSintetizados3.src = "";
+            audioPlayerSintetizados4.pause();
+	        audioPlayerSintetizados4.src = "";
+            audioPlayerSintetizados5.pause();
+	        audioPlayerSintetizados5.src = "";
+	        return;
+      	     }
 
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/216speakers/" + value + "_original.wav";
+	      var audioSrcSintetizados1 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa000.wav";
+          var audioSrcSintetizados2 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa001.wav";
+          var audioSrcSintetizados3 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa002.wav";
+          var audioSrcSintetizados4 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa003.wav";
+          var audioSrcSintetizados5 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa004.wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginales.src = audioSrcOriginales;
+	      audioPlayerOriginales.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizados1.src = audioSrcSintetizados1;
+	      audioPlayerSintetizados1.load();
+          audioPlayerSintetizados2.src = audioSrcSintetizados2;
+	      audioPlayerSintetizados2.load();
+          audioPlayerSintetizados3.src = audioSrcSintetizados3;
+	      audioPlayerSintetizados3.load();
+          audioPlayerSintetizados4.src = audioSrcSintetizados4;
+	      audioPlayerSintetizados4.load();
+          audioPlayerSintetizados5.src = audioSrcSintetizados5;
+	      audioPlayerSintetizados5.load();
+    }
+</script>
 </body>
 </html>
