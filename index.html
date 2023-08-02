@@ -271,6 +271,7 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	.catch(error => {
 	    console.error("Error:", error);
 	});
+	alert("Respuestas enviadas correctamente.");
 
     }
     function enviarRespuestaAlbayzin(pregunta, respuesta) {
@@ -296,7 +297,56 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
               boton.checked = !boton.checked;
     }
    // A PARTIR DE AQUI EMPIEZA LAS FUNCIONES DE 216 SPEAKERS
-   function cargar216Speakers() {
+  function loadAudiosAlbayzin216Speakers(value) {
+	var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	var audioPlayerSintetizados1 = document.getElementById("audioPlayerSintetizados1");
+	var audioPlayerSintetizados2 = document.getElementById("audioPlayerSintetizados2");
+        var audioPlayerSintetizados3 = document.getElementById("audioPlayerSintetizados3");
+        var audioPlayerSintetizados4 = document.getElementById("audioPlayerSintetizados4");
+        var audioPlayerSintetizados5 = document.getElementById("audioPlayerSintetizados5");
+	// Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	if (!value) {
+		audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados1.pause();
+	        audioPlayerSintetizados1.src = "";
+            	audioPlayerSintetizados2.pause();
+	        audioPlayerSintetizados2.src = "";
+            	audioPlayerSintetizados3.pause();
+	        audioPlayerSintetizados3.src = "";
+            	audioPlayerSintetizados4.pause();
+	        audioPlayerSintetizados4.src = "";
+            	audioPlayerSintetizados5.pause();
+	        audioPlayerSintetizados5.src = "";
+	        return;
+      	     }
+
+      // Construir las URLs de los audios Originales y Sintetizados
+      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/216Speaker/" + value + "_orginial.wav";
+      var audioSrcSintetizados1 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa000.wav";
+      var audioSrcSintetizados2 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa001.wav";
+      var audioSrcSintetizados3 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa002.wav";
+      var audioSrcSintetizados4 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa003.wav";
+      var audioSrcSintetizados5 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa004.wav";
+
+      // Cargar y reproducir el audio Originales
+      audioPlayerOriginales.src = audioSrcOriginales;
+      audioPlayerOriginales.load();
+
+
+      // Cargar y reproducir el audio Sintetizados
+      audioPlayerSintetizados1.src = audioSrcSintetizados1;
+      audioPlayerSintetizados1.load();
+      audioPlayerSintetizados2.src = audioSrcSintetizados2;
+      audioPlayerSintetizados2.load();
+      audioPlayerSintetizados3.src = audioSrcSintetizados3;
+      audioPlayerSintetizados3.load();
+      audioPlayerSintetizados4.src = audioSrcSintetizados4;
+      audioPlayerSintetizados4.load();
+      audioPlayerSintetizados5.src = audioSrcSintetizados5;
+      audioPlayerSintetizados5.load();
+	}
+     function cargar216Speakers() {
       // Cargar el JSON desde el archivo "data.json"
       fetch('https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Speakers_Albayzin.json')
         .then(response => response.json())
@@ -316,9 +366,70 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
           console.error("Error al cargar el JSON:", error);
         });
     }
+
+	
+    function guardarRespuestasAlbayzin216() {
+	    var respuesta = {};
+	
+	    // Obtener el valor seleccionado del select
+	    var select = document.getElementById("selectSpeakers216Albayzin");
+	    var speakerSeleccionado = select.value;
+	    console.log(speakerSeleccionado)
+	    // Verificar si se ha seleccionado una opción en el select
+	    if (!speakerSeleccionado) {
+		alert("Debes seleccionar un speaker antes de enviar las respuestas.");
+		return;
+	    } else {
+		respuesta.speakerSeleccionado = speakerSeleccionado;
+	    }
+	
+	    // Recorrer las filas de la tabla y obtener los valores de los botones activos
+	    var table = document.getElementById("tableAlbayzin216");
+	    var rows = table.getElementsByTagName("tr");
+	
+	    for (var i = 0; i < rows.length; i++) {
+		var cells = rows[i].getElementsByTagName("td");
+	
+		if (cells.length >= 7) { // Solo procesar filas con botones de respuesta
+		    var pregunta = cells[0].innerText;
+		    var calidad = -1; // Valor inicial en caso de que no haya ningún botón activo
+	
+		    // Encontrar el botón activo
+		    for (var j = 1; j < cells.length; j++) {
+			var botones = cells[j].getElementsByTagName("button");
+			for (var k = 0; k < botones.length; k++) { 
+			    if (botones[k].classList.contains("active")) {
+				calidad = j - 1;
+				break;
+			    }
+			}
+	
+			if (calidad !== -1) {
+			    break;
+			}
+		    }
+	
+		    if (pregunta.includes("Similitud")) {
+			respuesta.Similitud = calidad;
+		    } else if (pregunta.includes("Calidad")) {
+			respuesta.Calidad = calidad;
+		    }
+		}
+	    }
+	
+	    // Obtener las anotaciones
+	    var anotaciones = document.getElementById("anotaciones").value;
+	    respuesta.anotaciones = anotaciones;
+	
+	    // Aquí puedes hacer lo que necesites con la lista de respuestas
+	    console.log("Respuestas:", respuesta);
+	
+	    alert("Respuestas enviadas correctamente.");
+  	}
     document.addEventListener('DOMContentLoaded', function() {
       cargar216Speakers();
     });
+
      
 </script>
 </body>
