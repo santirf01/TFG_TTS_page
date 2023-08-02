@@ -86,6 +86,9 @@
     .boton-rectangular:checked .tick {
       display: block;
     }
+    .box.big {
+      background-color: #f2f2f2; 
+    }
     </style>
 </head>
 <body>
@@ -103,9 +106,9 @@
     </select>
      <div id="contenido">
     </div>
-<table>
+<table id = 'tableAlbayzin216'>
   <tr>
-    <td colspan="8" class="header">Elección de las 216 personas Albayzin</td>
+    <td colspan="8" class="box big">Elección de las 216 personas Albayzin</td>
   </tr>
   <tr>
     <td colspan="8">
@@ -118,24 +121,24 @@
     </td>
   </tr>
   <tr>
-    <td rowspan="2">Audio original</td>
-    <td colspan="6">Sintetizado</td>
+    <td rowspan="2"  class="box big">Audio original</td>
+    <td colspan="6"  class="box big">Sintetizado</td>
   </tr>
   <tr>
-    <td>000</td>
-    <td>001</td>
-    <td>002</td>
-    <td>003</td>
-    <td>004</td>
-    <td>005</td>
+    <td  class="box big">000</td>
+    <td  class="box big">001</td>
+    <td  class="box big">002</td>
+    <td  class="box big">003</td>
+    <td  class="box big">004</td>
+    <td  class="box big">005</td>
   </tr>
   <tr>
-    <td>Botón audio</td>
-    <td>Botón audio</td>
-    <td>Botón audio</td>
-    <td>Botón audio</td>
-    <td>Botón audio</td>
-    <td>Botón audio</td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerOriginal"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado1"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado2"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado3"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado4"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizado5"> Tu navegador no soporta el elemento de audio.</audio></td>
   </tr>
   <tr>
     <td class="question">PREGUNTA</td>
@@ -152,21 +155,21 @@
   </tr>
   <tr>
     <td class="similitud">SIMILITUD</td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 2)"></button> </td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 3)"></button> </td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 4)"></button> </td>
+    <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 5)"></button> </td>
   </tr>
   <tr>
     <td class="calidad">CALIDAD</td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
-    <td class="button"><button>Botón</button></td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 2)"></button> </td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 3)"></button> </td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 4)"></button> </td>
+    <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 5)"></button> </td>
   </tr>
 </table>
 
