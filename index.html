@@ -346,9 +346,6 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
       audioPlayerSintetizados5.src = audioSrcSintetizados5;
       audioPlayerSintetizados5.load();
 	}
-    document.addEventListener('DOMContentLoaded', function() {
-      cargar216Speakers();
-    });
      function cargar216Speakers() {
       // Cargar el JSON desde el archivo "data.json"
       fetch('https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Speakers_Albayzin.json')
@@ -430,7 +427,14 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	    alert("Respuestas enviadas correctamente.");
   	}
 
-
+    document.addEventListener('DOMContentLoaded', function() {
+       var selectElement = document.getElementById("selectSpeakers216Albayzin");
+  	if (selectElement) {
+    		cargar216Speakers();
+  	} else {
+    		console.error("El elemento con el id 'selectSpeakers216Albayzin' no se encontró en el DOM.");
+  	}
+    });
      
 </script>
 </body>
