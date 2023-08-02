@@ -446,7 +446,9 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
     }
     var button = document.querySelector(`[onclick="loadContent2('${url}')"]`);
     button.classList.add("active");
-
+    // Agregar animación de carga mientras se carga el contenido
+    var contenidoDiv = document.getElementById('contenido');
+    contenidoDiv.innerHTML = '<div class="loader"></div>';
         var iframe = document.createElement('iframe');
         iframe.src = url;
         iframe.width = '100%';
