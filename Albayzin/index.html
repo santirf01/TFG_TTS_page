@@ -220,16 +220,28 @@
           console.log(respuestaJSON);
         // Hacer el fetch la base de datos y el PHP
     }
-    function loadContent(url) {
-         /*
-            var contenidoDiv = document.getElementById("contenido");
-            contenidoDiv.style.display = "none";
-            var iframeContent = document.getElementById("iframeContent");
-            iframeContent.style.display = "block";
+    function cargar216Speakers() {
+      // Cargar el JSON desde el archivo "data.json"
+      fetch('https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Speakers_Albayzin.json')
+        .then(response => response.json())
+        .then(data => {
+          // Obtén el elemento select por su id
+          var select = document.getElementById("selectSpeakers216Albayzin");
 
-            // Cargamos la URL en el iframe
-            iframeContent.src = url;
-       */
+          // Recorre el JSON y crea las opciones del select
+          data.forEach(function(speaker) {
+          var option = document.createElement("option");
+            option.value = speaker.value;
+            option.text = speaker.text;
+            select.appendChild(option);
+	});
+        })
+        .catch(error => {
+          console.error("Error al cargar el JSON:", error);
+        });
+    }
+    function loadContent(url) {
+
         fetch(url)
             .then(response => response.text())
             .then(data => {
