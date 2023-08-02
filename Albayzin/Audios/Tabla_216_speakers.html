@@ -187,54 +187,54 @@
           }
     }
     function loadAudiosAlbayzin216Speakers(value) {
-	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
-	      var audioPlayerSintetizados1 = document.getElementById("audioPlayerSintetizados1");
-	      var audioPlayerSintetizados2 = document.getElementById("audioPlayerSintetizados2");
-          var audioPlayerSintetizados3 = document.getElementById("audioPlayerSintetizados3");
-          var audioPlayerSintetizados4 = document.getElementById("audioPlayerSintetizados4");
-          var audioPlayerSintetizados5 = document.getElementById("audioPlayerSintetizados5");
-	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
-	      if (!value) {
-	        audioPlayerOriginales.pause();
+	var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	var audioPlayerSintetizados1 = document.getElementById("audioPlayerSintetizados1");
+	var audioPlayerSintetizados2 = document.getElementById("audioPlayerSintetizados2");
+        var audioPlayerSintetizados3 = document.getElementById("audioPlayerSintetizados3");
+        var audioPlayerSintetizados4 = document.getElementById("audioPlayerSintetizados4");
+        var audioPlayerSintetizados5 = document.getElementById("audioPlayerSintetizados5");
+	// Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	if (!value) {
+		audioPlayerOriginales.pause();
 	        audioPlayerOriginales.src = "";
 	        audioPlayerSintetizados1.pause();
 	        audioPlayerSintetizados1.src = "";
-            audioPlayerSintetizados2.pause();
+            	audioPlayerSintetizados2.pause();
 	        audioPlayerSintetizados2.src = "";
-            audioPlayerSintetizados3.pause();
+            	audioPlayerSintetizados3.pause();
 	        audioPlayerSintetizados3.src = "";
-            audioPlayerSintetizados4.pause();
+            	audioPlayerSintetizados4.pause();
 	        audioPlayerSintetizados4.src = "";
-            audioPlayerSintetizados5.pause();
+            	audioPlayerSintetizados5.pause();
 	        audioPlayerSintetizados5.src = "";
 	        return;
       	     }
 
-	      // Construir las URLs de los audios Originales y Sintetizados
-	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/216speakers/" + value + "_original.wav";
-	      var audioSrcSintetizados1 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa000.wav";
-          var audioSrcSintetizados2 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa001.wav";
-          var audioSrcSintetizados3 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa002.wav";
-          var audioSrcSintetizados4 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa003.wav";
-          var audioSrcSintetizados5 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa004.wav";
-	
-	      // Cargar y reproducir el audio Originales
-	      audioPlayerOriginales.src = audioSrcOriginales;
-	      audioPlayerOriginales.load();
-	
-	
-	      // Cargar y reproducir el audio Sintetizados
-	      audioPlayerSintetizados1.src = audioSrcSintetizados1;
-	      audioPlayerSintetizados1.load();
-          audioPlayerSintetizados2.src = audioSrcSintetizados2;
-	      audioPlayerSintetizados2.load();
-          audioPlayerSintetizados3.src = audioSrcSintetizados3;
-	      audioPlayerSintetizados3.load();
-          audioPlayerSintetizados4.src = audioSrcSintetizados4;
-	      audioPlayerSintetizados4.load();
-          audioPlayerSintetizados5.src = audioSrcSintetizados5;
-	      audioPlayerSintetizados5.load();
-    }
+      // Construir las URLs de los audios Originales y Sintetizados
+      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/216speakers/" + value + "_original.wav";
+      var audioSrcSintetizados1 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa000.wav";
+      var audioSrcSintetizados2 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa001.wav";
+      var audioSrcSintetizados3 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa002.wav";
+      var audioSrcSintetizados4 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa003.wav";
+      var audioSrcSintetizados5 = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/216speakers/" +value+ "/" + value + "_fa004.wav";
+
+      // Cargar y reproducir el audio Originales
+      audioPlayerOriginales.src = audioSrcOriginales;
+      audioPlayerOriginales.load();
+
+
+      // Cargar y reproducir el audio Sintetizados
+      audioPlayerSintetizados1.src = audioSrcSintetizados1;
+      audioPlayerSintetizados1.load();
+      audioPlayerSintetizados2.src = audioSrcSintetizados2;
+      audioPlayerSintetizados2.load();
+      audioPlayerSintetizados3.src = audioSrcSintetizados3;
+      audioPlayerSintetizados3.load();
+      audioPlayerSintetizados4.src = audioSrcSintetizados4;
+      audioPlayerSintetizados4.load();
+      audioPlayerSintetizados5.src = audioSrcSintetizados5;
+      audioPlayerSintetizados5.load();
+	}
      function cargar216Speakers() {
       // Cargar el JSON desde el archivo "data.json"
       fetch('https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Speakers_Albayzin.json')
