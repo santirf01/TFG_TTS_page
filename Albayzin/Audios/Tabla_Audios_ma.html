@@ -123,7 +123,7 @@
         </tr>
         <tr>
         <td rowspan="2"> 
-          <select id="speakerSelect" onchange="loadAudiosAlbayzin(this.value)">
+          <select id="speakerSelect" onchange="loadAudiosAlbayzin(this.value,'ma')">
         <option value="">Selecciona un audio</option>
         <option value='mafa0001'>mafa0001</option>
         <option value='mafa0002'>mafa0002</option>
@@ -157,7 +157,7 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
         <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
-       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBoton()"> Audio 1 </button> </td> -->
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
         <td>¿La voz es similar en ambos audios? Similitud</td>
             <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
             <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
@@ -173,7 +173,7 @@
                     Tu navegador no soporta el elemento de audio.
                 </audio></td>
         <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
-            <!--<button class="boton-rectangular" P1 onclick="activarBoton()"> Audio 2 </button>--> 
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
             <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
             <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
@@ -201,38 +201,38 @@
             buttons[respuesta].classList.add("active");
           }
         }
-         function activarBoton() {
+         function activarBotonAlbayzin() {
           // Obtener el botón por su clase
               var boton = document.querySelector(".boton-rectangular");
 
               // Alternar el estado del botón (activado/desactivado)
               boton.checked = !boton.checked;
     }
-    function loadAudiosAlbayzin(value) {
-      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
-      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+    function loadAudiosAlbayzin(value,speaker) {
+	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+	
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados.pause();
+	        audioPlayerSintetizados.src = "";
+	        return;
+      	     }
 
-      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
-      if (!value) {
-        audioPlayerOriginales.pause();
-        audioPlayerOriginales.src = "";
-        audioPlayerSintetizados.pause();
-        audioPlayerSintetizados.src = "";
-        return;
-      }
-
-      // Construir las URLs de los audios Originales y Sintetizados
-      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/ma/" + value + ".wav";
-      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/ma/" + value + ".wav";
-
-      // Cargar y reproducir el audio Originales
-      audioPlayerOriginales.src = audioSrcOriginales;
-      audioPlayerOriginales.load();
-
-
-      // Cargar y reproducir el audio Sintetizados
-      audioPlayerSintetizados.src = audioSrcSintetizados;
-      audioPlayerSintetizados.load();
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/" +speaker+ "/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/" +speaker+ "/" + value + ".wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginales.src = audioSrcOriginales;
+	      audioPlayerOriginales.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizados.src = audioSrcSintetizados;
+	      audioPlayerSintetizados.load();
     }
     function guardarRespuestaAlbayzin() {
           var respuesta = {};
