@@ -236,8 +236,9 @@
                 var contenidoDiv = document.getElementById("contenido");
                 contenidoDiv.innerHTML = data;
                 contenidoDiv.classList.add("contenido-cargado"); // Agregamos la clase al div de contenido
-
-            
+		if(url=='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_216_speakers.html'){
+            		cargar216Speakers();
+		}
             })
             .catch(error => {
                 console.error("Error:", error);
