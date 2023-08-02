@@ -140,7 +140,7 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
     <div class="button-container">
         <div class="button" onclick="loadContent('Librivox/index.html')">Librivox</div>
         <div class="button" onclick="loadContent('Albayzin/index.html')">Albayzin</div>
-	<div class="button" onclick="loadContent2('Albayzin/Audios/Tabla_216_speakers.html')">Albayzin 216 Speakers</div>
+	<div class="button" onclick="loadContent2('Albayzin/Audios/Tabla_216_speakers.html')">Alb. 216 Pers.</div>
         <div class="button" onclick="loadContent('Thalento/index.html')">Thalento</div>
        <div class="button" onclick="loadContent('Thalento_sin_restricciones/index.html')">Thalento Lectura</div>
        <!--<div class="button" onclick="loadContent('Thalento/Audios/TVD-D-0001/TVD-D-0001_table.html')">Tabla</div>-->	
@@ -447,29 +447,25 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
     var button = document.querySelector(`[onclick="loadContent2('${url}')"]`);
     button.classList.add("active");
 
-    // Agregar animación de carga mientras se carga el contenido
-    var contenidoDiv = document.getElementById('contenido');
-    contenidoDiv.innerHTML = '<div class="loader"></div>';
+        var iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.width = '100%';
+        iframe.height = '400px';
+        iframe.style.display = 'none';
 
-    var iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.width = '100%';
-    iframe.height = '400px';
-    iframe.style.display = 'none';
+        // Cuando el iframe esté cargado, ocultamos el loader y mostramos el iframe
+        iframe.onload = function () {
+            contenidoDiv.removeChild(document.querySelector('.loader'));
+            iframe.style.display = 'block';
+        };
 
-    // Cuando el iframe esté cargado, ocultamos el loader y mostramos el iframe
-    iframe.onload = function () {
-      contenidoDiv.removeChild(document.querySelector('.loader'));
-      iframe.style.display = 'block';
-    };
+        // Si hay algún contenido previo en el div con el ID "contenido", lo eliminamos
+        while (contenidoDiv.firstChild) {
+            contenidoDiv.removeChild(contenidoDiv.firstChild);
+        }
 
-    // Si hay algún contenido previo en el div con el ID "contenido", lo eliminamos
-    while (contenidoDiv.firstChild) {
-      contenidoDiv.removeChild(contenidoDiv.firstChild);
-    }
-
-    // Agregamos el iframe al div con el ID "contenido"
-    contenidoDiv.appendChild(iframe);
+        // Agregamos el iframe al div con el ID "contenido"
+        contenidoDiv.appendChild(iframe);
   }
 
 
