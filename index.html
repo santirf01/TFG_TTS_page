@@ -55,10 +55,10 @@
 Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta encuesta, no se te solicitará información personal. Si tienes alguna duda o inquietud, no dudes en contactarnos por correo 809622@unizar.es para brindarte la asistencia necesaria. Gracias por participar en la encuesta. Para configurar los parámetros necesarios para hacer la encuesta en Google tendrá que seguir los siquientes pasos:</p> 
 	<ul>
 	<li> En la parte superior de la pantalla donde la dirección URL aparece un candado cerrado. ¡Pulselo! </li>
-	<img src="Imagenes/Pasos_Encuesta.png" alt="Imagen de Unizar">
+	<center><img src="Imagenes/Pasos_Encuesta.png" alt="Imagen de Unizar"></center>
 	<li> Al pulsar le habrá salido un desplegable donde tienes que pulsar al botón <strong> Configuración de sitios </strong> </li>
 	<li> En esa página busca "Contenido no seguro" y dale a "Permitir". Esta configuración solo afectará a este sitio web y al acabar la encuesta lo puedes volver a definir como estaba inicialmente.</li>
-	<img src="Imagenes/Paso3_Encuesta.png" width=200px height=150px alt="Imagen de Unizar">
+	<center><img src="Imagenes/Paso3_Encuesta.png" width=400px height=300px alt="Imagen de Unizar"></center>
 	</ul>
 
 <p>Disculpe las molestias. Estamos a esperas de que nos ofrezcan una conexión https para evitar esto.</p>
@@ -427,14 +427,21 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	    alert("Respuestas enviadas correctamente.");
   	}
 
-    document.addEventListener('DOMContentLoaded', function() {
-       var selectElement = document.getElementById("selectSpeakers216Albayzin");
-  	if (selectElement) {
-    		cargar216Speakers();
-  	} else {
-    		console.error("El elemento con el id 'selectSpeakers216Albayzin' no se encontró en el DOM.");
-  	}
-    });
+	document.addEventListener('DOMContentLoaded', function() {
+  		fetch('https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_216_speakers.html')
+    		.then(response => response.text())
+    		.then(html => {
+		// Aquí inserta el contenido HTML obtenido desde la otra página
+      		// en algún elemento del DOM de la página actual, por ejemplo, en un div con id "contenido".
+      		document.getElementById('contenido').innerHTML = html;
+
+      		// Luego, puedes ejecutar el código que interactúa con el contenido cargado.
+      		cargar216Speakers();
+    		})
+    		.catch(error => {
+      			console.error("Error al cargar el HTML:", error);
+    		});
+	});
      
 </script>
 </body>
