@@ -119,8 +119,8 @@
     </td>
   </tr>
   <tr>
-    <td rowspan="2"  class="box big">Audio original</td>
-    <td colspan="6"  class="box big">Sintetizado</td>
+    <td rowspan="2" colspan="3" class="box big">Audio original</td>
+    <td colspan="5"  class="box big">Sintetizado</td>
   </tr>
   <tr>
     <td  class="box big">001</td>
@@ -130,7 +130,7 @@
     <td  class="box big">005</td>
   </tr>
   <tr>
-    <td><audio class="audio-button audio-small" controls id="audioPlayerOriginales"> Tu navegador no soporta el elemento de audio.</audio></td>
+    <td colspan="3"><audio class="audio-button audio-small" controls id="audioPlayerOriginales"> Tu navegador no soporta el elemento de audio.</audio></td>
     <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados1"> Tu navegador no soporta el elemento de audio.</audio></td>
     <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados2"> Tu navegador no soporta el elemento de audio.</audio></td>
     <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados3"> Tu navegador no soporta el elemento de audio.</audio></td>
@@ -138,11 +138,10 @@
     <td><audio class="audio-button audio-small" controls id="audioPlayerSintetizados5"> Tu navegador no soporta el elemento de audio.</audio></td>
   </tr>
   <tr>
-    <td class="box big"  rowspan="2" colspan="2">PREGUNTA</td>
+    <td class="box big"  rowspan="2" colspan="3">PREGUNTA</td>
     <td colspan="5" class="box big"">RESULTADO</td>
   </tr>
   <tr>
-    <td></td>
     <td>0</td>
     <td>1</td>
     <td>2</td>
@@ -152,7 +151,7 @@
   </tr>
     <!-- La función enviar respuesta es igual en los dos -->
   <tr>
-    <td class="similitud" colspan="2">SIMILITUD</td>
+    <td class="similitud" colspan="3">¿La voz es similar en ambos audios? Similitud</td>
     <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
     <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
     <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 2)"></button> </td>
@@ -161,7 +160,7 @@
     <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 5)"></button> </td>
   </tr>
   <tr>
-    <td class="calidad" colspan="2">CALIDAD</td>
+    <td class="calidad" colspan="3">¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
     <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
     <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
     <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 2)"></button> </td>
