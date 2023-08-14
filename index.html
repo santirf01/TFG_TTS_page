@@ -176,6 +176,8 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
                     }
                     var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
                     button.classList.add("active");
+                    var button = document.querySelector(`[loadBothContents()]`);
+                    button.classList.add("active")		
                 })
                 .catch(error => {
                     console.error("Error:", error);
