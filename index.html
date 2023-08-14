@@ -453,6 +453,32 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	    console.error("El elemento con el id 'selectSpeakers216Albayzin' no se encontró en el DOM.");
 	  }
 	});
+	function loadAudiosLibrivox(value,speaker) {
+	      var audioPlayerOriginalesLibrivox = document.getElementById("audioPlayerOriginalesLibrivox");
+	      var audioPlayerSintetizadosLibrivox = document.getElementById("audioPlayerSintetizadosLibrivox");
+	
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginalesLibrivox.pause();
+	        audioPlayerOriginalesLibrivox.src = "";
+	        audioPlayerSintetizadosLibrivox.pause();
+	        audioPlayerSintetizadosLibrivox.src = "";
+	        return;
+      	     }
+
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/" +speaker+ "/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Librivox/Audios/Sintetizados/audio_cap1_" +value+ ".wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginalesLibrivox.src = audioSrcOriginales;
+	      audioPlayerOriginalesLibrivox.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizadosLibrivox.src = audioSrcSintetizados;
+	      audioPlayerSintetizadosLibrivox.load();
+    }
 
   function loadContent2(url) {
     // Cambiar el estilo del botón pulsado
