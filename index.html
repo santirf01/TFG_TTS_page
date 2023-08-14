@@ -153,6 +153,13 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
     		loadContent('Albayzin/Audios/Tabla_216_speakers.html');
     		
   	}
+	document.addEventListener('DOMContentLoaded', function() {
+        	var selectElement = document.getElementById("selectSpeakers216Albayzin");
+        	if (selectElement) {
+            		cargar216Speakers();
+       		} else {
+            		console.error("El elemento con el id 'selectSpeakers216Albayzin' no se encontró en el DOM.");
+       		 }
         function loadContent(url) {
             fetch(url)
                 .then(response => response.text())
