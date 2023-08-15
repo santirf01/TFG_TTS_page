@@ -152,8 +152,17 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 		cargar216Speakers()
     		loadContent('Albayzin/Audios/Tabla_216_speakers.html')
 		cargar216Speakers()
+		updateButtonStyle('Albayzin/Audios/Tabla_216_speakers.html');
     		
   	}
+	function updateButtonStyle(url) {
+	        var buttons = document.getElementsByClassName("button");
+	        for (var i = 0; i < buttons.length; i++) {
+	            buttons[i].classList.remove("active");
+	        }
+	        var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
+	        button.classList.add("active");
+    	}
 	document.addEventListener('DOMContentLoaded', function() {
         	var selectElement = document.getElementById("selectSpeakers216Albayzin");
         	if (selectElement) {
@@ -175,9 +184,7 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
                         buttons[i].classList.remove("active");
                     }
                     var button = document.querySelector(`[onclick="loadContent('${url}')"]`);
-                    button.classList.add("active");
-                    var button = document.querySelector(`[loadBothContents()]`);
-                    button.classList.add("active")		
+                    button.classList.add("active");		
                 })
                 .catch(error => {
                     console.error("Error:", error);
