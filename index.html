@@ -392,7 +392,7 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
     }
 
 	
-    function guardarRespuestasAlbayzin216() {
+	function guardarRespuestasAlbayzin216() {
 	    var respuesta = {};
 	
 	    // Obtener el valor seleccionado del select
@@ -447,10 +447,24 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
 	
 	    // Aquí puedes hacer lo que necesites con la lista de respuestas
 	    console.log("Respuestas:", respuesta);
-	
-	    alert("Respuestas enviadas correctamente.");
+	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
+    	    method: "POST",
+	    headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: respuestaJSON
+	})
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
+	    console.log("Datos enviados de manera correcta. Muchas gracias.")
+	    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+	})
+	.catch(error => {
+	    console.error("Error:", error);
+	});
+	alert("Respuestas enviadas correctamente.");
   	}
-
 	document.addEventListener('DOMContentLoaded', function() {
   		
 	  var selectElement = document.getElementById("selectSpeakers216Albayzin");
