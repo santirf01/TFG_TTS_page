@@ -138,8 +138,8 @@
         Tu navegador no soporta la reproducción del audio.
       </audio>
       </td>
-       <td> <label for="boton1_2" class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 2<span class="tick">&#10003;</span></label>
-    <input type="radio" id="boton1_2" name="opcion"></td>
+       <td> <label for="boton2_1" class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 2<span class="tick">&#10003;</span></label>
+    <input type="radio" id="boton2_1" name="opcion"></td>
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
             <td> <button class="button_circ pregunta2_0001" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0001', 0)"></button> </td>
             <td> <button class="button_circ pregunta2_0001" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0001', 1)"></button> </td>
@@ -1286,7 +1286,21 @@ function guardarRespuestasAlbayzin216() {
                 console.error("Error:", error);
             });
     }
-function activarBotonRectangular(boton, grupo) {
+function activarBotonRectangular(labelElement, grupo) {
+    // Desactivar todos los botones de radio en el mismo grupo
+    var radioButtons = document.querySelectorAll('input[name="' + grupo + '"]');
+    radioButtons.forEach(function(radioButton) {
+        radioButton.checked = false;
+    });
+
+    // Activar el botón de radio asociado al label clicado
+    var radioButton = labelElement.querySelector('input[name="' + grupo + '"]');
+    radioButton.checked = true;
+}
+
+</script>
+</html>
+<!-- function activarBotonRectangular(boton, grupo) {
     var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
     console.log(botonesGrupo)
     botonesGrupo.forEach(function(botonGrupo) {
@@ -1294,6 +1308,4 @@ function activarBotonRectangular(boton, grupo) {
     });
 
     boton.classList.add('active');
-}
-</script>
-</html>
+}-->
