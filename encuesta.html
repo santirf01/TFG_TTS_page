@@ -120,7 +120,7 @@
         Tu navegador no soporta la reproducción del audio.
       </audio>
     </td>
-      <td>  <button class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 1<span class="tick">&#10003;</span></label>
+      <td>  <label for="boton1_1" class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 1<span class="tick">&#10003;</span></label>
     <input type="radio" id="boton1_1" name="opcion"> </td>
        <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
         <td>¿La voz es similar en ambos audios? Similitud</td>
@@ -138,7 +138,7 @@
         Tu navegador no soporta la reproducción del audio.
       </audio>
       </td>
-       <td> <button  class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 2<span class="tick">&#10003;</span></label>
+       <td> <label for="boton1_2" class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0001')"> Audio 2<span class="tick">&#10003;</span></label>
     <input type="radio" id="boton1_2" name="opcion"></td>
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
             <td> <button class="button_circ pregunta2_0001" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0001', 0)"></button> </td>
@@ -161,7 +161,7 @@
         Tu navegador no soporta la reproducción del audio.
       </audio>
     </td>
-      <td> <button  class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0002')"> Audio 1<span class="tick">&#10003;</span></label>
+      <td> <label for="boton1_2"  class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0002')"> Audio 1<span class="tick">&#10003;</span></label>
     <input type="radio" id="boton1_2" name="opcion"></td>
        <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
         <td>¿La voz es similar en ambos audios? Similitud</td>
@@ -179,7 +179,7 @@
         Tu navegador no soporta la reproducción del audio.
       </audio>
       </td>
-	<td><button class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0002')"> Audio 2<span class="tick">&#10003;</span></label>
+	<td><label for="boton2_2" class="boton-rectangular" onclick="activarBotonRectangular(this, 'Audio_0002')"> Audio 2<span class="tick">&#10003;</span></label>
     	<input type="radio" id="boton2_2" name="opcion"></td>
             <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
         <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
@@ -1094,13 +1094,6 @@
             buttons.forEach(button => button.classList.remove("active"));
             buttons[respuesta].classList.add("active");
           }
-    }
-    function activarBotonAlbayzin() {
-          // Obtener el botón por su clase
-              var boton = document.querySelector(".boton-rectangular");
-
-              // Alternar el estado del botón (activado/desactivado)
-              boton.checked = !boton.checked;
     }
         
    	function loadAudiosAlbayzin(value,speaker) {
