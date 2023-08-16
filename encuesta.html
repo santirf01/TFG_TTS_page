@@ -5,7 +5,7 @@
         h2 {
             border-bottom: 2px solid #ffcc80; /* Línea de subrayado en naranja claro */
             display: inline-block; /* Para que el ancho de la línea se ajuste al texto */
-            padding-bottom: 5px; /* Espacio entre el texto y la línea de subrayado */
+            padding-bottom: 5px; /* Espacio entre el texto y la línea de subrayado *ac/
         }
          table {
             border-collapse: collapse;
@@ -1295,7 +1295,7 @@ function guardarRespuestasAlbayzin216() {
     }
 function activarBotonRectangular(boton, grupo) {
     var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
-
+    console.log(botonesGrupo)
     botonesGrupo.forEach(function(botonGrupo) {
         botonGrupo.classList.remove('active');
     });
