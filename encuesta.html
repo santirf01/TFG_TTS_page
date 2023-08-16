@@ -1225,6 +1225,81 @@ function activarBotonRectangular(boton, grupo) {
 
     boton.classList.add('active');
 }
+function guardarRespuestaAlbayzin_Encuesta() {
+  var respuesta = {};
+
+  // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
+ var tablaAlbayzin = document.getElementById('TablaAlbayzin');
+var botonesRectangulares = tablaAlbayzin.querySelectorAll('.boton-rectangular');
+var audioElement;
+for (var i = 0; i < botonesRectangulares.length; i++) {
+	var boton = botonesRectangulares[i];
+	if (boton.classList.contains('active')) {
+		// Encontrar el elemento <audio> asociado
+		var audioRow = boton.closest('tr');
+		audioElement = audioRow.querySelector('audio');
+		 break; // No es necesario seguir iterando
+	}
+}
+
+    if (audioElement) {
+	var isOriginal = audioElement.getAttribute('src').includes('Originales');
+	respuesta.correcto=isOriginal    
+	console.log('Respuesta:', isOriginal ? 'Verdadera' : 'Falsa');
+    } else {
+	console.log('Ningún botón activo.');
+    }
+
+
+ 
+// Obtener las respuestas a las preguntas
+var respuestaSimilitud = document.querySelector(".button_circ.pregunta1_0001.active");
+var respuestaCalidad = document.querySelector(".button_circ.pregunta2_0001.active");
+
+var tabla = document.getElementById("tablaAlbayzin");
+var filas = tabla.getElementsByTagName("tr");
+
+for (var i = 2; i < filas.length; i++) {
+      var celdas = filas[i].getElementsByTagName("td");
+      var audioSeleccionado = celdas[0].getElementsByTagName("p")[0].textContent;
+      if (audioSeleccionado) {
+	respuesta.audioSeleccionado = audioSeleccionado;
+     }
+      // var audioSeleccionado = celdas[0].getElementsByTagName("select")[0].value;
+      // var boton1 = celdas[2].getElementsByTagName("input")[0];
+      // var boton2 = celdas[3].getElementsByTagName("input")[0];
+      var calidad = -1;
+
+      for (var j = 4; j < celdas.length; j++) {
+	    var botones = celdas[j].getElementsByTagName("button");
+	    console.log(botones)
+	    for (var k = 0; k < botones.length; k++) {
+		  if (botones[k].classList.contains("active")) {
+			calidad = j-4;
+			console.log(calidad)
+		    break;
+		  }
+	    }
+	    if (calidad !== -1) {
+		  break;
+	    }
+      }
+      if (i==2) {
+	respuesta.respuestaSimilitud = calidad;
+      }
+      if (i==3) {
+	// Hay que tener en cuenta que la primera esta dos veces
+	respuesta.respuestaCalidad = calidad+1;
+	break
+      }
+     
+}
+  // Convertir el objeto respuesta a formato JSON
+  var respuestaJSON = JSON.stringify(respuesta);
+  console.log(respuestaJSON);
+// Hacer el fetch la base de datos y el PHP
+}
+
 
 </script>
 </html>
