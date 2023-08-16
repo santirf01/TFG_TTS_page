@@ -1126,8 +1126,8 @@
           var respuesta = {};
     	
           // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
-    	 var tablaAlbayzin = document.getElementById('TablaAlbayzin');
-    	var botonesRectangulares = tablaAlbayzin.querySelectorAll('.boton-rectangular');
+    	var tablaAlbayzin = document.getElementById('TablaAlbayzin');
+    	var botonesRectangulares = tablaAlbayzin.querySelectorAll('.button-rectangular');
 	var audioElement;
     	for (var i = 0; i < botonesRectangulares.length; i++) {
         	var boton = botonesRectangulares[i];
@@ -1286,7 +1286,19 @@ function guardarRespuestasAlbayzin216() {
                 console.error("Error:", error);
             });
     }
-function activarBotonRectangular(labelElement, grupo) {
+function activarBotonRectangular(boton, grupo) {
+    var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
+    console.log(botonesGrupo)
+    botonesGrupo.forEach(function(botonGrupo) {
+        botonGrupo.classList.remove('active');
+    });
+
+    boton.classList.add('active');
+}
+
+</script>
+</html>
+<!-- function activarBotonRectangular(labelElement, grupo) {
     // Desactivar todos los botones de radio en el mismo grupo
     var radioButtons = document.querySelectorAll('input[name="' + grupo + '"]');
     radioButtons.forEach(function(radioButton) {
@@ -1297,15 +1309,4 @@ function activarBotonRectangular(labelElement, grupo) {
     var radioButton = labelElement.querySelector('input[name="' + grupo + '"]');
     radioButton.checked = true;
 }
-
-</script>
-</html>
-<!-- function activarBotonRectangular(boton, grupo) {
-    var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
-    console.log(botonesGrupo)
-    botonesGrupo.forEach(function(botonGrupo) {
-        botonGrupo.classList.remove('active');
-    });
-
-    boton.classList.add('active');
-}-->
+-->
