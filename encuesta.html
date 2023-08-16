@@ -1,0 +1,505 @@
+<html>
+<head>
+    <title>Albayzin</title>
+    <style>
+        h2 {
+            border-bottom: 2px solid #ffcc80; /* Línea de subrayado en naranja claro */
+            display: inline-block; /* Para que el ancho de la línea se ajuste al texto */
+            padding-bottom: 5px; /* Espacio entre el texto y la línea de subrayado */
+        }
+         table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+     .button_circ {
+            background-color: #ccc; /* Color de fondo gris */
+            color: black;
+            border: none; /* Quitamos el borde */
+            width: 20px; /* Ancho del botón */
+            height: 20px; /* Altura del botón */
+            border-radius: 50%; /* Hacemos que sea un círculo */
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+    .button_circ.active {
+            background-color: #ffa726;
+            font-size: 8px;
+            transform: scale(1.1);
+        }
+    .box {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: center;
+      width: 150px;
+    }
+    
+    .table-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .audio-small {
+      width: 140px;
+    }
+    .audio-big{
+      width: 600px;
+    }
+    .boton-rectangular {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Estilos para el tick (inicialmente oculto) */
+    .tick {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+      color: green;
+    }
+
+    /* Estilos para el botón con el tick activado */
+    .boton-rectangular:checked .tick {
+      display: block;
+    }
+    </style>
+</head>
+
+<body>
+    
+
+<table id="tablaAlbayzin">
+         <tr>
+             <th rowspan="2">Nombre del Audio</th>
+            <th rowspan="2">Audio</th>
+            <th rowspan="2">¿Cuál es el original?</th>
+            <th rowspan="2">Pregunta</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <tr>
+        <td rowspan="2"> 
+        <p>aafa0001</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0001.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0001.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 5)"></button> </td>
+            </tr>
+  <tr>
+        <td rowspan="2"> 
+        <p>aafa0002</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0002.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0002.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td rowspan="2"> 
+        <p>aafa0003</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/aa/aafa0003.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0003.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 5)"></button> </td>
+            </tr>
+    </table>
+    <button onclick="guardarRespuestaAlbayzin()">Enviar Respuesta</button>
+  
+  <table id="tablaAlbayzin">
+         <tr>
+             <th rowspan="2">Nombre del Audio</th>
+            <th rowspan="2">Audio</th>
+            <th rowspan="2">¿Cuál es el original?</th>
+            <th rowspan="2">Pregunta</th>
+            <th colspan="6">Respuesta</th>
+        </tr>
+        <tr>
+            <th> 0 </th>
+            <th> 1 </th>
+            <th> 2 </th>
+            <th> 3 </th>
+            <th> 4 </th>
+            <th> 5 </th>
+        </tr>
+        <tr>
+        <td rowspan="2"> 
+        <p>abfa0001</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/ab/abfa0001.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/ab/abfa0001.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2', 5)"></button> </td>
+            </tr>
+  <tr>
+        <td rowspan="2"> 
+        <p>abfa0002</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/ab/abfa0002.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/ab/abfa0002.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td rowspan="2"> 
+        <p>abfa0003</p>
+     <div id="contenido">
+    </div>
+        
+    </td>
+    <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/ab/abfa0003.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+    </td>
+        <td><label for="boton1" class="boton-rectangular"> Audio 1<span class="tick">&#10003;</span></label> <input type="radio" id="boton1" name="opcion" /> </td>
+       <!-- <td> <button class="boton-rectangular" P1  onclick="activarBotonAlbayzin()"> Audio 1 </button> </td> -->
+        <td>¿La voz es similar en ambos audios? Similitud</td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 0)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 1)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 2)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 3)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 4)"></button> </td>
+            <td> <button class="button_circ pregunta1" onclick="enviarRespuestaAlbayzin('pregunta1_2', 5)"></button> </td>
+            </tr>
+    <tr>
+        <td class="box">
+        <audio class="audio-button audio-small" controls>
+        <source src="https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/aa/aafa0003.wav" type="audio/wav">
+        Tu navegador no soporta la reproducción del audio.
+      </audio>
+      </td>
+        <td><label for="boton2" class="boton-rectangular"> Audio 2<span class="tick">&#10003;</span></label> <input type="radio" id="boton2" name="opcion" > </td>
+            <!--<button class="boton-rectangular" P1 onclick="activarBotonAlbayzin()"> Audio 2 </button>--> 
+        <td>¿Que tal se entiende lo que dice, es de buena calidad el audio? Inteligibilidad y Calidad</td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 0)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 1)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 2)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 3)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 4)"></button> </td>
+            <td> <button class="button_circ pregunta2" onclick="enviarRespuestaAlbayzin('pregunta2_3', 5)"></button> </td>
+            </tr>
+    </table>
+    <button onclick="guardarRespuestaAlbayzin()">Enviar Respuesta</button>
+
+
+</body>
+<script>
+    function enviarRespuestaAlbayzin(pregunta, respuesta) {
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
+    }
+    function activarBotonAlbayzin() {
+          // Obtener el botón por su clase
+              var boton = document.querySelector(".boton-rectangular");
+
+              // Alternar el estado del botón (activado/desactivado)
+              boton.checked = !boton.checked;
+    }
+        
+   	function loadAudiosAlbayzin(value,speaker) {
+	      var audioPlayerOriginales = document.getElementById("audioPlayerOriginales");
+	      var audioPlayerSintetizados = document.getElementById("audioPlayerSintetizados");
+	
+	      // Si no se ha seleccionado ninguna opción, ocultar ambos audios
+	      if (!value) {
+	        audioPlayerOriginales.pause();
+	        audioPlayerOriginales.src = "";
+	        audioPlayerSintetizados.pause();
+	        audioPlayerSintetizados.src = "";
+	        return;
+      	     }
+
+	      // Construir las URLs de los audios Originales y Sintetizados
+	      var audioSrcOriginales = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Originales/" +speaker+ "/" + value + ".wav";
+	      var audioSrcSintetizados = "https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Sintetizados/" +speaker+ "/" + value + ".wav";
+	
+	      // Cargar y reproducir el audio Originales
+	      audioPlayerOriginales.src = audioSrcOriginales;
+	      audioPlayerOriginales.load();
+	
+	
+	      // Cargar y reproducir el audio Sintetizados
+	      audioPlayerSintetizados.src = audioSrcSintetizados;
+	      audioPlayerSintetizados.load();
+    }
+    function guardarRespuestaAlbayzin() {
+          var respuesta = {};
+    
+          // Obtener el valor seleccionado del select
+          var select = document.getElementById("audioSelect");
+          var audioSeleccionado = select.value;
+    
+          // Verificar si se ha seleccionado una opción en el select
+          if (audioSeleccionado) {
+            respuesta.audioSeleccionado = audioSeleccionado;
+          }
+    
+          // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
+          var boton1 = document.getElementById("boton1");
+          var boton2 = document.getElementById("boton2");
+          if (boton1.checked) {
+            respuesta.correcto = true;} else if (boton2.checked) {
+            respuesta.correcto = false;
+          }
+    
+          // Obtener las respuestas a las preguntas
+          var respuestaSimilitud = document.querySelector(".button_circ.pregunta1.active");
+          var respuestaCalidad = document.querySelector(".button_circ.pregunta2.active");
+
+        var tabla = document.getElementById("tablaAlbayzin");
+        var filas = tabla.getElementsByTagName("tr");
+        
+        for (var i = 2; i < filas.length; i++) {
+              var celdas = filas[i].getElementsByTagName("td");
+
+              // var audioSeleccionado = celdas[0].getElementsByTagName("select")[0].value;
+              // var boton1 = celdas[2].getElementsByTagName("input")[0];
+              // var boton2 = celdas[3].getElementsByTagName("input")[0];
+              var calidad = -1;
+
+              for (var j = 4; j < celdas.length; j++) {
+                    var botones = celdas[j].getElementsByTagName("button");
+                  console.log(botones)
+                    for (var k = 0; k < botones.length; k++) {
+                          if (botones[k].classList.contains("active")) {
+                                calidad = j-4;
+                                console.log(calidad)
+                            break;
+                          }
+                    }
+                    if (calidad !== -1) {
+                          break;
+                    }
+              }
+              if (i==2) {
+                respuesta.respuestaSimilitud = calidad;
+              }
+              if (i==3) {
+                // Hay que tener en cuenta que la primera esta dos veces
+                respuesta.respuestaCalidad = calidad+1;
+              }
+             
+        }
+          // Convertir el objeto respuesta a formato JSON
+          var respuestaJSON = JSON.stringify(respuesta);
+          console.log(respuestaJSON);
+        // Hacer el fetch la base de datos y el PHP
+    }
+    function loadContent(url) {
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                var contenidoDiv = document.getElementById("contenido");
+                contenidoDiv.innerHTML = data;
+                contenidoDiv.classList.add("contenido-cargado"); // Agregamos la clase al div de contenido
+		if(url=='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_216_speakers.html'){
+            		cargar216Speakers();
+		}
+            
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+</script>
+</html>
