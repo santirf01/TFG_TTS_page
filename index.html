@@ -599,6 +599,7 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 	    // Aquí puedes hacer lo que necesites con la lista de respuestas
 	    console.log("Respuestas:", respuesta);
 	var respuestaJSON = JSON.stringify(respuesta);
+	console.log(respuestaJSON)
 	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
     	    method: "POST",
 	    headers: {
