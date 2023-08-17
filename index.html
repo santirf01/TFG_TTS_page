@@ -804,8 +804,10 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
             successNotification.style.padding = "10px";
             successNotification.style.borderRadius = "5px";
             successNotification.style.zIndex = "1000";
-
             alert("Respuestas enviadas correctamente.");
+	    setTimeout(function() {
+    		successNotification.style.display = "none";
+	    }, 3000);
         } else if (certificado === 1) {
             var errorNotification = document.createElement("div");
             errorNotification.classList.add("error-notification");
