@@ -1078,6 +1078,7 @@
           // Resaltar el botón pulsado en la fila de respuesta correspondiente
           if (pregunta === 'pregunta1_0001') {
             var buttons = document.querySelectorAll(".button_circ.pregunta1_0001");
+            console.log(buttons)
             buttons.forEach(button => button.classList.remove("active"));
             buttons[respuesta].classList.add("active");
           } else if (pregunta === 'pregunta2_0001') {
@@ -1144,6 +1145,7 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 		    for (var j = 1; j < cells.length; j++) {
 			var botones = cells[j].getElementsByTagName("button");
 			for (var k = 0; k < botones.length; k++) { 
+			    console.log(botones[k])
 			    if (botones[k].classList.contains("active")) {
 				calidad = j - 1;
 				break;
