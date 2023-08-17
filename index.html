@@ -756,6 +756,20 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     var completadoContador = 0;
     var certificado = 0;
     var errores = [];
+    var sendingNotification = document.createElement("div");
+    sendingNotification.classList.add("sending-notification");
+	 sendingNotification.textContent = "Enviando datos...";
+	document.body.appendChild(sendingNotification);
+	
+	sendingNotification.style.position = "fixed";
+	sendingNotification.style.top = "10px";
+	sendingNotification.style.left = "50%";
+	sendingNotification.style.transform = "translateX(-50%)";
+	sendingNotification.style.background = "yellow";
+	sendingNotification.style.color = "black";
+	sendingNotification.style.padding = "10px";
+	sendingNotification.style.borderRadius = "5px";
+	sendingNotification.style.zIndex = "1000";
     jsonData.forEach(function(json) {
 	    fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin.php", {
 	        method: "POST",
@@ -791,6 +805,7 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 console.log(certificado)
     setTimeout(function() {
         if (errores.length === 0) {
+	    sendingNotification.style.display = "none";	
             var successNotification = document.createElement("div");
             successNotification.classList.add("success-notification");
             successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
@@ -810,6 +825,7 @@ console.log(certificado)
     		successNotification.style.display = "none";
 	    }, 3000);
         } else if (certificado === 1) {
+	    sendingNotification.style.display = "none";	
             var errorNotification = document.createElement("div");
             errorNotification.classList.add("error-notification");
             errorNotification.textContent = "Se ha producido un error con el certificado.";
@@ -827,6 +843,7 @@ console.log(certificado)
 
             alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo, asegúrate de estar en modo incógnito o intenta con otro navegador.");
         } else {
+	    sendingNotification.style.display = "none";	
             var errorNotification = document.createElement("div");
             errorNotification.classList.add("error-notification");
             errorNotification.textContent = "Se ha producido un error en las solicitudes. Revisa los datos y recarga la página.";
