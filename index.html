@@ -532,7 +532,7 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
         // Agregamos el iframe al div con el ID "contenido"
         contenidoDiv.appendChild(iframe);
   }
-    function enviarRespuestaAlbayzinEncuesta(pregunta, respuesta) {
+   function enviarRespuestaAlbayzinEncuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
           console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
           var buttons = document.querySelectorAll(".button_circ."+pregunta);
@@ -573,6 +573,7 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 		    for (var j = 1; j < cells.length; j++) {
 			var botones = cells[j].getElementsByTagName("button");
 			for (var k = 0; k < botones.length; k++) { 
+			    console.log(botones[k])
 			    if (botones[k].classList.contains("active")) {
 				calidad = j - 1;
 				break;
@@ -599,7 +600,6 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 	    // Aquí puedes hacer lo que necesites con la lista de respuestas
 	    console.log("Respuestas:", respuesta);
 	var respuestaJSON = JSON.stringify(respuesta);
-	console.log(respuestaJSON)
 	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
     	    method: "POST",
 	    headers: {
@@ -618,9 +618,24 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 	});
 	alert("Respuestas enviadas correctamente.");
   	}
+    function loadContent(url) {
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                var contenidoDiv = document.getElementById("contenido");
+                contenidoDiv.innerHTML = data;
+                contenidoDiv.classList.add("contenido-cargado"); // Agregamos la clase al div de contenido
+		if(url=='https://santirf01.github.io/TFG_TTS_page.io/Albayzin/Audios/Tabla_216_speakers.html'){
+            		cargar216Speakers();
+		}
+            
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
 function activarBotonRectangular(boton, grupo) {
-    console.log(boton)
-    console.log(grupo)	
     var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
     console.log(botonesGrupo)
     botonesGrupo.forEach(function(botonGrupo) {
@@ -733,7 +748,6 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 	alert("Respuestas enviadas correctamente.");
 
 }
-
 
 
      
