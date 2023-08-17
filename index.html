@@ -765,91 +765,82 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 	        body: JSON.stringify(json) // Convertir el arreglo de objetos JSON a cadena JSON
 	    })
 	    .then(response => {
-    if (!response.ok) {
-        throw new Error("Error en la solicitud POST");
-    }
-    return response.json();
-})then(data => {
-        console.log(data);
-        completadoContador++;
-    })
-    .catch(error => {
-        console.error("Error en la solicitud:", error);
+            if (!response.ok) {
+                throw new Error("Error en la solicitud POST");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            completadoContador++;
+        })
+        .catch(error => {
+            console.error("Error en la solicitud:", error);
 
-        // Verificar si el error contiene ciertas palabras clave
-        if (error.message.includes("net::ERR_CERT_COMMON_NAME_INVALID")){
-            errores.push("Certificado inválido");
-	    certificado = 1;
-        } 
-	else if (error.message.includes("Unexpected non-whitespace character after JSON")) {
-		
-	}else {
-            errores.push("Error en la solicitud");
-        }
+            if (error.message.includes("net::ERR_CERT_COMMON_NAME_INVALID")) {
+                errores.push("Certificado inválido");
+                certificado = 1;
+            } else if (error.message.includes("Unexpected non-whitespace character after JSON")) {
+                // ... No hacer nada aquí ...
+            } else {
+                errores.push("Error en la solicitud");
+            }
+        });
     });
-});
 
+    setTimeout(function() {
+        if (errores.length === 0) {
+            var successNotification = document.createElement("div");
+            successNotification.classList.add("success-notification");
+            successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
+            document.body.appendChild(successNotification);
 
-setTimeout(function() {
-    if (errores.length === 0) {
-        var successNotification = document.createElement("div");
-        successNotification.classList.add("success-notification");
-        successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
-        document.body.appendChild(successNotification);
+            successNotification.style.position = "fixed";
+            successNotification.style.top = "10px";
+            successNotification.style.left = "50%";
+            successNotification.style.transform = "translateX(-50%)";
+            successNotification.style.background = "green";
+            successNotification.style.color = "white";
+            successNotification.style.padding = "10px";
+            successNotification.style.borderRadius = "5px";
+            successNotification.style.zIndex = "1000";
 
-        // Puedes agregar estilos CSS para darle formato a la notificación de éxito
-        successNotification.style.position = "fixed";
-        successNotification.style.top = "10px";
-        successNotification.style.left = "50%";
-        successNotification.style.transform = "translateX(-50%)";
-        successNotification.style.background = "green";
-        successNotification.style.color = "white";
-        successNotification.style.padding = "10px";
-        successNotification.style.borderRadius = "5px";
-        successNotification.style.zIndex = "1000";
+            alert("Respuestas enviadas correctamente.");
+        } else if (certificado === 1) {
+            var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error con el certificado.";
+            document.body.appendChild(errorNotification);
 
-        alert("Respuestas enviadas correctamente.");
-    } else if (certificado === 1){
-        // Mostrar notificación de error
-        var errorNotification = document.createElement("div");
-        errorNotification.classList.add("error-notification");
-        errorNotification.textContent = "Se ha producido un error con certificador";
-        document.body.appendChild(errorNotification);
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
 
-        // Puedes agregar estilos CSS para darle formato a la notificación
-        errorNotification.style.position = "fixed";
-        errorNotification.style.top = "10px";
-        errorNotification.style.left = "50%";
-        errorNotification.style.transform = "translateX(-50%)";
-        errorNotification.style.background = "red";
-        errorNotification.style.color = "white";
-        errorNotification.style.padding = "10px";
-        errorNotification.style.borderRadius = "5px";
-        errorNotification.style.zIndex = "1000";
-	alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo asegurate de estar en incóginito o intenta con otro navegador.");
-    }else{
-	
-        var errorNotification = document.createElement("div");
-        errorNotification.classList.add("error-notification");
-        errorNotification.textContent = "Se ha producido un error en las solicitudes. Revisa los datos y recarga la página";
-        document.body.appendChild(errorNotification);
+            alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo, asegúrate de estar en modo incógnito o intenta con otro navegador.");
+        } else {
+            var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error en las solicitudes. Revisa los datos y recarga la página.";
+            document.body.appendChild(errorNotification);
 
-        // Puedes agregar estilos CSS para darle formato a la notificación
-        errorNotification.style.position = "fixed";
-        errorNotification.style.top = "10px";
-        errorNotification.style.left = "50%";
-        errorNotification.style.transform = "translateX(-50%)";
-        errorNotification.style.background = "red";
-        errorNotification.style.color = "white";
-        errorNotification.style.padding = "10px";
-        errorNotification.style.borderRadius = "5px";
-        errorNotification.style.zIndex = "1000";
-    
-}, jsonData.length * 1000); 
-}
-
-
-     
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
+        }
+    }, jsonData.length * 1000);
+}  
 </script>
 </body>
 </html>
