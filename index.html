@@ -749,9 +749,11 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 
         jsonData.push(json);
     }
-
+  
     // Aquí tienes el arreglo jsonData con los tres JSONs generados
     console.log(jsonData);
+
+    var completadoContador = 0;
     jsonData.forEach(function(json) {
 	    fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin.php", {
 	        method: "POST",
@@ -766,35 +768,76 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     }
     return response.json();
 })
-.then(data => {
-    console.log(data);
-    console.log("Datos enviados de manera correcta. Muchas gracias.");
+.catch(error => {
+        console.error("Error en la solicitud:", error);
+
+        // Verificar si el error contiene ciertas palabras clave
+        if (error.message.includes("Unexpected non-whitespace character after JSON")) {
+	    alert("Respuestas enviadas correctamente.");	
+            // No mostrar la notificación en estos casos
+        } else if (error.message.includes("net::ERR_CERT_COMMON_NAME_INVALID")){
+            // Mostrar notificación de error encima del mensaje
+            var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error al recibir las respuestas. Recarga la página";
+            document.body.appendChild(errorNotification);
+
+            // Puedes agregar estilos CSS para darle formato a la notificación
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
+            
+            alert("Se ha producido un error al recibir las respuestas por permisos. Para solucionarlo asegurate de estar en incóginito o intenta con otro navegador.");
+        }else {
+	    var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error asegurate de haber realizado todo bien.";
+            document.body.appendChild(errorNotification);
+
+            // Puedes agregar estilos CSS para darle formato a la notificación
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
+	}
+    }).then(data => {
+    completadoContador++;
+    if (completadoContador === 3) {
+	    console.log(data);
+    	    console.log("Datos enviados de manera correcta. Muchas gracias.");
+            var successNotification = document.createElement("div");
+            successNotification.classList.add("success-notification");
+            successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
+            document.body.appendChild(successNotification);
+
+            // Puedes agregar estilos CSS para darle formato a la notificación de éxito
+            successNotification.style.position = "fixed";
+            successNotification.style.top = "10px";
+            successNotification.style.left = "50%";
+            successNotification.style.transform = "translateX(-50%)";
+            successNotification.style.background = "green";
+            successNotification.style.color = "white";
+            successNotification.style.padding = "10px";
+            successNotification.style.borderRadius = "5px";
+            successNotification.style.zIndex = "1000";
+	    completadoContador = 0;
+        }
+
     // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
 })
-.catch(error => {
-    console.error("Error:", error);
-
-    // Mostrar notificación de error encima del mensaje
-    var errorNotification = document.createElement("div");
-    errorNotification.classList.add("error-notification");
-    errorNotification.textContent = "Se ha producido un error al enviar las respuestas. Recarga la página";
-    document.body.appendChild(errorNotification);
-    alert("Se ha producido un error pruebe a refrescar la página o con otro navegador. Los datos que se han enviado antes no hace falta que se vuelva a hacer");
-    // Puedes agregar estilos CSS para darle formato a la notificación
-    errorNotification.style.position = "fixed";
-    errorNotification.style.top = "10px";
-    errorNotification.style.left = "50%";
-    errorNotification.style.transform = "translateX(-50%)";
-    errorNotification.style.background = "red";
-    errorNotification.style.color = "white";
-    errorNotification.style.padding = "10px";
-    errorNotification.style.borderRadius = "5px";
-    errorNotification.style.zIndex = "1000";
-
-    
 });
-});
-alert("Respuestas enviadas correctamente.");
+
 }
 
 
