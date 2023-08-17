@@ -1245,17 +1245,28 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
     for (var i = 3; i < filas.length; i += 3) {
         var json = {};
 	console.log(filas[i])
+	// Consigo el nombre del audio
         var nombreAudio = filas[i].getElementsByTagName("p")[0].textContent;
-
+	// Busco si el boton rectangular esta pulsado
         var botonRectangular1 = filas[i].querySelector(".boton-rectangular:checked");
         var botonRectangular2 = filas[i + 1].querySelector(".boton-rectangular:checked");
 
         if (botonRectangular1) {
 	    consoles.log('botonRectangular1')
             json.botonActivo = botonRectangular1.textContent.trim();
+	    var audioElement = botonRectangular1.parentElement.previousElementSibling.querySelector("audio");
+    	    if (audioElement) {
+        	var audioSrc = audioElement.querySelector("source").getAttribute("src");
+        	console.log("Audio src:", audioSrc);
+    	    }
         } else if (botonRectangular2) {
 	     consoles.log('botonRectangular2')
             json.botonActivo = botonRectangular2.textContent.trim();
+    	    var audioElement = botonRectangular2.parentElement.previousElementSibling.querySelector("audio");
+    	    if (audioElement) {
+        	var audioSrc = audioElement.querySelector("source").getAttribute("src");
+        	console.log("Audio src:", audioSrc);
+    	   }
         }
 
         var respuestasPregunta1 = [];
