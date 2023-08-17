@@ -1303,18 +1303,20 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
             // var respuestaButton2 = filas[i + 1].cells[j-1].querySelector(".button_circ.pregunta2.active");
 
             if (respuestaButton1) {
-                respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
+		respuestaPreguntaSimilitud = j-4
+                // respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
 		console.log("RESPUESTA BOTON")
 		console.log(respuestaPreguntaSimilitud)
             }
 
             if (respuestaButton2) {
-                respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
+		respuestaPreguntaCalidad = j-3    
+                // respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
             }
         }
 
-        json.respuestasPregunta1 = respuestasPregunta1.join(", ");
-        json.respuestasPregunta2 = respuestasPregunta2.join(", ");
+        json.respuestaPreguntaSimilitud = respuestaPreguntaSimilitud.join(", ");
+        json.respuestaPreguntaCalidad  = respuestaPreguntaCalidad.join(", ");
 
         jsonData.push(json);
     }
