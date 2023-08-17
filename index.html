@@ -602,6 +602,22 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 	    // Aquí puedes hacer lo que necesites con la lista de respuestas
 	    console.log("Respuestas:", respuesta);
 	var respuestaJSON = JSON.stringify(respuesta);
+	var certificado = 0;
+    var errores = [];
+    var sendingNotification = document.createElement("div");
+    sendingNotification.classList.add("sending-notification");
+	 sendingNotification.textContent = "Enviando datos...";
+	document.body.appendChild(sendingNotification);
+	
+	sendingNotification.style.position = "fixed";
+	sendingNotification.style.top = "10px";
+	sendingNotification.style.left = "50%";
+	sendingNotification.style.transform = "translateX(-50%)";
+	sendingNotification.style.background = "yellow";
+	sendingNotification.style.color = "black";
+	sendingNotification.style.padding = "10px";
+	sendingNotification.style.borderRadius = "5px";
+	sendingNotification.style.zIndex = "1000";
 	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
     	    method: "POST",
 	    headers: {
@@ -610,39 +626,87 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 	    body: respuestaJSON
 	})
 	.then(response => {
-	    if (!response.ok) {
-	        throw new Error("Error en la solicitud POST");
-	    }
-	    return response.json();
-	})
-	.then(data => {
-	    console.log(data);
-	    console.log("Datos enviados de manera correcta. Muchas gracias.");
-	    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-	})
-	.catch(error => {
-	    console.error("Error:", error);
-	
-	    // Mostrar notificación de error encima del mensaje
-	    var errorNotification = document.createElement("div");
-	    errorNotification.classList.add("error-notification");
-	    errorNotification.textContent = "Se ha producido un error al enviar las respuestas.";
-	    document.body.appendChild(errorNotification);
-	    
-	    // Puedes agregar estilos CSS para darle formato a la notificación
-	    errorNotification.style.position = "fixed";
-	    errorNotification.style.top = "10px";
-	    errorNotification.style.left = "50%";
-	    errorNotification.style.transform = "translateX(-50%)";
-	    errorNotification.style.background = "red";
-	    errorNotification.style.color = "white";
-	    errorNotification.style.padding = "10px";
-	    errorNotification.style.borderRadius = "5px";
-	    errorNotification.style.zIndex = "1000";
-	
-	    alert("Respuestas enviadas correctamente.");
-	});
-  	}
+            if (!response.ok) {
+                throw new Error("Error en la solicitud POST");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+        }).catch(error => {
+            console.error("Error en la solicitud:", error);
+
+            if (error.message.includes("Failed to fetch")) {
+                errores.push("Certificado inválido");
+		console.log("certificado inválido");
+                certificado = 1;
+            } else if (error.message.includes("Unexpected non-whitespace character after JSON")) {
+                // ... No hacer nada aquí ...
+            } else {
+                errores.push("Error en la solicitud");
+            }
+        });
+console.log(certificado)
+    setTimeout(function() {
+        if (errores.length === 0) {
+	    sendingNotification.style.display = "none";	
+            var successNotification = document.createElement("div");
+            successNotification.classList.add("success-notification");
+            successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
+            document.body.appendChild(successNotification);
+
+            successNotification.style.position = "fixed";
+            successNotification.style.top = "10px";
+            successNotification.style.left = "50%";
+            successNotification.style.transform = "translateX(-50%)";
+            successNotification.style.background = "green";
+            successNotification.style.color = "white";
+            successNotification.style.padding = "10px";
+            successNotification.style.borderRadius = "5px";
+            successNotification.style.zIndex = "1000";
+            alert("Respuestas enviadas correctamente.");
+	    setTimeout(function() {
+    		successNotification.style.display = "none";
+	    }, 3000);
+        } else if (certificado === 1) {
+	    sendingNotification.style.display = "none";	
+            var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error con el certificado.";
+            document.body.appendChild(errorNotification);
+
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
+
+            alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo ponte en modo incógnito o intenta con otro navegador. Tambien puedes en el Candado(URL)/Configuración de sitios/Permitir Contenido No Seguro y recargar.");
+        } else {
+	    sendingNotification.style.display = "none";	
+            var errorNotification = document.createElement("div");
+            errorNotification.classList.add("error-notification");
+            errorNotification.textContent = "Se ha producido un error en las solicitudes. Revisa los datos y recarga la página.";
+            document.body.appendChild(errorNotification);
+
+            errorNotification.style.position = "fixed";
+            errorNotification.style.top = "10px";
+            errorNotification.style.left = "50%";
+            errorNotification.style.transform = "translateX(-50%)";
+            errorNotification.style.background = "red";
+            errorNotification.style.color = "white";
+            errorNotification.style.padding = "10px";
+            errorNotification.style.borderRadius = "5px";
+            errorNotification.style.zIndex = "1000";
+	    alert("Se ha producido un error. Recarga una vez la página y si no desaparece informanos de tu error.")
+        }
+    }, jsonData.length * 1000);
+}  
+
     function loadContent(url) {
 
         fetch(url)
@@ -660,6 +724,7 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
                 console.error("Error:", error);
             });
     }
+}
 function activarBotonRectangular(boton, grupo) {
     var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
     console.log(botonesGrupo)
@@ -841,7 +906,7 @@ console.log(certificado)
             errorNotification.style.borderRadius = "5px";
             errorNotification.style.zIndex = "1000";
 
-            alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo, asegúrate de estar en modo incógnito o intenta con otro navegador.");
+            alert("Se ha producido un error al recibir las respuestas por certificados. Para solucionarlo ponte en modo incógnito o intenta con otro navegador. Tambien puedes en el Candado(URL)/Configuración de sitios/Permitir Contenido No Seguro y recargar.");
         } else {
 	    sendingNotification.style.display = "none";	
             var errorNotification = document.createElement("div");
