@@ -664,7 +664,7 @@
 <br>
 <H1>Albayzin 216 Speakers</H1>
 <H2>oi</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableAlbayzinoi'>
   <tr>
     <td colspan="9"> <H2>oi</H2>
     </td>
@@ -727,11 +727,11 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableAlbayzinoi')">Enviar Respuestas</button>
 <br>
 
 <H2>dh</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableAlbayzindh'>
   <tr>
     <td colspan="9"> <H2>dh</H2>
     </td>
@@ -794,11 +794,11 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableAlbayzindh')">Enviar Respuestas</button>
 <br>
 
 <H2>ts</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableAlbayzints'>
   <tr>
     <td colspan="9"> <H2>ts</H2>
     </td>
@@ -861,11 +861,11 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableAlbayzints')">Enviar Respuestas</button>
 <br>
 <H1>Thalento</H1>
 <H2>TVD-D-0001</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableTVD-D-0001'>
   <tr>
     <td colspan="9"> <H2>TVD-D-0001</H2>
     </td>
@@ -928,10 +928,10 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableTVD-D-0001')">Enviar Respuestas</button>
 <br>
 <H2>TVD-D-0002</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableTVD-D-0002'>
   <tr>
     <td colspan="9"> <H2>TVD-D-0002</H2>
     </td>
@@ -994,10 +994,10 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableTVD-D-0002')">Enviar Respuestas</button>
 <br>
 <H2>TVD-D-0005</H2>
-<table id ='tableAlbayzin216'>
+<table id ='tableTVD-D-0005'>
   <tr>
     <td colspan="9"> <H2>TVD-D-0005</H2>
     </td>
@@ -1060,7 +1060,7 @@
   </td>
 </tr>
 </table>
-<button onclick="guardarRespuestasAlbayzin216Encuesta()">Enviar Respuestas</button>
+<button onclick="guardarRespuestasAlbayzin216Encuesta('tableTVD-D-0005')">Enviar Respuestas</button>
 <br>
 </body>
 <script>
@@ -1133,11 +1133,11 @@
     }
 
 
-function guardarRespuestasAlbayzin216Encuesta() {
+function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 	    var respuesta = {};
 	
 	    // Obtener el valor seleccionado del select
-	    var tabla = document.getElementById('tableAlbayzin216');
+	    var tabla = document.getElementById(nombreTabla);
 	    var primeraFila = tabla.rows[0];
 	    var select = primeraFila.cells[0].getElementsByTagName('h2')[0].innerText;
 	    var speakerSeleccionado = select.value;
