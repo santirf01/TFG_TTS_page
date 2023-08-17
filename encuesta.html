@@ -1240,9 +1240,9 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
     
     var jsonData = [];
 
-    for (var i = 2; i < filas.length; i += 2) {
+    for (var i = 3; i < filas.length; i += 3) {
         var json = {};
-
+	console.log(filas)
         var nombreAudio = filas[i].getElementsByTagName("p")[0].textContent;
 
         var botonRectangular1 = filas[i].querySelector(".boton-rectangular:checked");
