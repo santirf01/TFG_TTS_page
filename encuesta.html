@@ -1280,15 +1280,15 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
 
     for (var i = 3; i < filas.length; i += 3) {
         var json = {};
-	console.log(filas[i])
+	// console.log(filas[i])
 	// Consigo el nombre del audio
         var nombreAudio = filas[i].getElementsByTagName("p")[0].textContent;
 	json.audioSeleccionado = nombreAudio;
 	// Busco si el boton rectangular esta pulsado
 	var botonRectangular1 = filas[i].querySelector(".boton-rectangular");
-	var tieneTick1 = botonRectangular1.querySelector(".tick");
+	var tieneTick1 = botonRectangular1.querySelector(".tick")!== null;;
 	var botonRectangular2 = filas[i+1].querySelector(".boton-rectangular");
-	var tieneTick2 = botonRectangular2.querySelector(".tick");
+	var tieneTick2 = botonRectangular2.querySelector(".tick")!== null;;
         // var botonRectangular1 = filas[i].querySelector(".boton-rectangular:checked");
         // var botonRectangular2 = filas[i + 1].querySelector(".boton-rectangular:checked");
         if (tieneTick1) {
@@ -1296,6 +1296,7 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
             // json.botonActivo = botonRectangular1.textContent.trim();
 	    var audioElement = botonRectangular1.parentElement.previousElementSibling.querySelector("audio");
     	    if (audioElement) {
+		console.log('botonRectangular2')
         	var audioSrc = audioElement.querySelector("source").getAttribute("src");
         	console.log("Audio src:", audioSrc);
 		json.correcto = audioSrc.includes("Originales") ? 1 : 0;
@@ -1317,24 +1318,26 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
         for (var j = 4; j < filas[i].cells.length; j++) {
 	    console.log(filas[i].cells[j])
 	    console.log(filas[i+1].cells[j-1])
-	    var numPregunta = Math.floor(j / 2) - 1;
-
+	    var numPregunta = Math.floor(i / 3);
+	    console.log(numPregunta)
             var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
             var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
-            console.log(respuestaButton1)
-            console.log(respuestaButton2)   
+            // console.log(respuestaButton1)
+            // console.log(respuestaButton2)   
 	// var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
             // var respuestaButton2 = filas[i + 1].cells[j-1].querySelector(".button_circ.pregunta2.active");
 
             if (respuestaButton1) {
 		respuestaPreguntaSimilitud = j-4
                 // respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
-		console.log("RESPUESTA BOTON")
+		console.log("RESPUESTA Similitud")
 		console.log(respuestaPreguntaSimilitud)
             }
 
             if (respuestaButton2) {
-		respuestaPreguntaCalidad = j-3    
+		respuestaPreguntaCalidad = j-3 
+		console.log("RESPUESTA Calidad")
+		console.log(respuestaPreguntaCalidad)
                 // respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
             }
         }
