@@ -777,9 +777,9 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     // Mostrar notificación de error encima del mensaje
     var errorNotification = document.createElement("div");
     errorNotification.classList.add("error-notification");
-    errorNotification.textContent = "Se ha producido un error al enviar las respuestas.";
+    errorNotification.textContent = "Se ha producido un error al enviar las respuestas. Recarga la página";
     document.body.appendChild(errorNotification);
-    
+    alert("Se ha producido un error pruebe a refrescar la página o con otro navegador. Los datos que se han enviado antes no hace falta que se vuelva a hacer");
     // Puedes agregar estilos CSS para darle formato a la notificación
     errorNotification.style.position = "fixed";
     errorNotification.style.top = "10px";
@@ -793,8 +793,8 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 
     
 });
-	alert("Respuestas enviadas correctamente.");
 });
+alert("Respuestas enviadas correctamente.");
 }
 
 
