@@ -627,7 +627,7 @@ function activarBotonRectangular(boton, grupo) {
 
     boton.classList.add('active');
 }
-function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
+function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     var tabla = document.getElementById(nombreTabla);
     var filas = tabla.getElementsByTagName("tr");
     
@@ -678,8 +678,8 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
 	    // console.log(filas[i].cells[j])
 	    // console.log(filas[i+1].cells[j-1])
 	    var numPregunta = Math.floor(i / 3);
-            var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
-            var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
+            var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}_${speaker}.active`);
+            var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}_${speaker}.active`);
             // console.log(respuestaButton1)
             // console.log(respuestaButton2)   
 	// var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
