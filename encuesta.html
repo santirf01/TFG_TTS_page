@@ -1104,7 +1104,6 @@
           // Resaltar el botón pulsado en la fila de respuesta correspondiente
           if (pregunta === 'pregunta1_0001') {
             var buttons = document.querySelectorAll(".button_circ.pregunta1_0001");
-	   console.log(buttons)
             buttons.forEach(button => button.classList.remove("active"));
             buttons[respuesta].classList.add("active");
           } else if (pregunta === 'pregunta2_0001') {
@@ -1316,10 +1315,9 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
         var respuestasPregunta2 = [];
 
         for (var j = 4; j < filas[i].cells.length; j++) {
-	    console.log(filas[i].cells[j])
-	    console.log(filas[i+1].cells[j-1])
+	    // console.log(filas[i].cells[j])
+	    // console.log(filas[i+1].cells[j-1])
 	    var numPregunta = Math.floor(i / 3);
-	    console.log(numPregunta)
             var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
             var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
             // console.log(respuestaButton1)
@@ -1328,14 +1326,16 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
             // var respuestaButton2 = filas[i + 1].cells[j-1].querySelector(".button_circ.pregunta2.active");
 
             if (respuestaButton1) {
-		respuestaPreguntaSimilitud = j-4
+		respuestaPreguntaSimilitud = j-4;
                 // respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
+		console.log(numPregunta)
 		console.log("RESPUESTA Similitud")
 		console.log(respuestaPreguntaSimilitud)
             }
 
             if (respuestaButton2) {
-		respuestaPreguntaCalidad = j-3 
+		respuestaPreguntaCalidad = j-4; 
+		console.log(numPregunta)
 		console.log("RESPUESTA Calidad")
 		console.log(respuestaPreguntaCalidad)
                 // respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
