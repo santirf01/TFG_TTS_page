@@ -234,7 +234,7 @@
             <td> <button class="button_circ pregunta2_0003_aa" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0003_aa', 5)"></button> </td>
             </tr>
     </table>
-    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinaa')">Enviar Respuesta</button>
+    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinaa','aa')">Enviar Respuesta</button>
 <br>
   <H2>ab</H2>
   <table id='tableAlbayzinab'>
@@ -380,7 +380,7 @@
             <td> <button class="button_circ pregunta2_0003_ab" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0003_ab', 5)"></button> </td>
             </tr>
     </table>
-    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinab')">Enviar Respuesta</button>
+    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinab','ab')">Enviar Respuesta</button>
 <br>
   <H2>ma</H2>
   <table id="'tableAlbayzinma'">
@@ -524,7 +524,7 @@
             <td> <button class="button_circ pregunta2_0003_ma" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0003_ma', 5)"></button> </td>
             </tr>
     </table>
-    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinma')">Enviar Respuesta</button>
+    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinma','ma')">Enviar Respuesta</button>
 <br>
   <H2>mb</H2>
   <table id='tableAlbayzinmb'>
@@ -667,7 +667,7 @@
             <td> <button class="button_circ pregunta2_0003_mb" onclick="enviarRespuestaAlbayzinEncuesta('pregunta2_0003_mb', 5)"></button> </td>
             </tr>
     </table>
-    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinmb')">Enviar Respuesta</button>
+    <button onclick="guardarRespuestaAlbayzin_Encuesta('tableAlbayzinmb','mb')">Enviar Respuesta</button>
 <br>
 <H1>Albayzin 216 Speakers</H1>
 <H2>oi</H2>
@@ -1183,7 +1183,7 @@ function activarBotonRectangular(boton, grupo) {
 
     boton.classList.add('active');
 }
-function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
+function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     var tabla = document.getElementById(nombreTabla);
     var filas = tabla.getElementsByTagName("tr");
     
@@ -1234,8 +1234,8 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
 	    // console.log(filas[i].cells[j])
 	    // console.log(filas[i+1].cells[j-1])
 	    var numPregunta = Math.floor(i / 3);
-            var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
-            var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
+            var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}_${speaker}.active`);
+            var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}_${speaker}.active`);
             // console.log(respuestaButton1)
             // console.log(respuestaButton2)   
 	// var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
