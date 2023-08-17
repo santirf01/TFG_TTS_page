@@ -641,7 +641,7 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
                 errores.push("Certificado inválido");
 		console.log("certificado inválido");
                 certificado = 1;
-            } else if (error.message.includes("Unexpected non-whitespace character after JSON")) {
+            } else if (error.message.includes("Unexpected end of JSON input")) {
                 // ... No hacer nada aquí ...
             } else {
                 errores.push("Error en la solicitud");
