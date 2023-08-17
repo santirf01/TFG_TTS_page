@@ -1273,6 +1273,8 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
     var filas = tabla.getElementsByTagName("tr");
     
     var jsonData = [];
+    var respuestaPreguntaSimilitud = -1; 
+    var respuestaPreguntaCalidad = -1;  
 
     for (var i = 3; i < filas.length; i += 3) {
         var json = {};
