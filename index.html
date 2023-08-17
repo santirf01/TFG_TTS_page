@@ -532,6 +532,233 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
         // Agregamos el iframe al div con el ID "contenido"
         contenidoDiv.appendChild(iframe);
   }
+ function enviarRespuestaAlbayzinEncuesta(pregunta, respuesta) {
+          // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
+          console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
+        
+          // Resaltar el botón pulsado en la fila de respuesta correspondiente
+          if (pregunta === 'pregunta1_0001') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1_0001");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          } else if (pregunta === 'pregunta2_0001') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2_0001");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta1_0002') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1_0002");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta2_0002') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2_0002");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta1_0003') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1_0003");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta2_0003') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2_0003");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta1_0004') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta1_0004");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }else if (pregunta === 'pregunta2_0004') {
+            var buttons = document.querySelectorAll(".button_circ.pregunta2_0004");
+            buttons.forEach(button => button.classList.remove("active"));
+            buttons[respuesta].classList.add("active");
+          }
+    }
+function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
+	    var respuesta = {};
+	
+	    // Obtener el valor seleccionado del select
+	    var tabla = document.getElementById(nombreTabla);
+	    var primeraFila = tabla.rows[0];
+	    console.log(primeraFila)
+	    var select = primeraFila.cells[0].getElementsByTagName('h2')[0].innerText;
+	    console.log(select)
+	    var speakerSeleccionado = select;
+	    console.log(speakerSeleccionado)
+	    // Verificar si se ha seleccionado una opción en el select
+	    if (!speakerSeleccionado) {
+		alert("Debes seleccionar un speaker antes de enviar las respuestas.");
+		return;
+	    } else {
+		respuesta.speakerSeleccionado = speakerSeleccionado;
+	    }
+	
+	    // Recorrer las filas de la tabla y obtener los valores de los botones activos
+	    var table = document.getElementById(nombreTabla);
+	    var rows = table.getElementsByTagName("tr");
+	
+	    for (var i = 0; i < rows.length; i++) {
+		var cells = rows[i].getElementsByTagName("td");
+	
+		if (cells.length >= 7) { // Solo procesar filas con botones de respuesta
+		    var pregunta = cells[0].innerText;
+		    var calidad = -1; // Valor inicial en caso de que no haya ningún botón activo
+	
+		    // Encontrar el botón activo
+		    for (var j = 1; j < cells.length; j++) {
+			var botones = cells[j].getElementsByTagName("button");
+			for (var k = 0; k < botones.length; k++) { 
+			    if (botones[k].classList.contains("active")) {
+				calidad = j - 1;
+				break;
+			    }
+			}
+	
+			if (calidad !== -1) {
+			    break;
+			}
+		    }
+	
+		    if (pregunta.includes("Similitud")) {
+			respuesta.Similitud = calidad;
+		    } else if (pregunta.includes("Calidad")) {
+			respuesta.Calidad = calidad;
+		    }
+		}
+	    }
+	
+	    // Obtener las anotaciones
+	    var anotaciones = document.getElementById("anotaciones").value;
+	    respuesta.anotaciones = anotaciones;
+		
+	    // Aquí puedes hacer lo que necesites con la lista de respuestas
+	    console.log("Respuestas:", respuesta);
+	var respuestaJSON = JSON.stringify(respuesta);
+	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
+    	    method: "POST",
+	    headers: {
+	        "Content-Type": "application/json"
+	    },
+	    body: respuestaJSON
+	})
+	.then(response => response.json())
+	.then(data => {
+	    console.log(data);
+	    console.log("Datos enviados de manera correcta. Muchas gracias.")
+	    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+	})
+	.catch(error => {
+	    console.error("Error:", error);
+	});
+	alert("Respuestas enviadas correctamente.");
+  	}
+function activarBotonRectangular(boton, grupo) {
+    var botonesGrupo = document.querySelectorAll('.' + grupo + '.boton-rectangular');
+    console.log(botonesGrupo)
+    botonesGrupo.forEach(function(botonGrupo) {
+        botonGrupo.classList.remove('active');
+    });
+
+    boton.classList.add('active');
+}
+function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
+    var tabla = document.getElementById(nombreTabla);
+    var filas = tabla.getElementsByTagName("tr");
+    
+    var jsonData = [];
+    var respuestaPreguntaSimilitud = -1; 
+    var respuestaPreguntaCalidad = -1;  
+
+    for (var i = 3; i < filas.length; i += 3) {
+        var json = {};
+	// console.log(filas[i])
+	// Consigo el nombre del audio
+        var nombreAudio = filas[i].getElementsByTagName("p")[0].textContent;
+	json.audioSeleccionado = nombreAudio;
+	// Busco si el boton rectangular esta pulsado
+	var botonRectangular1 = filas[i].querySelector(".boton-rectangular");
+	var tieneTick1 = botonRectangular1.querySelector(".tick")!== null;;
+	var botonRectangular2 = filas[i+1].querySelector(".boton-rectangular");
+	var tieneTick2 = botonRectangular2.querySelector(".tick")!== null;;
+        // var botonRectangular1 = filas[i].querySelector(".boton-rectangular:checked");
+        // var botonRectangular2 = filas[i + 1].querySelector(".boton-rectangular:checked");
+        if (tieneTick1) {
+	    console.log('botonRectangular1')
+            // json.botonActivo = botonRectangular1.textContent.trim();
+	    var audioElement = botonRectangular1.parentElement.previousElementSibling.querySelector("audio");
+    	    if (audioElement) {
+		console.log('botonRectangular2')
+        	var audioSrc = audioElement.querySelector("source").getAttribute("src");
+        	console.log("Audio src:", audioSrc);
+		json.correcto = audioSrc.includes("Originales") ? 1 : 0;
+    	    }
+        } else if (tieneTick2) {
+	     console.log('botonRectangular2')
+            // json.botonActivo = botonRectangular2.textContent.trim();
+    	    var audioElement = botonRectangular2.parentElement.previousElementSibling.querySelector("audio");
+    	    if (audioElement) {
+        	var audioSrc = audioElement.querySelector("source").getAttribute("src");
+        	console.log("Audio src:", audioSrc);
+		json.correcto = audioSrc.includes("Originales") ? 1 : 0;
+    	   }
+        }
+
+        var respuestasPregunta1 = [];
+        var respuestasPregunta2 = [];
+
+        for (var j = 4; j < filas[i].cells.length; j++) {
+	    // console.log(filas[i].cells[j])
+	    // console.log(filas[i+1].cells[j-1])
+	    var numPregunta = Math.floor(i / 3);
+            var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
+            var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
+            // console.log(respuestaButton1)
+            // console.log(respuestaButton2)   
+	// var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
+            // var respuestaButton2 = filas[i + 1].cells[j-1].querySelector(".button_circ.pregunta2.active");
+
+            if (respuestaButton1) {
+		respuestaPreguntaSimilitud = j-4;
+                // respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
+		console.log(numPregunta)
+		console.log("RESPUESTA Similitud")
+		console.log(respuestaPreguntaSimilitud)
+            }
+
+            if (respuestaButton2) {
+		respuestaPreguntaCalidad = j-4; 
+		console.log(numPregunta)
+		console.log("RESPUESTA Calidad")
+		console.log(respuestaPreguntaCalidad)
+                // respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
+            }
+        }
+
+        json.respuestaSimilitud = respuestaPreguntaSimilitud;
+        json.respuestaCalidad  = respuestaPreguntaCalidad;
+
+        jsonData.push(json);
+    }
+
+    // Aquí tienes el arreglo jsonData con los tres JSONs generados
+    console.log(jsonData);
+    jsonData.forEach(function(json) {
+	    fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin.php", {
+	        method: "POST",
+	        headers: {
+	            "Content-Type": "application/json"
+	        },
+	        body: JSON.stringify(json) // Convertir el arreglo de objetos JSON a cadena JSON
+	    })
+	    .then(response => response.json())
+	    .then(data => {
+	        console.log(data);
+	        console.log("Datos enviados de manera correcta. Muchas gracias.");
+	        // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+	    })
+	    .catch(error => {
+	        console.error("Error:", error);
+	    });
+	    alert("Respuestas enviadas correctamente.");
+	}
+}
 
 
      
