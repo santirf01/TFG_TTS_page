@@ -532,44 +532,12 @@ Recuerda que la seguridad y privacidad de tus datos son fundamentales, y en esta
         // Agregamos el iframe al div con el ID "contenido"
         contenidoDiv.appendChild(iframe);
   }
- function enviarRespuestaAlbayzinEncuesta(pregunta, respuesta) {
+    function enviarRespuestaAlbayzinEncuesta(pregunta, respuesta) {
           // Lógica para guardar las respuestas en variables o en algún objeto, según necesites
           console.log("Pregunta:", pregunta, "Respuesta:", respuesta);
-        
-          // Resaltar el botón pulsado en la fila de respuesta correspondiente
-          if (pregunta === 'pregunta1_0001') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta1_0001");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          } else if (pregunta === 'pregunta2_0001') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta2_0001");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta1_0002') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta1_0002");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta2_0002') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta2_0002");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta1_0003') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta1_0003");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta2_0003') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta2_0003");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta1_0004') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta1_0004");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }else if (pregunta === 'pregunta2_0004') {
-            var buttons = document.querySelectorAll(".button_circ.pregunta2_0004");
-            buttons.forEach(button => button.classList.remove("active"));
-            buttons[respuesta].classList.add("active");
-          }
+          var buttons = document.querySelectorAll(".button_circ."+pregunta);
+	   buttons.forEach(button => button.classList.remove("active"));
+           buttons[respuesta].classList.add("active");
     }
 function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 	    var respuesta = {};
