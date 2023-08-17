@@ -773,7 +773,29 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 
         // Verificar si el error contiene ciertas palabras clave
         if (error.message.includes("Unexpected non-whitespace character after JSON")) {
-	    alert("Respuestas enviadas correctamente.");	
+	     completadoContador++;
+	    if (completadoContador === 3) {
+		    console.log(data);
+	    	    console.log("Datos enviados de manera correcta. Muchas gracias.");
+	            var successNotification = document.createElement("div");
+	            successNotification.classList.add("success-notification");
+	            successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
+	            document.body.appendChild(successNotification);
+	
+	            // Puedes agregar estilos CSS para darle formato a la notificación de éxito
+	            successNotification.style.position = "fixed";
+	            successNotification.style.top = "10px";
+	            successNotification.style.left = "50%";
+	            successNotification.style.transform = "translateX(-50%)";
+	            successNotification.style.background = "green";
+	            successNotification.style.color = "white";
+	            successNotification.style.padding = "10px";
+	            successNotification.style.borderRadius = "5px";
+	            successNotification.style.zIndex = "1000";
+		    completadoContador = 0;
+		    alert("Respuestas enviadas correctamente.");	
+	        }
+		
             // No mostrar la notificación en estos casos
         } else if (error.message.includes("net::ERR_CERT_COMMON_NAME_INVALID")){
             // Mostrar notificación de error encima del mensaje
@@ -816,6 +838,7 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
     if (completadoContador === 3) {
 	    console.log(data);
     	    console.log("Datos enviados de manera correcta. Muchas gracias.");
+	    alert("Respuestas enviadas correctamente.");	
             var successNotification = document.createElement("div");
             successNotification.classList.add("success-notification");
             successNotification.textContent = "Respuestas enviadas correctamente en tres ocasiones.";
@@ -834,7 +857,6 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 	    completadoContador = 0;
         }
 
-    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
 })
 });
 
