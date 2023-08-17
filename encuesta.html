@@ -1235,6 +1235,46 @@ function activarBotonRectangular(boton, grupo) {
     boton.classList.add('active');
 }
 function guardarRespuestaAlbayzin_Encuesta() {
+var table = document.getElementById("tablaAlbayzin");
+
+// Crear un array para almacenar los JSON
+var jsons = [];
+
+// Iterar a través de las filas de la tabla (omitir la primera fila de encabezado)
+for (var i = 1; i < table.rows.length; i += 2) {
+    var nombreAudio = table.rows[i].cells[0].querySelector("p").textContent.trim();
+    var botonCuadradoActivo = table.rows[i].cells[2].querySelector('input[name^="audio"]').id;
+
+    var respuestaPregunta1 = getSelectedButtonValue(table.rows[i].querySelectorAll('.button_circ.pregunta1'));
+    var respuestaPregunta2 = getSelectedButtonValue(table.rows[i].querySelectorAll('.button_circ.pregunta2'));
+
+    var json = {
+        Nombre_Audio: nombreAudio,
+        Boton_Cuadrado_Activo: botonCuadradoActivo,
+        Respuesta_Pregunta1: respuestaPregunta1,
+        Respuesta_Pregunta2: respuestaPregunta2
+    };
+
+    jsons.push(json);
+}
+
+// Función para obtener el valor del botón circular seleccionado
+function getSelectedButtonValue(buttons) {
+    for (var i = 0; i < buttons.length; i++) {
+        if (buttons[i].classList.contains("active")) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+console.log("JSONs:", jsons);
+
+}
+</script>
+</html>
+<!--
+function guardarRespuestaAlbayzin_Encuesta() {
   var respuesta = {};
 
   // Obtener el estado de los botones rectangulares y guardar si ha elegido el primero o el segundo
@@ -1309,9 +1349,8 @@ for (var i = 2; i < filas.length; i++) {
 // Hacer el fetch la base de datos y el PHP
 }
 
+-->
 
-</script>
-</html>
 <!-- function activarBotonRectangular(labelElement, grupo) {
     // Desactivar todos los botones de radio en el mismo grupo
     var radioButtons = document.querySelectorAll('input[name="' + grupo + '"]');
