@@ -1297,15 +1297,19 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
 
             var respuestaButton1 = filas[i].cells[j].querySelector(`.button_circ.pregunta1_000${numPregunta}.active`);
             var respuestaButton2 = filas[i + 1].cells[j - 1].querySelector(`.button_circ.pregunta2_000${numPregunta}.active`);
-            // var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
+            console.log(respuestaButton1)
+            console.log(respuestaButton2)   
+	// var respuestaButton1 = filas[i].cells[j].querySelector(".button_circ.pregunta1.active");
             // var respuestaButton2 = filas[i + 1].cells[j-1].querySelector(".button_circ.pregunta2.active");
 
             if (respuestaButton1) {
-                respuestasPregunta1.push(respuestaButton1.textContent.trim());
+                respuestaPreguntaSimilitud.push(respuestaButton1.textContent.trim());
+		console.log("RESPUESTA BOTON")
+		console.log(respuestaPreguntaSimilitud)
             }
 
             if (respuestaButton2) {
-                respuestasPregunta2.push(respuestaButton2.textContent.trim());
+                respuestasPreguntaCalidad.push(respuestaButton2.textContent.trim());
             }
         }
 
