@@ -791,7 +791,7 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
         .catch(error => {
             console.error("Error en la solicitud:", error);
 
-            if (error.message.includes("net::ERR_CERT_COMMON_NAME_INVALID")) {
+            if (error.message.includes("TypeError: Failed to fetch")) {
                 errores.push("Certificado inválido");
 		console.log("certificado inválido");
                 certificado = 1;
