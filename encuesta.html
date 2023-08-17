@@ -1139,7 +1139,9 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 	    // Obtener el valor seleccionado del select
 	    var tabla = document.getElementById(nombreTabla);
 	    var primeraFila = tabla.rows[0];
+	    console.log(primeraFila)
 	    var select = primeraFila.cells[0].getElementsByTagName('h2')[0].innerText;
+	    console.log(select)
 	    var speakerSeleccionado = select.value;
 	    console.log(speakerSeleccionado)
 	    // Verificar si se ha seleccionado una opción en el select
