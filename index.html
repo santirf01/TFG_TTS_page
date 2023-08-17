@@ -607,16 +607,39 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla,speaker) {
 	    },
 	    body: respuestaJSON
 	})
-	.then(response => response.json())
+	.then(response => {
+	    if (!response.ok) {
+	        throw new Error("Error en la solicitud POST");
+	    }
+	    return response.json();
+	})
 	.then(data => {
 	    console.log(data);
-	    console.log("Datos enviados de manera correcta. Muchas gracias.")
+	    console.log("Datos enviados de manera correcta. Muchas gracias.");
 	    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
 	})
 	.catch(error => {
 	    console.error("Error:", error);
+	
+	    // Mostrar notificación de error encima del mensaje
+	    var errorNotification = document.createElement("div");
+	    errorNotification.classList.add("error-notification");
+	    errorNotification.textContent = "Se ha producido un error al enviar las respuestas.";
+	    document.body.appendChild(errorNotification);
+	    
+	    // Puedes agregar estilos CSS para darle formato a la notificación
+	    errorNotification.style.position = "fixed";
+	    errorNotification.style.top = "10px";
+	    errorNotification.style.left = "50%";
+	    errorNotification.style.transform = "translateX(-50%)";
+	    errorNotification.style.background = "red";
+	    errorNotification.style.color = "white";
+	    errorNotification.style.padding = "10px";
+	    errorNotification.style.borderRadius = "5px";
+	    errorNotification.style.zIndex = "1000";
+	
+	    alert("Respuestas enviadas correctamente.");
 	});
-	alert("Respuestas enviadas correctamente.");
   	}
     function loadContent(url) {
 
@@ -735,17 +758,39 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla,speaker) {
 	        },
 	        body: JSON.stringify(json) // Convertir el arreglo de objetos JSON a cadena JSON
 	    })
-	    .then(response => response.json())
-	    .then(data => {
-	        console.log(data);
-	        console.log("Datos enviados de manera correcta. Muchas gracias.");
-	        // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
-	    })
-	    .catch(error => {
-	        console.error("Error:", error);
-	    });
-	    }); 
-	alert("Respuestas enviadas correctamente.");
+	    .then(response => {
+    if (!response.ok) {
+        throw new Error("Error en la solicitud POST");
+    }
+    return response.json();
+})
+.then(data => {
+    console.log(data);
+    console.log("Datos enviados de manera correcta. Muchas gracias.");
+    // Aquí puedes mostrar un mensaje de agradecimiento o redireccionar a otra página
+})
+.catch(error => {
+    console.error("Error:", error);
+
+    // Mostrar notificación de error encima del mensaje
+    var errorNotification = document.createElement("div");
+    errorNotification.classList.add("error-notification");
+    errorNotification.textContent = "Se ha producido un error al enviar las respuestas.";
+    document.body.appendChild(errorNotification);
+    
+    // Puedes agregar estilos CSS para darle formato a la notificación
+    errorNotification.style.position = "fixed";
+    errorNotification.style.top = "10px";
+    errorNotification.style.left = "50%";
+    errorNotification.style.transform = "translateX(-50%)";
+    errorNotification.style.background = "red";
+    errorNotification.style.color = "white";
+    errorNotification.style.padding = "10px";
+    errorNotification.style.borderRadius = "5px";
+    errorNotification.style.zIndex = "1000";
+
+    alert("Respuestas enviadas correctamente.");
+});
 
 }
 
