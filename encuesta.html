@@ -1189,9 +1189,10 @@ function guardarRespuestasAlbayzin216Encuesta(nombreTabla) {
 	    // Obtener las anotaciones
 	    var anotaciones = document.getElementById("anotaciones").value;
 	    respuesta.anotaciones = anotaciones;
-	
+		
 	    // Aquí puedes hacer lo que necesites con la lista de respuestas
 	    console.log("Respuestas:", respuesta);
+	var respuestaJSON = JSON.stringify(respuesta);
 	fetch("https://dihana.cps.unizar.es/encuestatts/guardar_datos_Albayzin216.php", {
     	    method: "POST",
 	    headers: {
@@ -1254,8 +1255,8 @@ function guardarRespuestaAlbayzin_Encuesta(nombreTabla) {
 	var tieneTick2 = botonRectangular2.querySelector(".tick");
         // var botonRectangular1 = filas[i].querySelector(".boton-rectangular:checked");
         // var botonRectangular2 = filas[i + 1].querySelector(".boton-rectangular:checked");
-	consoles.log(botonRectangular1)
-	consoles.log(botonRectangular2)
+	console.log(botonRectangular1)
+	console.log(botonRectangular2)
         if (tieneTick1) {
 	    consoles.log('botonRectangular1')
             json.botonActivo = botonRectangular1.textContent.trim();
