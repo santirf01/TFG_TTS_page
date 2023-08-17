@@ -307,7 +307,7 @@
         const respuestaSeleccionada = document.querySelector('input[name="respuesta"]:checked').value;
 
         // Enviamos los datos al servidor mediante una solicitud AJAX
-        fetch("https://http://dihana.cps.unizar.es/encuestatts/guardar_encuesta.php", {
+        fetch("https://dihana.cps.unizar.es/encuestatts/guardar_encuesta.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
